@@ -37,32 +37,6 @@ Releases, or PRs to the stable branch should use the [stable_pr_template.md](.gi
 
 If you are setting up a new microservice that will be a part of the CanDIGv2 stack, you will most likely need to edit the files below, otherwise they can be deleted from the repo.
 
-### Dockerfile
-
-- Edit the Dockerfile with the correct names and paths that are relevant to your microservice.
-
-- Add or remove the installed packages as needed
-
-- Choose between using alpine or debian as the base operating system - we have found alpine can be slow for some applications
-
-### uWSGI config file
-
-If your service will be communicating with other services in the network using the web server gateway interface, you will need to edit the configuration file.
-
-#### `uwsgi.ini`
-
-This sets the configuration for uwsgi. You will need to add the name of the app and the port number as a minimum. The processes and [harakiri](https://uwsgi-docs.readthedocs.io/en/latest/Glossary.html) values can also be updated based on your needs.
-
-### Github Actions
-
-Templates for two Github actions ymls are in the [`.github/workflows/`](.github/workflows) directory and should be edited to suit the needs of the microservice. 
-
-#### `dispatch-actions.yml`
-
-This action automatically makes a PR to the main [CanDIGv2 repo stack](https://github.com/CanDIG/CanDIGv2) to update the submodule each time a PR is merged into develop.
-
-Edit this file with the appropriate submodule path on line 26.
-
 #### `test.yml`
 
 This action assumes you have setup tests in the repo using [pytest](https://docs.pytest.org/en/7.4.x/). 
