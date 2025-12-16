@@ -1,0 +1,2262 @@
+{
+	"Sample Registration": {
+		"program_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier of the program.",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$"
+			}
+		},
+		"submitter_donor_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier for the donor, assigned by the data provider. ",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\nLAML_PO, 00445, THY_099-tumour"
+			}
+		},
+		"submitter_specimen_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier of the specimen, assigned by the data provider.",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\nExamples:\nLAML_PO, 00445, THY_099-tumour"
+			}
+		},
+		"specimen_tissue_source": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Tissue source of the biospecimen.",
+			"validationType": "list",
+			"validationInfo": [
+				"Abdominal fluid",
+				"Amniotic fluid",
+				"Arterial blood",
+				"Bile",
+				"Blood derived - bone marrow",
+				"Blood derived - peripheral blood",
+				"Bone marrow fluid",
+				"Bone marrow derived mononuclear cells",
+				"Buccal cell",
+				"Buffy coat",
+				"Cerebrospinal fluid",
+				"Cervical mucus",
+				"Convalescent plasma",
+				"Cord blood",
+				"Duodenal fluid",
+				"Female genital fluid",
+				"Fetal blood",
+				"Hydrocele fluid",
+				"Male genital fluid",
+				"Other",
+				"Pancreatic fluid",
+				"Pericardial effusion",
+				"Pleural fluid",
+				"Renal cyst fluid",
+				"Saliva",
+				"Seminal fluid",
+				"Serum",
+				"Solid tissue",
+				"Sputum",
+				"Synovial fluid",
+				"Urine",
+				"Venous blood",
+				"Vitreous fluid",
+				"Whole blood",
+				"Wound"
+			]
+		},
+		"tumour_normal_designation": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Description of specimen's tumour/normal status for data processing.",
+			"validationType": "list",
+			"validationInfo": [
+				"Normal",
+				"Tumour"
+			]
+		},
+		"specimen_type": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Description of the kind of specimen that was collected with respect to tumour/normal tissue origin.",
+			"validationType": "list",
+			"validationInfo": [
+				"Cell line - derived from normal",
+				"Cell line - derived from primary tumour",
+				"Cell line - derived from metastatic tumour",
+				"Cell line - derived from xenograft tumour",
+				"Metastatic tumour - additional metastatic",
+				"Metastatic tumour - metastasis local to lymph node",
+				"Metastatic tumour - metastasis to distant location",
+				"Metastatic tumour",
+				"Normal - tissue adjacent to primary tumour",
+				"Normal",
+				"Primary tumour - additional new primary",
+				"Primary tumour - adjacent to normal",
+				"Primary tumour",
+				"Recurrent tumour",
+				"Tumour - unknown if derived from primary or metastatic tumour",
+				"Xenograft - derived from primary tumour",
+				"Xenograft - derived from metastatic tumour",
+				"Xenograft - derived from tumour cell line"
+			]
+		},
+		"submitter_sample_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier of the sample, assigned by the data provider.\n",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\nhnc_12, CCG_34_94583, BRCA47832-3239"
+			}
+		},
+		"sample_type": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Description of the type of molecular sample used for testing.\n",
+			"validationType": "list",
+			"validationInfo": [
+				"Amplified DNA",
+				"ctDNA",
+				"Other DNA enrichments",
+				"Other RNA fractions",
+				"polyA+ RNA",
+				"Protein",
+				"rRNA-depleted RNA",
+				"Total DNA",
+				"Total RNA",
+				"Whole cell - DNA",
+				"Whole cell - protein",
+				"Whole cell - RNA",
+				"Whole cell (B-cell depleted)"
+			]
+		}
+	},
+	"Donor": {
+		"program_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier of the program.",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$"
+			}
+		},
+		"submitter_donor_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier of the donor, assigned by the data provider.",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\n90234, BLD_donor_89, AML-90"
+			}
+		},
+		"gender": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Description of the donor self-reported gender. Gender is described as the assemblage of properties that distinguish people on the basis of their societal roles.",
+			"validationType": "list",
+			"validationInfo": [
+				"Man",
+				"Woman",
+				"Non-binary",
+				"Other",
+				"Prefer not to disclose",
+				"Not available"
+			]
+		},
+		"sex_at_birth": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Indicate donor's sex assigned at birth.",
+			"validationType": "list",
+			"validationInfo": [
+				"Male",
+				"Female",
+				"Other",
+				"Not available"
+			]
+		},
+		"is_deceased": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Indicate if donor's last known status is deceased.",
+			"validationType": "list",
+			"validationInfo": [
+				"Yes",
+				"No"
+			]
+		},
+		"date_of_birth": {
+			"dataType": "JSON",
+			"requiredAlways": true,
+			"description": "Indicate donor's date of birth.",
+			"validationType": "json_date_interval"
+		},
+		"date_of_death": {
+			"dataType": "JSON",
+			"requiredIf": "Only required if \"is_deceased\" is \"Yes\"",
+			"description": "Indicate donor's date of death.",
+			"validationType": "json_date_interval"
+		},
+		"date_resolution": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Indicate if day or month resolution is used for submitting all date fields for this donor.",
+			"validationType": "list",
+			"validationInfo": [
+				"month",
+				"day"
+			]
+		},
+		"cause_of_death": {
+			"dataType": "Text",
+			"requiredIf": "Only required if \"is_deceased\" is \"Yes\"",
+			"description": "Indicate the cause of a donor's death.",
+			"validationType": "list",
+			"validationInfo": [
+				"Died of cancer",
+				"Died of other reasons",
+				"Not available"
+			]
+		},
+		"lost_to_followup_after_clinical_event_identifier": {
+			"dataType": "Text",
+			"requiredIf": "This field can only be submitted if \"is_deceased\" = \"No\"",
+			"description": "If the donor became lost to follow up, indicate the identifier of the clinical event (eg. submitter_primary_diagnosis_id, submitter_treatment_id or submitter_follow_up_id) after which the donor became lost to follow up."
+		},
+		"lost_to_followup_reason": {
+			"dataType": "Text",
+			"requiredIf": "This field should only be submitted if \"lost_to_followup_after_clinical_event\" was submitted.",
+			"description": "Indicate reason the donor was lost to follow up.",
+			"validationType": "list",
+			"validationInfo": [
+				"Completed study",
+				"Discharged to palliative care",
+				"Discharged from follow-up",
+				"Lost contact",
+				"Not available",
+				"Withdrew from study"
+			]
+		},
+		"date_alive_after_lost_to_followup": {
+			"dataType": "JSON",
+			"requiredIf": "If this field is submitted, then \"lost_to_followup_after_clinical_event_identifier\" must be submitted to indicate when the donor was lost to follow up.",
+			"description": "Indicate the date when donor was discovered to be alive with unknown disease status after they had been lost to follow up.",
+			"validationType": "json_date_interval"
+		}
+	},
+	"Specimen": {
+		"program_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier of the program.",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$"
+			}
+		},
+		"submitter_donor_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier for the donor, assigned by the data provider. ",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\n90234, BLD_donor_89, AML-90"
+			}
+		},
+		"submitter_specimen_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier of the specimen, assigned by the data provider.\n",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\nLAML_PO, 00445, THY_099-tumour"
+			}
+		},
+		"submitter_primary_diagnosis_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Indicate the primary diagnosis event in the clinical timeline that this specimen acquisition was related to.",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\nLAML_PO, 00445, THY_099-tumour"
+			}
+		},
+		"submitter_treatment_id": {
+			"dataType": "Text",
+			"description": "Indicate the treatment ID of the surgery that this specimen acquisition was related to\n",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\n90234, BLD_donor_89, AML-90"
+			}
+		},
+		"specimen_collection_date": {
+			"dataType": "JSON",
+			"requiredAlways": true,
+			"description": "Indicate the date when the specimen was collected from donor.\n",
+			"validationType": "json_date_interval"
+		},
+		"specimen_anatomic_location": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Indicate the ICD-O-3 topography code for the anatomic location of a specimen when it was collected. Refer to the guidelines provided in the ICD-O-3 manual at https://apps.who.int/iris/handle/10665/42344",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[C][0-9]{2}(.[0-9]{1})?$|^Not available$",
+				"message": "If providing ICD-O-3 topography codes,  the values must meet the regular expression\n^[C][0-9]{2}(.[0-9]{1})?$\n\nExamples:  C50.1, C18\n\nOr \nNot available"
+			}
+		},
+		"tumour_histological_type": {
+			"dataType": "Text",
+			"requiredIf": "This field is only required if the specimen is a tumour.",
+			"description": "The code to represent the histology (morphology) of neoplasms that is usually obtained from a pathology report, according to the International Classification of Diseases for Oncology, 3rd Edition (WHO ICD-O-3). Refer to the ICD-O-3 manual for guidelines at https://apps.who.int/iris/handle/10665/42344.",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[8,9]{1}[0-9]{3}/[0,1,2,3,6,9]{1}[1-9]{0,1}$|^Not available$",
+				"message": "If providing ICD-O-3 morphology codes, the values must meet the regular expression\n^[8,9]{1}[0-9]{3}/[0,1,2,3,6,9]{1}[1-9]{0,1}$\n\nExamples: 8260/3, 9691/36\n\nOr\nNot available"
+			}
+		},
+		"reference_pathology_confirmed_diagnosis": {
+			"dataType": "Text",
+			"requiredIf": "This field is only required if the specimen is a tumour.",
+			"description": "Indicate whether the pathological diagnosis was confirmed by a (central) reference pathologist.",
+			"validationType": "list",
+			"validationInfo": [
+				"Yes",
+				"No",
+				"Not done",
+				"Not available"
+			]
+		},
+		"reference_pathology_confirmed_tumour_presence": {
+			"dataType": "Text",
+			"requiredIf": "This field is only required if the specimen is a tumour.",
+			"description": "Indicate whether the (central) reference pathologist confirmed the presence of tumour in the specimen.",
+			"validationType": "list",
+			"validationInfo": [
+				"Yes",
+				"No",
+				"Not done",
+				"Not available"
+			]
+		},
+		"tumour_grading_system": {
+			"dataType": "Text",
+			"requiredIf": "This field is only required if the specimen is a tumour.",
+			"description": "Specify the tumour grading system used to assess the description of a tumour based on how abnormal the tumour cells and the tumour tissue look under a microscope. Tumour grade is an indicator of how quickly a tumour is likely to grow.",
+			"validationType": "list",
+			"validationInfo": [
+				"FNCLCC grading system",
+				"Four-tier grading system",
+				"Gleason grade group system",
+				"Grading system for GISTs",
+				"Grading system for GNETs",
+				"IASLC grading system",
+				"ISUP grading system",
+				"Nottingham grading system",
+				"Nuclear grading system for DCIS",
+				"Scarff-Bloom-Richardson grading system",
+				"Three-tier grading system",
+				"Two-tier grading system",
+				"WHO grading system for CNS tumours",
+				"Not available"
+			]
+		},
+		"tumour_grade": {
+			"dataType": "Text",
+			"requiredIf": "This field depends on the selected tumour_grading_system, and is only required if the specimen is a tumour.",
+			"description": "Grade of the tumour as assigned by the reporting tumour_grading_system.",
+			"validationType": "list",
+			"validationInfo": [
+				"Low grade",
+				"High grade",
+				"GX",
+				"G1",
+				"G2",
+				"G3",
+				"G4",
+				"Low",
+				"High",
+				"Grade 1",
+				"Grade 2",
+				"Grade 3",
+				"Grade 4",
+				"Grade I",
+				"Grade II",
+				"Grade III",
+				"Grade IV",
+				"Grade Group 1",
+				"Grade Group 2",
+				"Grade Group 3",
+				"Grade Group 4",
+				"Grade Group 5",
+				"Not available"
+			]
+		},
+		"percent_tumour_cells_range": {
+			"dataType": "Text",
+			"requiredIf": "This field is only required if the specimen is a tumour.",
+			"description": "Select the range representing the percent of tumour cells compared to the number of total cells in a specimen. (Reference: NCIt: C159484)",
+			"validationType": "list",
+			"validationInfo": [
+				"0-19%",
+				"20-50%",
+				"51-100%",
+				"Not available"
+			]
+		},
+		"percent_tumour_cells_measurement_method": {
+			"dataType": "Text",
+			"requiredIf": "This field is only required if the specimen is a tumour.",
+			"description": "Indicate method used to measure percent_tumour_cells.",
+			"validationType": "list",
+			"validationInfo": [
+				"Genomics",
+				"Image analysis",
+				"Pathology estimate by percent nuclei",
+				"Other",
+				"Not available"
+			]
+		},
+		"specimen_storage": {
+			"dataType": "Text",
+			"description": "Indicate the method of long term storage for specimen that were not extracted freshly or immediately cultured.",
+			"validationType": "list",
+			"validationInfo": [
+				"Cut slide",
+				"Frozen in -70 freezer",
+				"Frozen in liquid nitrogen",
+				"Frozen in vapour phase",
+				"Not Applicable",
+				"OCT embedded",
+				"Other",
+				"Paraffin block",
+				"RNA later frozen",
+				"Not available"
+			]
+		},
+		"specimen_processing": {
+			"dataType": "Text",
+			"description": "Indicate the technique used to process specimen.\n",
+			"validationType": "list",
+			"validationInfo": [
+				"Cryopreservation in liquid nitrogen (dead tissue)",
+				"Cryopreservation in dry ice (dead tissue)",
+				"Cryopreservation of live cells in liquid nitrogen",
+				"Cryopreservation - other",
+				"Formalin fixed & paraffin embedded",
+				"Formalin fixed - buffered",
+				"Formalin fixed - unbuffered",
+				"Fresh",
+				"Other",
+				"Not available"
+			]
+		},
+		"specimen_laterality": {
+			"dataType": "Text",
+			"description": "For cancer in a paired organ, indicate the side on which the specimen was obtained. (Reference caDSR CDE ID 2007875)",
+			"validationType": "list",
+			"validationInfo": [
+				"Left",
+				"Not applicable",
+				"Not available",
+				"Right"
+			]
+		}
+	},
+	"Primary Diagnosis": {
+		"program_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier of the program.",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$"
+			}
+		},
+		"submitter_donor_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier for the donor, assigned by the data provider. ",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\n90234, BLD_donor_89, AML-90"
+			}
+		},
+		"submitter_primary_diagnosis_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier of the primary diagnosis event, assigned by the data provider.",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\n90234, BLD_donor_89, AML-90"
+			}
+		},
+		"date_of_diagnosis": {
+			"dataType": "JSON",
+			"requiredAlways": true,
+			"description": "Date that the donor was first diagnosed with cancer. This date should be based on the earliest diagnosis.",
+			"validationType": "json_date_interval"
+		},
+		"cancer_type_code": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "The code to represent the cancer type using the WHO ICD-10 code (https://icd.who.int/browse10/2019/en) classification.",
+			"validationType": "icd10_code"
+		},
+		"primary_site": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "The text term used to describe the primary site of disease, as categorized by the World Health Organization's (WHO) International Classification of Diseases for Oncology (ICD-O). This categorization groups cases into general categories.",
+			"validationType": "list",
+			"validationInfo": [
+				"Accessory sinuses",
+				"Adrenal gland",
+				"Anus and anal canal",
+				"Base of tongue",
+				"Bladder",
+				"Bones, joints and articular cartilage of limbs",
+				"Bones, joints and articular cartilage of other and unspecified sites",
+				"Brain",
+				"Breast",
+				"Bronchus and lung",
+				"Cervix uteri",
+				"Colon",
+				"Connective, subcutaneous and other soft tissues",
+				"Corpus uteri",
+				"Esophagus",
+				"Eye and adnexa",
+				"Floor of mouth",
+				"Gallbladder",
+				"Gum",
+				"Heart, mediastinum, and pleura",
+				"Hematopoietic and reticuloendothelial systems",
+				"Hypopharynx",
+				"Kidney",
+				"Larynx",
+				"Lip",
+				"Liver and intrahepatic bile ducts",
+				"Lymph nodes",
+				"Meninges",
+				"Nasal cavity and middle ear",
+				"Nasopharynx",
+				"Oropharynx",
+				"Other and ill-defined digestive organs",
+				"Other and ill-defined sites",
+				"Other and ill-defined sites in lip, oral cavity and pharynx",
+				"Other and ill-defined sites within respiratory system and intrathoracic organs",
+				"Other and unspecified female genital organs",
+				"Other and unspecified major salivary glands",
+				"Other and unspecified male genital organs",
+				"Other and unspecified parts of biliary tract",
+				"Other and unspecified parts of mouth",
+				"Other and unspecified parts of tongue",
+				"Other and unspecified urinary organs",
+				"Other endocrine glands and related structures",
+				"Ovary",
+				"Palate",
+				"Pancreas",
+				"Parotid gland",
+				"Penis",
+				"Peripheral nerves and autonomic nervous system",
+				"Placenta",
+				"Prostate gland",
+				"Pyriform sinus",
+				"Rectosigmoid junction",
+				"Rectum",
+				"Renal pelvis",
+				"Retroperitoneum and peritoneum",
+				"Skin",
+				"Small intestine",
+				"Spinal cord, cranial nerves, and other parts of central nervous system",
+				"Stomach",
+				"Testis",
+				"Thymus",
+				"Thyroid gland",
+				"Tonsil",
+				"Trachea",
+				"Ureter",
+				"Uterus, NOS",
+				"Vagina",
+				"Vulva",
+				"Unknown primary site"
+			]
+		},
+		"basis_of_diagnosis": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Indicate the most valid basis of how the primary diagnosis was identified. Terms are ordered in hierarchical order according to IACR guidelines, with the term at the top of the list (\"Histology of primary tumour\") being the more valid basis. If more than one diagnosis technique was used, select the most valid basis.",
+			"validationType": "list",
+			"validationInfo": [
+				"Histology of a primary tumour",
+				"Histology of a metastasis",
+				"Cytology",
+				"Specific tumour markers",
+				"Clinical investigation",
+				"Clinical",
+				"Death certificate only",
+				"Not available"
+			]
+		},
+		"laterality": {
+			"dataType": "Text",
+			"description": "For cancer in a paired organ, indicate the side of the body on which the primary tumour or cancer first developed at the time of primary diagnosis. (Reference caDSR CDE ID 827)",
+			"validationType": "list",
+			"validationInfo": [
+				"Bilateral",
+				"Left",
+				"Midline",
+				"Not a paired site",
+				"Right",
+				"Unilateral, side not specified",
+				"Not available"
+			]
+		},
+		"clinical_tumour_staging_system": {
+			"dataType": "Text",
+			"requiredIf": "This field is only required if pathological staging is not submitted.",
+			"description": "Indicate the tumour staging system used to stage the cancer at the time of primary diagnosis (prior to treatment).",
+			"validationType": "list",
+			"validationInfo": [
+				"AJCC cancer staging system",
+				"Ann Arbor staging system",
+				"Binet staging system",
+				"Durie-Salmon staging system",
+				"FIGO staging system",
+				"International Neuroblastoma Risk Group Staging System",
+				"International Neuroblastoma Staging System",
+				"Lugano staging system",
+				"Rai staging system",
+				"Revised International staging system (R-ISS)",
+				"SEER staging system",
+				"St Jude staging system",
+				"Not available"
+			]
+		},
+		"clinical_t_category": {
+			"dataType": "Text",
+			"requiredIf": "This field is required only if the selected clinical_tumour_staging_system is any edition of the AJCC cancer staging system",
+			"description": "The code to represent the extent of the primary tumour (T) based on evidence obtained from clinical assessment parameters determined at time of primary diagnosis and prior to treatment, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
+			"validationType": "list",
+			"validationInfo": [
+				"T0",
+				"T1",
+				"T1a",
+				"T1a1",
+				"T1a2",
+				"T1a(s)",
+				"T1a(m)",
+				"T1b",
+				"T1b1",
+				"T1b2",
+				"T1b(s)",
+				"T1b(m)",
+				"T1c",
+				"T1c1",
+				"T1c2",
+				"T1d",
+				"T1mi",
+				"T2",
+				"T2(s)",
+				"T2(m)",
+				"T2a",
+				"T2a1",
+				"T2a2",
+				"T2b",
+				"T2c",
+				"T2d",
+				"T3",
+				"T3(s)",
+				"T3(m)",
+				"T3a",
+				"T3b",
+				"T3c",
+				"T3d",
+				"T3e",
+				"T4",
+				"T4a",
+				"T4a(s)",
+				"T4a(m)",
+				"T4b",
+				"T4b(s)",
+				"T4b(m)",
+				"T4c",
+				"T4d",
+				"T4e",
+				"Ta",
+				"Tis",
+				"Tis(DCIS)",
+				"Tis(LAMN)",
+				"Tis(LCIS)",
+				"Tis(Paget)",
+				"Tis(Paget\u2019s)",
+				"Tis pd",
+				"Tis pu",
+				"TX"
+			]
+		},
+		"clinical_n_category": {
+			"dataType": "Text",
+			"requiredIf": "This field is required only if the selected clinical_tumour_staging_system is any edition of the AJCC cancer staging system",
+			"description": "The code to represent the stage of cancer defined by the extent of the regional lymph node (N) involvement for the cancer based on evidence obtained from clinical assessment parameters determined at time of primary diagnosis and prior to treatment, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
+			"validationType": "list",
+			"validationInfo": [
+				"N0",
+				"N0a",
+				"N0a (biopsy)",
+				"N0b",
+				"N0b (no biopsy)",
+				"N0(i+)",
+				"N0(i-)",
+				"N0(mol+)",
+				"N0(mol-)",
+				"N1",
+				"N1a",
+				"N1a(sn)",
+				"N1b",
+				"N1c",
+				"N1mi",
+				"N2",
+				"N2a",
+				"N2b",
+				"N2c",
+				"N2mi",
+				"N3",
+				"N3a",
+				"N3b",
+				"N3c",
+				"N4",
+				"NX"
+			]
+		},
+		"clinical_m_category": {
+			"dataType": "Text",
+			"requiredIf": "This field is required only if the selected clinical_tumour_staging_system is any edition of the AJCC cancer staging system",
+			"description": "The code to represent the stage of cancer defined by the extent of the distant metastasis (M) for the cancer based on evidence obtained from clinical assessment parameters determined at time of primary diagnosis and prior to treatment, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual. MX is NOT a valid category and cannot be assigned.",
+			"validationType": "list",
+			"validationInfo": [
+				"M0",
+				"M0(i+)",
+				"M1",
+				"M1a",
+				"M1a(0)",
+				"M1a(1)",
+				"M1b",
+				"M1b(0)",
+				"M1b(1)",
+				"M1c",
+				"M1c(0)",
+				"M1c(1)",
+				"M1d",
+				"M1d(0)",
+				"M1d(1)",
+				"M1e",
+				"MX",
+				"Not applicable"
+			]
+		},
+		"clinical_stage_group": {
+			"dataType": "Text",
+			"requiredIf": "This field is dependent on the selected clinical_tumour_staging_system. Refer to the documentation for Tumour Staging Classifications",
+			"description": "Stage group of the tumour, as assigned by the reporting clinical_tumour_staging_system, that indicates the overall prognostic tumour stage (ie. Stage I, Stage II, Stage III etc.).",
+			"validationType": "list",
+			"validationInfo": [
+				"Stage 0",
+				"Stage 0a",
+				"Stage 0is",
+				"Stage 1",
+				"Stage 1A",
+				"Stage 1B",
+				"Stage A",
+				"Stage B",
+				"Stage C",
+				"Stage I",
+				"Stage IA",
+				"Stage IA1",
+				"Stage IA2",
+				"Stage IA3",
+				"Stage IAB",
+				"Stage IAE",
+				"Stage IAES",
+				"Stage IAS",
+				"Stage IB",
+				"Stage IB1",
+				"Stage IB2",
+				"Stage IBE",
+				"Stage IBES",
+				"Stage IBS",
+				"Stage IC",
+				"Stage IE",
+				"Stage IEA",
+				"Stage IEB",
+				"Stage IES",
+				"Stage II",
+				"Stage II bulky",
+				"Stage IIA",
+				"Stage IIA1",
+				"Stage IIA2",
+				"Stage IIAE",
+				"Stage IIAES",
+				"Stage IIAS",
+				"Stage IIB",
+				"Stage IIBE",
+				"Stage IIBES",
+				"Stage IIBS",
+				"Stage IIC",
+				"Stage IIE",
+				"Stage IIEA",
+				"Stage IIEB",
+				"Stage IIES",
+				"Stage III",
+				"Stage IIIA",
+				"Stage IIIA1",
+				"Stage IIIA2",
+				"Stage IIIAE",
+				"Stage IIIAES",
+				"Stage IIIAS",
+				"Stage IIIB",
+				"Stage IIIBE",
+				"Stage IIIBES",
+				"Stage IIIBS",
+				"Stage IIIC",
+				"Stage IIIC1",
+				"Stage IIIC2",
+				"Stage IIID",
+				"Stage IIIE",
+				"Stage IIIES",
+				"Stage IIIS",
+				"Stage IIS",
+				"Stage IS",
+				"Stage IV",
+				"Stage IVA",
+				"Stage IVA1",
+				"Stage IVA2",
+				"Stage IVAE",
+				"Stage IVAES",
+				"Stage IVAS",
+				"Stage IVB",
+				"Stage IVBE",
+				"Stage IVBES",
+				"Stage IVBS",
+				"Stage IVC",
+				"Stage IVE",
+				"Stage IVES",
+				"Stage IVS",
+				"In situ",
+				"Localized",
+				"Regionalized",
+				"Distant",
+				"Stage L1",
+				"Stage L2",
+				"Stage M",
+				"Stage Ms",
+				"Stage 1",
+				"Stage 2A",
+				"Stage 2B",
+				"Stage 3",
+				"Stage 4",
+				"Stage 4S",
+				"Occult Carcinoma",
+				"Not available"
+			]
+		},
+		"pathological_tumour_staging_system": {
+			"dataType": "Text",
+			"requiredIf": "This field is only required if  clinical staging was not submitted.",
+			"description": "Specify the tumour staging system used to assess the cancer associated with the primary diagnosis. Pathological classification is based on the clinical stage information (acquired before treatment) and supplemented/modified by operative findings and pathological evaluation of the resected specimen.",
+			"validationType": "list",
+			"validationInfo": [
+				"AJCC cancer staging system",
+				"Ann Arbor staging system",
+				"Binet staging system",
+				"Durie-Salmon staging system",
+				"FIGO staging system",
+				"International Neuroblastoma Risk Group Staging System",
+				"International Neuroblastoma Staging System",
+				"Lugano staging system",
+				"Rai staging system",
+				"Revised International staging system (R-ISS)",
+				"SEER staging system",
+				"St Jude staging system",
+				"Not available"
+			]
+		},
+		"pathological_t_category": {
+			"dataType": "Text",
+			"requiredIf": "This field is required only if the selected pathological_tumour_staging_system is any edition of the AJCC cancer staging system",
+			"description": "The code to represent the stage of cancer defined by the size or contiguous extension of the primary tumour (T), according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
+			"validationType": "list",
+			"validationInfo": [
+				"T0",
+				"T1",
+				"T1a",
+				"T1a1",
+				"T1a2",
+				"T1a(s)",
+				"T1a(m)",
+				"T1b",
+				"T1b1",
+				"T1b2",
+				"T1b(s)",
+				"T1b(m)",
+				"T1c",
+				"T1c1",
+				"T1c2",
+				"T1d",
+				"T1mi",
+				"T2",
+				"T2(s)",
+				"T2(m)",
+				"T2a",
+				"T2a1",
+				"T2a2",
+				"T2b",
+				"T2c",
+				"T2d",
+				"T3",
+				"T3(s)",
+				"T3(m)",
+				"T3a",
+				"T3b",
+				"T3c",
+				"T3d",
+				"T3e",
+				"T4",
+				"T4a",
+				"T4a(s)",
+				"T4a(m)",
+				"T4b",
+				"T4b(s)",
+				"T4b(m)",
+				"T4c",
+				"T4d",
+				"T4e",
+				"Ta",
+				"Tis",
+				"Tis(DCIS)",
+				"Tis(LAMN)",
+				"Tis(LCIS)",
+				"Tis(Paget)",
+				"Tis(Paget\u2019s)",
+				"Tis pd",
+				"Tis pu",
+				"TX"
+			]
+		},
+		"pathological_n_category": {
+			"dataType": "Text",
+			"requiredIf": "This field is required only if the selected pathological_tumour_staging_system is any edition of the AJCC cancer staging system",
+			"description": "The code to represent the stage of cancer defined by whether or not the cancer has reached nearby lymph nodes (N), according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
+			"validationType": "list",
+			"validationInfo": [
+				"N0",
+				"N0a",
+				"N0a (biopsy)",
+				"N0b",
+				"N0b (no biopsy)",
+				"N0(i+)",
+				"N0(i-)",
+				"N0(mol+)",
+				"N0(mol-)",
+				"N1",
+				"N1a",
+				"N1a(sn)",
+				"N1b",
+				"N1c",
+				"N1mi",
+				"N2",
+				"N2a",
+				"N2b",
+				"N2c",
+				"N2mi",
+				"N3",
+				"N3a",
+				"N3b",
+				"N3c",
+				"N4",
+				"NX"
+			]
+		},
+		"pathological_m_category": {
+			"dataType": "Text",
+			"requiredIf": "This field is required only if the selected pathological_tumour_staging_system is any edition of the AJCC cancer staging system",
+			"description": "The code to represent the stage of cancer defined by whether there are distant metastases (M), meaning spread of cancer to other parts of the body, according to criteria based on multiple editions of the AJCC's Cancer Staging Manual.",
+			"validationType": "list",
+			"validationInfo": [
+				"M0",
+				"M0(i+)",
+				"M1",
+				"M1a",
+				"M1a(0)",
+				"M1a(1)",
+				"M1b",
+				"M1b(0)",
+				"M1b(1)",
+				"M1c",
+				"M1c(0)",
+				"M1c(1)",
+				"M1d",
+				"M1d(0)",
+				"M1d(1)",
+				"M1e",
+				"MX",
+				"Not applicable"
+			]
+		},
+		"pathological_stage_group": {
+			"dataType": "Text",
+			"requiredIf": "This field is only required if clinical staging was not submitted.",
+			"description": "Specify the tumour stage, based on pathological_tumour_staging_system, used to assess the cancer at the time the tumour specimen was resected."
+		}
+	},
+	"Treatment": {
+		"program_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier of the program.",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$"
+			}
+		},
+		"submitter_donor_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier for the donor, assigned by the data provider. ",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\n90234, BLD_donor_89, AML-90"
+			}
+		},
+		"submitter_treatment_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier of the treatment, assigned by the data provider.\n",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\n90234, BLD_donor_89, AML-90"
+			}
+		},
+		"submitter_primary_diagnosis_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Indicate the primary diagnosis event in the clinical timeline that this treatment was related to.",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\n90234, BLD_donor_89, AML-90"
+			}
+		},
+		"treatment_type": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Indicate the type of treatment regimen that the donor completed.\n",
+			"validationType": "list",
+			"validationInfo": [
+				"Bone marrow transplant",
+				"No treatment",
+				"Other",
+				"Photodynamic therapy",
+				"Radiation therapy",
+				"Stem cell transplant",
+				"Surgery",
+				"Systemic therapy",
+				"Targeted molecular therapy"
+			]
+		},
+		"is_primary_treatment": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Indicate if the treatment was the primary treatment following the initial diagnosis (Reference: NCI)",
+			"validationType": "list",
+			"validationInfo": [
+				"Yes",
+				"No",
+				"Not available"
+			]
+		},
+		"treatment_start_date": {
+			"dataType": "JSON",
+			"requiredAlways": true,
+			"description": "Indicate the date treatment was initiated.",
+			"validationType": "json_date_interval"
+		},
+		"treatment_end_date": {
+			"dataType": "JSON",
+			"requiredAlways": true,
+			"description": "Indicate the date treatment ended.",
+			"validationType": "json_date_interval"
+		},
+		"treatment_intent": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Indicate the intended disease outcome for which the treatment is given. (Reference: CDISC [NCIt code: C124307])",
+			"validationType": "list",
+			"validationInfo": [
+				"Curative",
+				"Palliative",
+				"Supportive",
+				"Diagnostic",
+				"Preventive",
+				"Guidance",
+				"Screening",
+				"Forensic",
+				"Not available"
+			]
+		},
+		"response_to_treatment_criteria_method": {
+			"dataType": "Text",
+			"description": "Indicate the criteria used to assess the donor's overall response to the applied treatment regimen. ",
+			"validationType": "list",
+			"validationInfo": [
+				"RECIST 1.1",
+				"iRECIST",
+				"Cheson CLL 2012 Oncology Response Criteria",
+				"Response Assessment in Neuro-Oncology (RANO)",
+				"AML Response Criteria",
+				"Physician Assessed Response Criteria",
+				"Blazer score",
+				"Not available"
+			]
+		},
+		"response_to_treatment": {
+			"dataType": "Text",
+			"description": "Indicate the donor's response to the applied treatment regimen as assigned by the reporting response_to_treatment_criteria_method.\n",
+			"validationType": "list",
+			"validationInfo": [
+				"Partial response",
+				"Progressive disease",
+				"Stable disease",
+				"Immune complete response (iCR)",
+				"Immune partial response (iPR)",
+				"Immune unconfirmed progressive disease (iUPD)",
+				"Immune confirmed progressive disease (iCPD)",
+				"Immune stable disease (iSD)",
+				"Complete remission",
+				"Partial remission",
+				"Major response",
+				"Minor response",
+				"Complete remission without measurable residual disease (CR MRD-)",
+				"Complete remission with incomplete hematologic recovery (CRi)",
+				"Morphologic leukemia-free state",
+				"Primary refractory disease",
+				"Hematologic relapse (after CR MRD-, CR, CRi)",
+				"Molecular relapse (after CR MRD-)",
+				"Physician assessed complete response",
+				"Physician assessed partial response",
+				"Physician assessed stable disease",
+				"No evidence of disease (NED)",
+				"Not available"
+			]
+		},
+		"status_of_treatment": {
+			"dataType": "Text",
+			"description": "Indicate the donor's status of the prescribed treatment.",
+			"validationType": "list",
+			"validationInfo": [
+				"Not available",
+				"Other",
+				"Patient choice (stopped or interrupted treatment)",
+				"Physician decision (stopped or interrupted treatment)",
+				"Treatment completed as prescribed",
+				"Treatment incomplete due to technical or organizational problems",
+				"Treatment incomplete because patient died",
+				"Treatment ongoing",
+				"Treatment stopped due to lack of efficacy (disease progression)",
+				"Treatment stopped due to acute toxicity"
+			]
+		}
+	},
+	"Systemic Therapy": {
+		"program_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier of the program.",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$"
+			}
+		},
+		"submitter_donor_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier for the donor, assigned by the data provider. ",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\n90234, BLD_donor_89, AML-90"
+			}
+		},
+		"submitter_treatment_id": {
+			"dataType": "Text",
+			"description": "Unique identifier of the treatment, assigned by the data provider.\n",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$"
+			}
+		},
+		"systemic_therapy_type": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Indicate the type of systemic therapy administered to donor.\n",
+			"validationType": "list",
+			"validationInfo": [
+				"Chemotherapy",
+				"Hormone therapy",
+				"Immunotherapy"
+			]
+		},
+		"start_date": {
+			"dataType": "JSON",
+			"requiredAlways": true,
+			"description": "Indicate the date that the selected systemic therapy type was initiated.",
+			"validationType": "json_date_interval"
+		},
+		"end_date": {
+			"dataType": "JSON",
+			"requiredAlways": true,
+			"description": "Indicate the date that the selected systemic therapy ended.",
+			"validationType": "json_date_interval"
+		},
+		"drug_reference_database": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Indicate the reference drug database where drug name is found.\n",
+			"validationType": "list",
+			"validationInfo": [
+				"RxNorm",
+				"PubChem",
+				"NCI Thesaurus"
+			]
+		},
+		"drug_reference_identifier": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Indicate the unique drug database identifier assigned to the treatment regimen drug.\n"
+		},
+		"drug_name": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Name of agent or drug administered to patient as part of the treatment regimen.\n"
+		},
+		"drug_dose_units": {
+			"dataType": "Text",
+			"description": "Indicate units used to record drug dose.",
+			"validationType": "list",
+			"validationInfo": [
+				"mg/m2",
+				"IU/m2",
+				"ug/m2",
+				"g/m2",
+				"mg/kg",
+				"IU/kg",
+				"mg",
+				"Not available"
+			]
+		},
+		"days_per_cycle": {
+			"dataType": "Integer",
+			"description": "Indicate the number of days in a treatment cycle."
+		},
+		"number_of_cycles": {
+			"dataType": "Integer",
+			"description": "Indicate the number of treatment cycles."
+		},
+		"prescribed_cumulative_drug_dose": {
+			"dataType": "Number",
+			"description": "Indicate the total prescribed cumulative drug dose in the same units specified in drug_dose_units."
+		},
+		"actual_cumulative_drug_dose": {
+			"dataType": "Number",
+			"description": "Indicate the total actual cumulative drug dose in the same units specified in drug_dose_units."
+		}
+	},
+	"Radiation": {
+		"program_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier of the program.",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$"
+			}
+		},
+		"submitter_donor_id": {
+			"dataType": "Text",
+			"description": "Unique identifier for the donor, assigned by the data provider. ",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\n90234, BLD_donor_89, AML-90"
+			}
+		},
+		"submitter_treatment_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier of the treatment, assigned by the data provider.\n",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\n90234, BLD_donor_89, AML-90"
+			}
+		},
+		"radiation_therapy_modality": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Indicate the method of radiation treatment or modality.\n",
+			"validationType": "list",
+			"validationInfo": [
+				"Megavoltage radiation therapy using photons (procedure)",
+				"Teleradiotherapy using electrons (procedure)",
+				"Teleradiotherapy protons (procedure)",
+				"Teleradiotherapy neutrons (procedure)",
+				"Brachytherapy (procedure)",
+				"Radiopharmaceutical",
+				"Other",
+				"Not available"
+			]
+		},
+		"radiation_therapy_type": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Indicate type of radiation therapy administered.\n",
+			"validationType": "list",
+			"validationInfo": [
+				"External",
+				"Internal",
+				"Not available"
+			]
+		},
+		"radiation_therapy_fractions": {
+			"dataType": "Integer",
+			"requiredAlways": true,
+			"description": "Indicate the total number of fractions delivered as part of treatment.\n"
+		},
+		"radiation_therapy_dosage": {
+			"dataType": "Integer",
+			"requiredAlways": true,
+			"description": "Indicate the total dose given in units of Gray (Gy)."
+		},
+		"anatomical_site_irradiated": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Indicate localization site where radiation therapy was administered.",
+			"validationType": "list",
+			"validationInfo": [
+				"LEFT ABDOMEN",
+				"WHOLE ABDOMEN",
+				"RIGHT ABDOMEN",
+				"LOWER ABDOMEN",
+				"LEFT LOWER ABDOMEN",
+				"RIGHT LOWER ABDOMEN",
+				"UPPER ABDOMEN",
+				"LEFT UPPER ABDOMEN",
+				"RIGHT UPPER ABDOMEN",
+				"LEFT ADRENAL",
+				"RIGHT ADRENAL",
+				"BILATERAL ANKLE",
+				"LEFT ANKLE",
+				"RIGHT ANKLE",
+				"BILATERAL ANTRUM (BULL'S EYE)",
+				"LEFT ANTRUM",
+				"RIGHT ANTRUM",
+				"ANUS",
+				"LOWER LEFT ARM",
+				"LOWER RIGHT ARM",
+				"BILATERAL ARMS",
+				"LEFT ARM",
+				"RIGHT ARM",
+				"UPPER LEFT ARM",
+				"UPPER RIGHT ARM",
+				"LEFT AXILLA",
+				"RIGHT AXILLA",
+				"SKIN OR SOFT TISSUE OF BACK",
+				"BILE DUCT",
+				"BLADDER",
+				"LOWER BODY",
+				"MIDDLE BODY",
+				"UPPER BODY",
+				"WHOLE BODY",
+				"BOOST - AREA PREVIOUSLY TREATED",
+				"BRAIN",
+				"LEFT BREAST BOOST",
+				"RIGHT BREAST BOOST",
+				"BILATERAL BREAST",
+				"LEFT BREAST",
+				"RIGHT BREAST",
+				"BILATERAL BREASTS WITH NODES",
+				"LEFT BREAST WITH NODES",
+				"RIGHT BREAST WITH NODES",
+				"BILATERAL BUTTOCKS",
+				"LEFT BUTTOCK",
+				"RIGHT BUTTOCK",
+				"INNER CANTHUS",
+				"OUTER CANTHUS",
+				"CERVIX",
+				"BILATERAL CHEST LUNG & AREA INVOLVE",
+				"LEFT CHEST",
+				"RIGHT CHEST",
+				"CHIN",
+				"LEFT CHEEK",
+				"RIGHT CHEEK",
+				"BILATERAL CHEST WALL (W/O BREAST)",
+				"LEFT CHEST WALL",
+				"RIGHT CHEST WALL",
+				"BILATERAL CLAVICLE",
+				"LEFT CLAVICLE",
+				"RIGHT CLAVICLE",
+				"COCCYX",
+				"COLON",
+				"WHOLE C.N.S. (MEDULLA TECHINQUE)",
+				"CSF SPINE (MEDULL TECH 2 DIFF MACHI",
+				"LEFT CHESTWALL BOOST",
+				"RIGHT CHESTWALL BOOST",
+				"BILATERAL CHESTWALL WITH NODES",
+				"LEFT CHESTWALL WITH NODES",
+				"RIGHT CHESTWALL WITH NODES",
+				"LEFT EAR",
+				"RIGHT EAR",
+				"EPIGASTRIUM",
+				"LOWER ESOPHAGUS",
+				"MIDDLE ESOPHAGUS",
+				"UPPER ESOPHAGUS",
+				"ENTIRE ESOPHAGUS",
+				"ETHMOID SINUS",
+				"BILATERAL EYES",
+				"LEFT EYE",
+				"RIGHT EYE",
+				"BILATERAL FACE",
+				"LEFT FACE",
+				"RIGHT FACE",
+				"LEFT FALLOPIAN TUBES",
+				"RIGHT FALLOPIAN TUBES",
+				"BILATERAL FEMUR",
+				"LEFT FEMUR",
+				"RIGHT FEMUR",
+				"LEFT FIBULA",
+				"RIGHT FIBULA",
+				"FINGER (INCLUDING THUMBS)",
+				"FLOOR OF MOUTH (BOOSTS)",
+				"BILATERAL FEET",
+				"LEFT FOOT",
+				"RIGHT FOOT",
+				"FOREHEAD",
+				"POSTERIOR FOSSA",
+				"GALL BLADDER",
+				"GINGIVA",
+				"BILATERAL HAND",
+				"LEFT HAND",
+				"RIGHT HAND",
+				"HEAD",
+				"BILATERAL HEEL",
+				"LEFT HEEL",
+				"RIGHT HEEL",
+				"LEFT HEMIMANTLE",
+				"RIGHT HEMIMANTLE",
+				"HEART",
+				"BILATERAL HIP",
+				"LEFT HIP",
+				"RIGHT HIP",
+				"LEFT HUMERUS",
+				"RIGHT HUMERUS",
+				"HYPOPHARYNX",
+				"BILATERAL INTERNAL MAMMARY CHAIN",
+				"BILATERAL INGUINAL NODES",
+				"LEFT INGUINAL NODES",
+				"RIGHT INGUINAL NODES",
+				"INVERTED 'Y' (DOG-LEG,HOCKEY-STICK)",
+				"LEFT KIDNEY",
+				"RIGHT KIDNEY",
+				"BILATERAL KNEE",
+				"LEFT KNEE",
+				"RIGHT KNEE",
+				"BILATERAL LACRIMAL GLAND",
+				"LEFT LACRIMAL GLAND",
+				"RIGHT LACRIMAL GLAND",
+				"LARYGOPHARYNX",
+				"LARYNX",
+				"BILATERAL LEG",
+				"LEFT LEG",
+				"RIGHT LEG",
+				"LOWER BILATERAL LEG",
+				"LOWER LEFT LEG",
+				"LOWER RIGHT LEG",
+				"UPPER BILATERAL LEG",
+				"UPPER LEFT LEG",
+				"UPPER RIGHT LEG",
+				"BOTH EYELID(S)",
+				"LEFT EYELID",
+				"RIGHT EYELID",
+				"BOTH LIP(S)",
+				"LOWER LIP",
+				"UPPER LIP",
+				"LIVER",
+				"BILATERAL LUNG",
+				"LEFT LUNG",
+				"RIGHT LUNG",
+				"BILATERAL MANDIBLE",
+				"LEFT MANDIBLE",
+				"RIGHT MANDIBLE",
+				"MANTLE",
+				"BILATERAL MAXILLA",
+				"LEFT MAXILLA",
+				"RIGHT MAXILLA",
+				"MEDIASTINUM",
+				"MULTIPLE SKIN",
+				"NASAL FOSSA",
+				"NASOPHARYNX",
+				"BILATERAL NECK INCLUDES NODES",
+				"LEFT NECK INCLUDES NODES",
+				"RIGHT NECK INCLUDES NODES",
+				"NECK - SKIN",
+				"NOSE",
+				"ORAL CAVITY / BUCCAL MUCOSA",
+				"BILATERAL ORBIT",
+				"LEFT ORBIT",
+				"RIGHT ORBIT",
+				"OROPHARYNX",
+				"BILATERAL OVARY",
+				"LEFT OVARY",
+				"RIGHT OVARY",
+				"HARD PALATE",
+				"SOFT PALATE",
+				"PALATE UNSPECIFIED",
+				"PANCREAS",
+				"PARA-AORTIC NODES",
+				"LEFT PAROTID",
+				"RIGHT PAROTID",
+				"BILATERAL PELVIS",
+				"LEFT PELVIS",
+				"RIGHT PELVIS",
+				"PENIS",
+				"PERINEUM",
+				"PITUITARY",
+				"LEFT PLEURA (AS IN MESOTHELIOMA)",
+				"RIGHT PLEURA",
+				"PROSTATE",
+				"PUBIS",
+				"PYRIFORM FOSSA (SINUSES)",
+				"LEFT RADIUS",
+				"RIGHT RADIUS",
+				"RECTUM (INCLUDES SIGMOID)",
+				"LEFT RIBS",
+				"RIGHT RIBS",
+				"SACRUM",
+				"LEFT SALIVARY GLAND",
+				"RIGHT SALIVARY GLAND",
+				"BILATERAL SCAPULA",
+				"LEFT SCAPULA",
+				"RIGHT SCAPULA",
+				"BILATERAL SUPRACLAVICULAR NODES",
+				"LEFT SUPRACLAVICULAR NODES",
+				"RIGHT SUPRACLAVICULAR NODES",
+				"BILATERAL SCALP",
+				"LEFT SCALP",
+				"RIGHT SCALP",
+				"SCROTUM",
+				"BILATERAL SHOULDER",
+				"LEFT SHOULDER",
+				"RIGHT SHOULDER",
+				"WHOLE BODY - SKIN",
+				"SKULL",
+				"CERVICAL & THORACIC SPINE",
+				"SPHENOID SINUS",
+				"CERVICAL SPINE",
+				"LUMBAR SPINE",
+				"THORACIC SPINE",
+				"WHOLE SPINE",
+				"SPLEEN",
+				"LUMBO-SACRAL SPINE",
+				"THORACIC & LUMBAR SPINE",
+				"STERNUM",
+				"STOMACH",
+				"SUBMANDIBULAR GLANDS",
+				"LEFT TEMPLE",
+				"RIGHT TEMPLE",
+				"BILATERAL TESTIS",
+				"LEFT TESTIS",
+				"RIGHT TESTIS",
+				"THYROID",
+				"LEFT TIBIA",
+				"RIGHT TIBIA",
+				"LEFT TOES",
+				"RIGHT TOES",
+				"TONGUE",
+				"TONSIL",
+				"TRACHEA",
+				"LEFT ULNA",
+				"RIGHT ULNA",
+				"LEFT URETER",
+				"RIGHT URETER",
+				"URETHRA",
+				"UTERUS",
+				"UVULA",
+				"VAGINA",
+				"VULVA",
+				"ABDOMEN",
+				"BODY",
+				"CHEST",
+				"HEAD",
+				"LOWER LIMB",
+				"NECK",
+				"OTHER",
+				"PELVIS",
+				"SKIN",
+				"SPINE",
+				"UPPER LIMB",
+				"Not available"
+			]
+		},
+		"radiation_boost": {
+			"dataType": "Text",
+			"description": "A radiation boost is an extra radiation treatment targeted at the tumor bed, given after the regular sessions of radiation is complete (Reference NCIt: C137812). Indicate if this radiation treatment was a radiation boost.",
+			"validationType": "list",
+			"validationInfo": [
+				"Yes",
+				"No",
+				"Not available"
+			]
+		},
+		"reference_radiation_treatment_id": {
+			"dataType": "Text",
+			"requiredIf": "Only required if \n'radiation_boost' = 'Yes'",
+			"description": "If a radiation boost was given, indicate the 'submitter_treatment_id' of the primary radiation treatment the radiation boost treatment is linked to."
+		}
+	},
+	"Surgery": {
+		"program_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier of the program.",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$"
+			}
+		},
+		"submitter_donor_id": {
+			"dataType": "Text",
+			"description": "Unique identifier for the donor, assigned by the data provider. ",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\n90234, BLD_donor_89, AML-90"
+			}
+		},
+		"submitter_treatment_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier of the treatment, assigned by the data provider.\n",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\n90234, BLD_donor_89, AML-90"
+			}
+		},
+		"surgery_reference_database": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Indicate the reference surgery database where surgery type is found.",
+			"validationType": "list",
+			"validationInfo": [
+				"SNOMED",
+				"NCIt",
+				"UMLS",
+				"CCI"
+			]
+		},
+		"surgery_reference_identifier": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Indicate the unique database identifier assigned to the procedure"
+		},
+		"surgery_type": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Indicate the type of surgical procedure that was performed."
+		},
+		"surgery_site": {
+			"dataType": "Text",
+			"requiredIf": "This field is not required if a specimen was resected during surgery (ie. if `submitter_specimen_id` is submitted) since type of specimen is collected in the Specimen table.",
+			"description": "Indicate the ICD-O-3 topography code for the anatomic site where the surgical procedure was performed, according to the International Classification of Diseases for Oncology, 3rd Edition (WHO ICD-O-3). Refer to the ICD-O-3 manual for guidelines at https://apps.who.int/iris/handle/10665/42344",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[C][0-9]{2}(.[0-9]{1})?$",
+				"message": "ICD-O-3 topography codes,  the values must meet the regular expression\n^[C][0-9]{2}(.[0-9]{1})?$\nExamples:  C50.1, C18"
+			}
+		},
+		"surgery_location": {
+			"dataType": "Text",
+			"requiredIf": "This field is not required if a specimen was resected during surgery (ie. if `submitter_specimen_id` is submitted) since type of specimen is collected in the Specimen table.",
+			"description": "Indicate whether the surgical procedure was done at the primary, local recurrence or metastatic location\n",
+			"validationType": "list",
+			"validationInfo": [
+				"Local recurrence",
+				"Metastatic",
+				"Primary"
+			]
+		},
+		"tumour_length": {
+			"dataType": "Number",
+			"description": "Indicate the length of the tumour, in millimetres (mm).\n"
+		},
+		"tumour_width": {
+			"dataType": "Number",
+			"description": "Indicate the length of the tumour, in millimetres (mm).\n"
+		},
+		"greatest_dimension_tumour": {
+			"dataType": "Number",
+			"description": "Indicate the greatest dimension or diameter of the tumour, in millimetres (mm). (Reference: NCIt C157135)"
+		},
+		"tumour_focality": {
+			"dataType": "Text",
+			"description": "Indicate the characterization of the location of the tumour. (Reference: NCIt: C157425)\n",
+			"validationType": "list",
+			"validationInfo": [
+				"Cannot be assessed",
+				"Multifocal",
+				"Not applicable",
+				"Not available",
+				"Unifocal"
+			]
+		},
+		"residual_tumour_classification": {
+			"dataType": "Text",
+			"description": "Indicate the absence or presence of residual tumour after treatment. In some cases treated with surgery and/or with neoadjuvant therapy there will be residual tumour at the primary site after treatment because of incomplete resection or local and regional disease that extends beyond the limit of ability of resection. (Reference: AJCC 8th ed.)",
+			"validationType": "list",
+			"validationInfo": [
+				"Not applicable",
+				"Not available",
+				"RX",
+				"R0",
+				"R1",
+				"R2"
+			]
+		},
+		"margin_types_involved": {
+			"dataType": "Text",
+			"description": "Indicate the margin type(s) involved.\n",
+			"validationType": "list",
+			"validationInfo": [
+				"Circumferential resection margin",
+				"Common bile duct margin",
+				"Distal margin",
+				"Not applicable",
+				"Not available",
+				"Proximal margin"
+			]
+		},
+		"margin_types_not_involved": {
+			"dataType": "Text",
+			"description": "Indicate the margin type(s) not involved.\n",
+			"validationType": "list",
+			"validationInfo": [
+				"Circumferential resection margin",
+				"Common bile duct margin",
+				"Distal margin",
+				"Not applicable",
+				"Not available",
+				"Proximal margin"
+			]
+		},
+		"margin_types_not_assessed": {
+			"dataType": "Text",
+			"description": "Indicate the margin type(s) that cannot be assessed.\n",
+			"validationType": "list",
+			"validationInfo": [
+				"Circumferential resection margin",
+				"Common bile duct margin",
+				"Distal margin",
+				"Not applicable",
+				"Proximal margin",
+				"Not available"
+			]
+		},
+		"lymphovascular_invasion": {
+			"dataType": "Text",
+			"description": "Indicate the absence or presence of lymphovascular invasion (LVI). LVI includes lymphatic invasion, vascular invasion and lymphovascular invasion. (Reference: AJCC 8th ed.)",
+			"validationType": "list",
+			"validationInfo": [
+				"Absent",
+				"Both lymphatic and small vessel and venous (large vessel) invasion",
+				"Lymphatic and small vessel invasion only",
+				"Not applicable",
+				"Not available",
+				"Present",
+				"Venous (large vessel) invasion only"
+			]
+		},
+		"perineural_invasion": {
+			"dataType": "Text",
+			"description": "A morphologic finding referring to a tumour that has spread along and infiltrated nerve fibers. Indicate the presence or absence of perineural invasion. (Reference: NCIt: C48260, ICCR)",
+			"validationType": "list",
+			"validationInfo": [
+				"Absent",
+				"Cannot be assessed",
+				"Not applicable",
+				"Not available",
+				"Present"
+			]
+		}
+	},
+	"Follow Up": {
+		"program_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier of the program.",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$"
+			}
+		},
+		"submitter_donor_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier for the donor, assigned by the data provider. ",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\n90234, BLD_donor_89, AML-90"
+			}
+		},
+		"submitter_follow_up_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier for a follow-up event in a donor's clinical record, assigned by the data provider.",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\n90234, BLD_donor_89, AML-90"
+			}
+		},
+		"submitter_primary_diagnosis_id": {
+			"dataType": "Text",
+			"description": "Indicate if the follow-up is related to a specific primary diagnosis event in the clinical timeline.",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\n90234, BLD_donor_89, AML-90"
+			}
+		},
+		"submitter_treatment_id": {
+			"dataType": "Text",
+			"description": "Indicate if the follow-up is related to a specific treatment event in the clinical timeline.",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\n90234, BLD_donor_89, AML-90"
+			}
+		},
+		"date_of_followup": {
+			"dataType": "JSON",
+			"requiredAlways": true,
+			"description": "Date of follow-up.",
+			"validationType": "json_date_interval"
+		},
+		"disease_status_at_followup": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Indicate the donor's disease status at time of follow-up.",
+			"validationType": "list",
+			"validationInfo": [
+				"Complete remission",
+				"Distant progression",
+				"Loco-regional progression",
+				"No evidence of disease",
+				"Not available",
+				"Partial remission",
+				"Progression not otherwise specified",
+				"Relapse or recurrence",
+				"Stable"
+			]
+		},
+		"relapse_type": {
+			"dataType": "Text",
+			"requiredIf": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence.",
+			"description": "Indicate the donor's relapse type.\n",
+			"validationType": "list",
+			"validationInfo": [
+				"Biochemical progression",
+				"Distant recurrence/metastasis",
+				"Local recurrence",
+				"Local recurrence and distant metastasis",
+				"Not available",
+				"Progression"
+			]
+		},
+		"date_of_relapse": {
+			"dataType": "JSON",
+			"requiredIf": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence.",
+			"description": "Indicate the date when relapse occurred.",
+			"validationType": "json_date_interval"
+		},
+		"method_of_progression_status": {
+			"dataType": "Text",
+			"requiredIf": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence. To include multiple values, separate values with a pipe delimiter '|' within your file.",
+			"description": "Indicate the method(s) used to confirm the donor's progression or relapse or recurrence disease status. (Codelist reference: NCI CDE ID: 6161031)",
+			"validationType": "list",
+			"validationInfo": [
+				"Imaging (procedure)",
+				"Histopathology test (procedure)",
+				"Assessment of symptom control (procedure)",
+				"Physical examination procedure (procedure)",
+				"Tumor marker measurement (procedure)",
+				"Laboratory data interpretation (procedure)"
+			]
+		},
+		"anatomic_site_progression_or_recurrence": {
+			"dataType": "Text",
+			"requiredIf": "This field is required to be submitted if disease_status_at_followup indicates a state of progression, relapse, or recurrence. This field is not required if 'relapse_type' = \"Biochemical progression\".",
+			"description": "Indicate the ICD-O-3 topography code for the anatomic site where disease progression, relapse or recurrence occurred, according to the International Classification of Diseases for Oncology, 3rd Edition (WHO ICD-O-3). Refer to the ICD-O-3 manual for guidelines at https://apps.who.int/iris/handle/10665/42344",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[C][0-9]{2}(.[0-9]{1})?$",
+				"message": "ICD-O-3 topography codes,  the values must meet the regular expression\n^[C][0-9]{2}(.[0-9]{1})?$\nExamples:  C50.1, C18"
+			}
+		}
+	},
+	"Biomarker": {
+		"program_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier of the program.",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$"
+			}
+		},
+		"submitter_donor_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier for the donor, assigned by the data provider. ",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\n90234, BLD_donor_89, AML-90"
+			}
+		},
+		"submitter_specimen_id": {
+			"dataType": "Text",
+			"description": "Unique identifier of the specimen, assigned by the data provider.\n",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$}",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$}\n\nExamples:\nLAML_PO, 00445, THY_099-tumour"
+			}
+		},
+		"submitter_primary_diagnosis_id": {
+			"dataType": "Text",
+			"description": "If the biomarker test was done at the time of primary diagnosis, then indicate the associated submitter_primary_diagnosis_id here.",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\nLAML_PO, 00445, THY_099-tumour"
+			}
+		},
+		"submitter_treatment_id": {
+			"dataType": "Text",
+			"description": "If the biomarker test was done at the initiation of a specific treatment regimen, indicate the associated submitter_treatment_id here.",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\n90234, BLD_donor_89, AML-90"
+			}
+		},
+		"submitter_follow_up_id": {
+			"dataType": "Text",
+			"description": "If the biomarker test was done during a follow-up event, then indicate the associated submitter_follow_up_id here.",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\n90234, BLD_donor_89, AML-90"
+			}
+		},
+		"test_date": {
+			"dataType": "JSON",
+			"description": "If the biomarker test was not associated with a specific specimen or follow-up, primary diagnosis or treatment event, then indicate the date when the biomarker test was performed at.",
+			"validationType": "json_date_interval"
+		},
+		"psa_level": {
+			"dataType": "Integer",
+			"description": "A laboratory test that measures the amount of prostate-specific antigen (PSA) found in the blood. PSA is a protein made by the prostate gland. The amount of PSA may be higher in men who have prostate cancer, benign prostatic hyperplasia (BPH), or infection or inflammation of the prostate (Reference NCIt C17634). Indicate level of PSA in ng/mL."
+		},
+		"ca125": {
+			"dataType": "Integer",
+			"description": "Indicate the amount of cancer antigen 125 present in a blood serum sample in U/ml (References: NCIt C141277, LOINC: 10334-1)"
+		},
+		"cea": {
+			"dataType": "Integer",
+			"description": "Indicate the amount of carcinoembryonic antigen present in a serum sample in ng/ml (References NCIt C157252, LOINC 2039-6)."
+		},
+		"er_status": {
+			"dataType": "Text",
+			"description": "Indicate the expression of estrogen receptor (ER). (Reference: NAACCR 3827)",
+			"validationType": "list",
+			"validationInfo": [
+				"Cannot be determined",
+				"Negative",
+				"Not applicable",
+				"Not available",
+				"Positive"
+			]
+		},
+		"er_percent_positive": {
+			"dataType": "Number",
+			"description": "Indicate a value, in decimals, that represents the percent of cells staining estrogen receptor positive by immunohistochemistry (IHC). (Reference: NAACCR: 3826)"
+		},
+		"pr_status": {
+			"dataType": "Text",
+			"description": "Indicate the expression of progesterone receptor (PR). (Reference: NAACCR 3915)",
+			"validationType": "list",
+			"validationInfo": [
+				"Cannot be determined",
+				"Negative",
+				"Not applicable",
+				"Not available",
+				"Positive"
+			]
+		},
+		"pr_percent_positive": {
+			"dataType": "Number",
+			"description": "Indicate a value, in decimals, that represents the percent of cells staining progesterone receptor positive by immunohistochemistry (IHC). (Reference: NAACCR: 3914)"
+		},
+		"her2_ihc_status": {
+			"dataType": "Text",
+			"description": "Indicate the expression of human epidermal growth factor receptor-2 (HER2) assessed by immunohistochemistry (IHC). (Reference: AJCC 8th Edition, Chapter 48)",
+			"validationType": "list",
+			"validationInfo": [
+				"Cannot be determined",
+				"Equivocal",
+				"Negative",
+				"Not applicable",
+				"Not available",
+				"Positive"
+			]
+		},
+		"her2_ish_status": {
+			"dataType": "Text",
+			"description": "Indicate the gene copy number of human epidermal growth factor receptor-2 (HER2) assessed by in situ hybridization (ISH). (Reference: NAACCR: 3854)",
+			"validationType": "list",
+			"validationInfo": [
+				"Cannot be determined",
+				"Equivocal",
+				"Negative",
+				"Not applicable",
+				"Not available",
+				"Positive"
+			]
+		},
+		"hpv_ihc_status": {
+			"dataType": "Text",
+			"description": "Indicate the expression of Human papillomavirus (HPV) p16 as assessed by immunohistochemistry (IHC).",
+			"validationType": "list",
+			"validationInfo": [
+				"Cannot be determined",
+				"Negative",
+				"Not applicable",
+				"Not available",
+				"Positive"
+			]
+		},
+		"hpv_pcr_status": {
+			"dataType": "Text",
+			"description": "Indicate HPV status determined by PCR. (Reference NCIt: C159326)",
+			"validationType": "list",
+			"validationInfo": [
+				"Cannot be determined",
+				"Negative",
+				"Not applicable",
+				"Not available",
+				"Positive"
+			]
+		},
+		"hpv_strain": {
+			"dataType": "Text",
+			"requiredIf": "This field can only be submitted if \"hpv_pcr_status\" = \"Positive\".",
+			"description": "If HPV status by PCR is positive, indicate which strain(s) were identified.",
+			"validationType": "list",
+			"validationInfo": [
+				"HPV16",
+				"HPV18",
+				"HPV31",
+				"HPV33",
+				"HPV35",
+				"HPV39",
+				"HPV45",
+				"HPV51",
+				"HPV52",
+				"HPV56",
+				"HPV58",
+				"HPV59",
+				"HPV66",
+				"HPV68",
+				"HPV73"
+			]
+		}
+	},
+	"Comorbidity": {
+		"program_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier of the program.",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n"
+			}
+		},
+		"submitter_donor_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier for the donor, assigned by the data provider. ",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\n90234, BLD_donor_89, AML-90"
+			}
+		},
+		"prior_malignancy": {
+			"dataType": "Text",
+			"description": "Prior malignancy affecting donor.\n",
+			"validationType": "list",
+			"validationInfo": [
+				"Yes",
+				"No",
+				"Not available"
+			]
+		},
+		"laterality_of_prior_malignancy": {
+			"dataType": "Text",
+			"requiredIf": "This field should only be submitted if patient has been indicated to have a prior malignancy",
+			"description": "If donor has history of prior malignancy, indicate laterality of previous diagnosis. (Reference: caDSR CDE ID 4122391)",
+			"validationType": "list",
+			"validationInfo": [
+				"Bilateral",
+				"Left",
+				"Midline",
+				"Not applicable",
+				"Not available",
+				"Right",
+				"Unilateral, Side not specified"
+			]
+		},
+		"age_at_comorbidity_diagnosis": {
+			"dataType": "Integer",
+			"requiredIf": "This field should only be submitted if patient has been indicated to have a comorbidity.",
+			"description": "Indicate the age of comorbidity diagnosis, in years.\n"
+		},
+		"comorbidity_type_code": {
+			"dataType": "Text",
+			"requiredIf": "This field is required because it should have a cancer or non-cancer ICD-10 code. This field is marked '' because it depends on the value of the `prior_malignancy` field. Both these fields will need to be consistent. If `prior_malignancy` is `Yes`, then an ICD-10 code related to cancer is expected in this field. If `prior_malignancy` is `No`, then an ICD-10 code related to a non-cancer condition is expected in this field.",
+			"description": "Indicate the code for the comorbidity using the WHO ICD-10 code classification (https://icd.who.int/browse10/2019/en).",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Z][0-9]{2}(.[0-9]{1,3}[A-Z]{0,1})?$",
+				"message": "Values must meet the regular expression\n^[A-Z][0-9]{2}(.[0-9]{1,3}[A-Z]{0,1})?$\n\nExamples:\nE10, C50.1, I11, M06,"
+			}
+		},
+		"comorbidity_treatment_status": {
+			"dataType": "Text",
+			"requiredIf": "This field should only be submitted if patient has been indicated to have a comorbidity.",
+			"description": "Indicate if the patient is being treated for the comorbidity (this includes prior malignancies).",
+			"validationType": "list",
+			"validationInfo": [
+				"Yes",
+				"No",
+				"Not available"
+			]
+		},
+		"comorbidity_treatment": {
+			"dataType": "Text",
+			"requiredIf": "This field should only be submitted if patient has been indicated to have a comorbidity.",
+			"description": "Indicate treatment details for the comorbidity (this includes prior malignancies)."
+		}
+	},
+	"Exposure": {
+		"program_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier of the program.",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\n"
+			}
+		},
+		"submitter_donor_id": {
+			"dataType": "Text",
+			"requiredAlways": true,
+			"description": "Unique identifier for the donor, assigned by the data provider. ",
+			"validationType": "regex",
+			"validationInfo": {
+				"regex": "^[A-Za-z0-9\\-\\._]{1,64}$",
+				"message": "Values must meet the regular expression\n^[A-Za-z0-9\\-\\._]{1,64}$\n\nExamples:\n90234, BLD_donor_89, AML-90"
+			}
+		},
+		"tobacco_smoking_status": {
+			"dataType": "Text",
+			"description": "Indicate donor's self-reported smoking status and history. (Reference: caDSR CDE ID 2181650)",
+			"validationType": "list",
+			"validationInfo": [
+				"Current reformed smoker for <= 15 years",
+				"Current reformed smoker for > 15 years",
+				"Current reformed smoker, duration not specified",
+				"Current smoker",
+				"Lifelong non-smoker (<100 cigarettes smoked in lifetime)",
+				"Not applicable",
+				"Not available"
+			]
+		},
+		"tobacco_type": {
+			"dataType": "Text",
+			"requiredIf": "This field cannot be submitted if tobacco_smoking_status is \"Not applicable\", \"Smoking history not documented\" or \"Lifelong non-smoker (<100 cigarettes smoked in lifetime)\"",
+			"description": "Indicate the type(s) of tobacco used by donor. (Reference: NCIt CDE C177629)",
+			"validationType": "list",
+			"validationInfo": [
+				"Chewing Tobacco",
+				"Cigar",
+				"Cigarettes",
+				"Electronic cigarettes",
+				"Not applicable",
+				"Not available",
+				"Pipe",
+				"Roll-ups",
+				"Snuff",
+				"Waterpipe"
+			]
+		},
+		"pack_years_smoked": {
+			"dataType": "Number",
+			"requiredIf": "This field cannot be submitted if tobacco_smoking_status is \"Not applicable\", \"Smoking history not documented\" or \"Lifelong non-smoker (<100 cigarettes smoked in lifetime)\"",
+			"description": "This field applies to cigarettes. Indicate the smoking intensity in Pack Years, where the number of pack years is defined as the number of cigarettes smoked per day times (x) the number of years smoked divided (/) by 20. (Reference: caDSR CDE ID 2955385)"
+		}
+	}
+}

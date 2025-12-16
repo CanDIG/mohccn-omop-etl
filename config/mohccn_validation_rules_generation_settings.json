@@ -1,0 +1,60 @@
+{
+	"requiredIfStrippedText" : ["Required/Conditional", "Optional/Conditional","Conditional", "Optional"],
+	"validationRulesByText" : {
+		"ICD-10 code" : "icd10_code",
+		"Format YYYY-MM-DD" : "json_date_interval",
+		"If providing ICD-O-3 morphology codes, the values must meet the regular expression" : "regex",
+		"If providing ICD-O-3 topography codes,  the values must meet the regular expression" : "regex",
+		"Values must meet the regular expression" : "regex",
+		"ICD-O-3 topography codes,  the values must meet the regular expression" : "regex",
+		"Click for drop-down list of specimen_tissue_source": {
+			"sourceType" : "columnWithHeader",
+			"tabName": "specimen_tissue_source",
+			"headerValue": "specimen_tissue_source"
+		},
+		"Click for drop-down list of primary_site" : {
+			"sourceType" : "columnWithHeader",
+			"tabName" : "primary_site",
+			"headerValue" : "primary_site"
+		},
+		"Click for drop-down list of AJCC T category values" : {
+			"sourceType" : "columnWithHeader",
+			"tabName" : "AJCC TNM categories",
+			"headerValue" : "AJCC T category"
+		},
+		"Click for drop-down list of AJCC N category values" : {
+			"sourceType" : "columnWithHeader",
+			"tabName" : "AJCC TNM categories",
+			"headerValue" : "AJCC N category"
+		},
+		"Click for drop-down list of AJCC M category values" : {
+			"sourceType" : "columnWithHeader",
+			"tabName" : "AJCC TNM categories",
+			"headerValue" : "AJCC M category"
+		},
+		"Click for drop-down list of clinical stage groups" : {
+			"sourceType" : "columnWithHeader",
+			"tabName" : "clinicalpathological stage grou",
+			"headerValue" : "stage_group"
+		},
+		"Click for drop-down list of treatment intent" : {
+			"sourceType" : "columnWithHeader",
+			"tabName" : "treatment_intent",
+			"headerValue" : "treatment_intent"
+		},
+		"Click for drop-down list of response criteria method" : {
+			"sourceType" : "headerRow",
+			"tabName" : "response_to_criteria_methods"
+		},
+		"Click for drop-down list of response" : {
+			"sourceType" : "column",
+			"tabName" : "response_to_criteria_terms",
+			"columnNumber" : 1
+		},
+		"Click for drop-down list of site" : {
+			"sourceType" : "columnWithHeader",
+			"tabName" : "anatomical_site_irradiated",
+			"headerValue" : "anatomical_site_irradiated (Reference: Cancer Care Ontario Data Book: Body Region Code Data Element)"
+		}
+	}
+}

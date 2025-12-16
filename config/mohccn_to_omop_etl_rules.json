@@ -1,0 +1,4276 @@
+{
+	"$": {
+		"Default Values": {
+			"observation": [
+				{
+					"Target Field": "observation_type_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "32879",
+					"Vocab": "Type Concept",
+					"Description": "Registry"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{missing_date_value}"
+				},
+				{
+					"Target Field": "person_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Value": "OMOP Patient Person",
+					"Requirement Rule": "Skip Record"
+				}
+			],
+			"episode": [
+				{
+					"Target Field": "episode_type_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "32879",
+					"Vocab": "Type Concept",
+					"Description": "Registry"
+				},
+				{
+					"Target Field": "person_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Value": "OMOP Patient Person",
+					"Requirement Rule": "Skip Record"
+				}
+			],
+			"specimen": [
+				{
+					"Target Field": "specimen_type_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "32879",
+					"Vocab": "Type Concept",
+					"Description": "Registry"
+				},
+				{
+					"Target Field": "person_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Value": "OMOP Patient Person",
+					"Requirement Rule": "Skip Record"
+				}
+			],
+			"visit_occurrence": [
+				{
+					"Target Field": "visit_type_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "32879",
+					"Vocab": "Type Concept",
+					"Description": "Registry"
+				},
+				{
+					"Target Field": "person_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Value": "OMOP Patient Person",
+					"Requirement Rule": "Skip Record"
+				}
+			],
+			"measurement": [
+				{
+					"Target Field": "measurement_type_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "32879",
+					"Vocab": "Type Concept",
+					"Description": "Registry"
+				},
+				{
+					"Target Field": "measurement_date",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{missing_date_value}"
+				},
+				{
+					"Target Field": "person_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Value": "OMOP Patient Person",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "measurement_event_id",
+					"Instruction": "Get Unique ID (No Global Vars)",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "submitter_specimen_id",
+					"Value": "OMOP Specimen"
+				},
+				{
+					"Target Field": "measurement_event_id",
+					"Instruction": "Get Unique ID (No Global Vars)",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Value": "OMOP Primary Dx Episode"
+				},
+				{
+					"Target Field": "measurement_event_id",
+					"Instruction": "Get Unique ID (No Global Vars)",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Treatment Episode"
+				},
+				{
+					"Target Field": "measurement_event_id",
+					"Instruction": "Get Unique ID (No Global Vars)",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id",
+					"Value": "OMOP Follow Up Visit Occurrence"
+				},
+				{
+					"Target Field": "meas_event_field_concept_id",
+					"Instruction": "Fixed Value If Not Empty",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "submitter_specimen_id",
+					"Value": "1147049",
+					"Vocab": "CDM",
+					"Description": "specimen.specimen_id"
+				},
+				{
+					"Target Field": "meas_event_field_concept_id",
+					"Instruction": "Fixed Value If Not Empty",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Value": "798885",
+					"Vocab": "CDM",
+					"Description": "episode.episode_id"
+				},
+				{
+					"Target Field": "meas_event_field_concept_id",
+					"Instruction": "Fixed Value If Not Empty",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "798885",
+					"Vocab": "CDM",
+					"Description": "episode.episode_id"
+				},
+				{
+					"Target Field": "meas_event_field_concept_id",
+					"Instruction": "Fixed Value If Not Empty",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id",
+					"Value": "1147070",
+					"Vocab": "CDM",
+					"Description": "visit_occurrence.visit_occurrence_id"
+				}
+			],
+			"procedure_occurrence": [
+				{
+					"Target Field": "procedure_type_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "32879",
+					"Vocab": "Type Concept",
+					"Description": "Registry"
+				},
+				{
+					"Target Field": "person_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Value": "OMOP Patient Person",
+					"Requirement Rule": "Skip Record"
+				}
+			],
+			"condition_occurrence": [
+				{
+					"Target Field": "condition_type_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "32879",
+					"Vocab": "Type Concept",
+					"Description": "Registry"
+				},
+				{
+					"Target Field": "person_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Value": "OMOP Patient Person",
+					"Requirement Rule": "Skip Record"
+				}
+			],
+			"death": [
+				{
+					"Target Field": "person_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Value": "OMOP Patient Person",
+					"Requirement Rule": "Skip Record"
+				}
+			],
+			"drug_exposure": [
+				{
+					"Target Field": "person_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Value": "OMOP Patient Person",
+					"Requirement Rule": "Skip Record"
+				}
+			]
+		}
+	},
+	"$.donors[]": {
+		"Global Variables": {
+			"_global_vars": [
+				{
+					"Target Field": "N/A",
+					"Instruction": "Reset Global Vars",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A"
+				},
+				{
+					"Target Field": "{source_id}",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "SITE_{siteId}"
+				},
+				{
+					"Target Field": "{fixed_date}",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "2000-01-01"
+				},
+				{
+					"Target Field": "{missing_date_value}",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1800-01-01"
+				},
+				{
+					"Target Field": "{missing_concept_id_value}",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4255047"
+				},
+				{
+					"Target Field": "{missing_string_value}",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "(Missing value)"
+				}
+			]
+		},
+		"CanDIG Dataset Definition": {
+			"_global_vars": [
+				{
+					"Target Field": "N/A",
+					"Instruction": "Save To Global Vars",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "date_resolution"
+				},
+				{
+					"Target Field": "N/A",
+					"Instruction": "Save To Global Vars",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id"
+				},
+				{
+					"Target Field": "N/A",
+					"Instruction": "Save To Global Vars",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "program_id"
+				}
+			],
+			"dataset": [
+				{
+					"Target Field": "id",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{source_id}~{Donor.program_id}",
+					"Requirement Rule": "Skip Record"
+				}
+			]
+		},
+		"OMOP Patient Person": {
+			"person": [
+				{
+					"Target Field": "person_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "person_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{source_id}~{Donor.program_id}~{Donor.submitter_donor_id}",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Patient - Sex At Birth (Code)",
+					"Target Field": "gender_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "sex_at_birth",
+					"Vocab": "Gender",
+					"Requirement Rule": "Placeholder:{missing_concept_id_value}",
+					"Description": "https://athena.ohdsi.org/search-terms/terms?domain=Gender&standardConcept=Standard&page=1&pageSize=15&query="
+				},
+				{
+					"DHDP Data Catalog Identifier": "Patient - Sex At Birth (Text From Source)",
+					"Target Field": "gender_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "sex_at_birth"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Patient - Birth Year",
+					"Target Field": "year_of_birth",
+					"Instruction": "Calculate Year From Interval",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "date_of_birth",
+					"Requirement Rule": "Placeholder:1800"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Patient - Birth Month",
+					"Target Field": "month_of_birth",
+					"Instruction": "Calculate Month From Interval",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "date_of_birth",
+					"Requirement Rule": "Placeholder:1"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Patient - Birth Day",
+					"Target Field": "day_of_birth",
+					"Instruction": "Calculate Day From Interval",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "date_of_birth",
+					"Requirement Rule": "Placeholder:1"
+				},
+				{
+					"Target Field": "race_concept_id",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{missing_concept_id_value}"
+				},
+				{
+					"Target Field": "ethnicity_concept_id",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{missing_concept_id_value}"
+				}
+			]
+		},
+		"OMOP Gender Identity Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "37171290",
+					"Vocab": "SNOMED",
+					"Description": "Gender identity"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Patient - Gender Identity (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "gender",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Patient - Gender Identity (Text From Source)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "gender"
+				}
+			]
+		},
+		"OMOP Patient Death": {
+			"death": [
+				{
+					"Target Field": "death_type_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "32879",
+					"Vocab": "Type Concept",
+					"Description": "Registry"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Patient Death - Date Of Death",
+					"Target Field": "death_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "date_of_death",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Patient Death - Cause Of Death (Code)",
+					"Target Field": "cause_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "cause_of_death"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Patient Death - Cause Of Death (Text From Source)",
+					"Target Field": "cause_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "cause_of_death"
+				}
+			]
+		}
+	},
+	"$.donors[].primary_diagnoses[]": {
+		"OMOP Primary Dx Condition": {
+			"_global_vars": [
+				{
+					"Target Field": "N/A",
+					"Instruction": "Save To Global Vars",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Requirement Rule": "Skip Record"
+				}
+			],
+			"condition_occurrence": [
+				{
+					"Target Field": "condition_occurrence_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Condition (Code)",
+					"Target Field": "condition_concept_id",
+					"Instruction": "Concept ID By Code",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "cancer_type_code",
+					"Vocab": "ICD10",
+					"Requirement Rule": "Placeholder:{missing_concept_id_value}"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Condition (Text From Source)",
+					"Target Field": "condition_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "cancer_type_code"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Diagnosis Date",
+					"Target Field": "condition_start_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "date_of_diagnosis",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "condition_status_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "32902",
+					"Vocab": "Condition Status",
+					"Description": "Primary Diagnosis"
+				}
+			]
+		},
+		"OMOP Primary Dx Episode": {
+			"episode": [
+				{
+					"Target Field": "episode_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "episode_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "32528",
+					"Vocab": "Episode",
+					"Description": "Disease First Occurrence"
+				},
+				{
+					"Target Field": "episode_source_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "0"
+				},
+				{
+					"Target Field": "episode_object_concept_id",
+					"Instruction": "Concept ID By Code",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "cancer_type_code",
+					"Vocab": "ICD10",
+					"Requirement Rule": "Placeholder:{missing_concept_id_value}"
+				},
+				{
+					"Target Field": "episode_number",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1"
+				},
+				{
+					"Target Field": "episode_start_date",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{fixed_date}"
+				},
+				{
+					"Target Field": "episode_end_date",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{fixed_date}"
+				}
+			]
+		},
+		"OMOP Primary Dx Episode / Condition Event": {
+			"episode_event": [
+				{
+					"Target Field": "episode_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Value": "OMOP Primary Dx Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Value": "OMOP Primary Dx Condition",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "episode_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147127",
+					"Vocab": "CDM",
+					"Description": "condition_occurrence.condition_occurrence_id"
+				}
+			]
+		},
+		"OMOP Primary Dx Initial Diagnosis Measurement": {
+			"measurement": [
+				{
+					"Target Field": "measurement_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "measurement_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "734306",
+					"Vocab": "Cancer Modifier",
+					"Description": "Initial Diagnosis"
+				},
+				{
+					"Target Field": "measurement_date",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{fixed_date}"
+				},
+				{
+					"Target Field": "measurement_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Value": "OMOP Primary Dx Condition",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "meas_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147127",
+					"Vocab": "CDM",
+					"Description": "condition_occurrence.condition_occurrence_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Basis of Diagnosis (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "basis_of_diagnosis"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Basis of Diagnosis (Text)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "basis_of_diagnosis"
+				}
+			]
+		},
+		"OMOP Primary Dx Laterality Measurement": {
+			"measurement": [
+				{
+					"Target Field": "measurement_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "measurement_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "35918306",
+					"Vocab": "NAACCR",
+					"Description": "Laterality"
+				},
+				{
+					"Target Field": "measurement_date",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{fixed_date}"
+				},
+				{
+					"Target Field": "measurement_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Value": "OMOP Primary Dx Condition",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "meas_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147127",
+					"Vocab": "CDM",
+					"Description": "condition_occurrence.condition_occurrence_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Disease Laterality (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "laterality",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Disease Laterality (Text From Source)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "laterality"
+				}
+			]
+		},
+		"OMOP Primary Dx Site Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "3011717",
+					"Vocab": "LOINC",
+					"Description": "Primary site Cancer"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{fixed_date}"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Primary Site (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "primary_site",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Primary Site (Text From Source)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "primary_site"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Value": "OMOP Primary Dx Condition",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147127",
+					"Vocab": "CDM",
+					"Description": "condition_occurrence.condition_occurrence_id"
+				}
+			]
+		},
+		"OMOP TNM Clin T Stage Measurement": {
+			"measurement": [
+				{
+					"Target Field": "measurement_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "measurement_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4164336",
+					"Vocab": "SNOMED",
+					"Description": "Clinical T category"
+				},
+				{
+					"Target Field": "measurement_date",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{fixed_date}"
+				},
+				{
+					"Target Field": "measurement_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Value": "OMOP Primary Dx Condition",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "meas_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147127",
+					"Vocab": "CDM",
+					"Description": "condition_occurrence.condition_occurrence_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Clinical TNM T Stage (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "clinical_t_category",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Clinical TNM T Stage (Text From Source)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "clinical_t_category"
+				}
+			]
+		},
+		"OMOP TNM Clin N Stage Measurement": {
+			"measurement": [
+				{
+					"Target Field": "measurement_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "measurement_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4164466",
+					"Vocab": "SNOMED",
+					"Description": "Clinical N category"
+				},
+				{
+					"Target Field": "measurement_date",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{fixed_date}"
+				},
+				{
+					"Target Field": "measurement_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Value": "OMOP Primary Dx Condition",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "meas_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147127",
+					"Vocab": "CDM",
+					"Description": "condition_occurrence.condition_occurrence_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Clinical TNM N Stage (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "clinical_n_category",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Clinical TNM N Stage (Text From Source)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "clinical_n_category"
+				}
+			]
+		},
+		"OMOP TNM Clin M Stage Measurement": {
+			"measurement": [
+				{
+					"Target Field": "measurement_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "measurement_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4164182",
+					"Vocab": "SNOMED",
+					"Description": "Clinical M category"
+				},
+				{
+					"Target Field": "measurement_date",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{fixed_date}"
+				},
+				{
+					"Target Field": "measurement_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Value": "OMOP Primary Dx Condition",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "meas_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147127",
+					"Vocab": "CDM",
+					"Description": "condition_occurrence.condition_occurrence_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Clinical TNM M Stage (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "clinical_m_category",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Clinical TNM M Stage (Text From Source)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "clinical_m_category"
+				}
+			]
+		},
+		"OMOP Clinical Stage Measurement": {
+			"measurement": [
+				{
+					"Target Field": "measurement_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Clinical Staging System (Code)",
+					"Target Field": "measurement_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "clinical_tumour_staging_system",
+					"Requirement Rule": "Placeholder:{missing_concept_id_value}"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Clinical Staging System (Text From Source)",
+					"Target Field": "measurement_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "clinical_tumour_staging_system"
+				},
+				{
+					"Target Field": "measurement_date",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{fixed_date}"
+				},
+				{
+					"Target Field": "measurement_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Value": "OMOP Primary Dx Condition"
+				},
+				{
+					"Target Field": "meas_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147127",
+					"Vocab": "CDM",
+					"Description": "condition_occurrence.condition_occurrence_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Clinical Stage Group (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "clinical_stage_group"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Clinical Stage Group (Text From Source)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "clinical_stage_group"
+				}
+			]
+		},
+		"OMOP TNM Path T Stage Measurement": {
+			"measurement": [
+				{
+					"Target Field": "measurement_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "measurement_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4293617",
+					"Vocab": "SNOMED",
+					"Description": "Pathologic T category"
+				},
+				{
+					"Target Field": "measurement_date",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{fixed_date}"
+				},
+				{
+					"Target Field": "measurement_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Value": "OMOP Primary Dx Condition",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "meas_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147127",
+					"Vocab": "CDM",
+					"Description": "condition_occurrence.condition_occurrence_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Pathological TNM T Stage (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "pathological_t_category",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Pathological TNM T Stage (Text From Source)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "pathological_t_category"
+				}
+			]
+		},
+		"OMOP TNM Path N Stage Measurement": {
+			"measurement": [
+				{
+					"Target Field": "measurement_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "measurement_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4161174",
+					"Vocab": "SNOMED",
+					"Description": "Pathologic N category"
+				},
+				{
+					"Target Field": "measurement_date",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{fixed_date}"
+				},
+				{
+					"Target Field": "measurement_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Value": "OMOP Primary Dx Condition",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "meas_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147127",
+					"Vocab": "CDM",
+					"Description": "condition_occurrence.condition_occurrence_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Pathological TNM N Stage (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "pathological_n_category",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Pathological TNM N Stage (Text From Source)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "pathological_n_category"
+				}
+			]
+		},
+		"OMOP TNM Path M Stage Measurement": {
+			"measurement": [
+				{
+					"Target Field": "measurement_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "measurement_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4154262",
+					"Vocab": "SNOMED",
+					"Description": "Pathologic M category"
+				},
+				{
+					"Target Field": "measurement_date",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{fixed_date}"
+				},
+				{
+					"Target Field": "measurement_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Value": "OMOP Primary Dx Condition",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "meas_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147127",
+					"Vocab": "CDM",
+					"Description": "condition_occurrence.condition_occurrence_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Pathological TNM M Stage (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "pathological_m_category",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Pathological TNM M Stage (Text From Source)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "pathological_m_category"
+				}
+			]
+		},
+		"OMOP Pathological Stage Measurement": {
+			"measurement": [
+				{
+					"Target Field": "measurement_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Pathological Staging System (Code)",
+					"Target Field": "measurement_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "pathological_tumour_staging_system",
+					"Requirement Rule": "Placeholder:{missing_concept_id_value}"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Pathological Staging System (Text From Source)",
+					"Target Field": "measurement_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "pathological_tumour_staging_system"
+				},
+				{
+					"Target Field": "measurement_date",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{fixed_date}"
+				},
+				{
+					"Target Field": "measurement_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Value": "OMOP Primary Dx Condition",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "meas_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147127",
+					"Vocab": "CDM",
+					"Description": "condition_occurrence.condition_occurrence_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Pathological Staging Group (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "pathological_stage_group"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Pathological Staging Group (Text From Source)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "pathological_stage_group"
+				}
+			]
+		}
+	},
+	"$.donors[].primary_diagnoses[].treatments[]": {
+		"OMOP Treatment Episode": {
+			"_global_vars": [
+				{
+					"Target Field": "N/A",
+					"Instruction": "Save To Global Vars",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "N/A",
+					"Instruction": "Save To Global Vars",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "treatment_start_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				}
+			],
+			"episode": [
+				{
+					"Target Field": "episode_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "episode_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "32531",
+					"Vocab": "Episode",
+					"Description": "Treatment Regimen"
+				},
+				{
+					"Target Field": "episode_source_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "0"
+				},
+				{
+					"Target Field": "episode_object_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "0"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Cancer Treatment - Treatment Start Date",
+					"Target Field": "episode_start_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "treatment_start_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Cancer Treatment - Treatment End Date",
+					"Target Field": "episode_end_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "treatment_end_date"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Cancer Treatment - Is Primary Treatment",
+					"Target Field": "episode_number",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "is_primary_treatment"
+				}
+			]
+		},
+		"OMOP Treatment Procedure Status": {
+			"procedure_occurrence": [
+				{
+					"Target Field": "procedure_occurrence_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "procedure_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "0"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Cancer Treatment - Treatment Type (Text From Source)",
+					"Target Field": "procedure_source_value",
+					"Instruction": "Concatenate Values",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "treatment_type"
+				},
+				{
+					"Target Field": "procedure_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "treatment_start_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Cancer Treatment - Treatment Status (Code)",
+					"Target Field": "modifier_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "status_of_treatment"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Cancer Treatment - Treatment Status (Text From Source)",
+					"Target Field": "modifier_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "status_of_treatment"
+				}
+			]
+		},
+		"OMOP Treatment Episode / Procedure Status Event": {
+			"episode_event": [
+				{
+					"Target Field": "episode_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Treatment Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Treatment Procedure Status",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "episode_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147082",
+					"Vocab": "CDM",
+					"Description": "procedure_occurrence.procedure_occurrence_id"
+				}
+			]
+		},
+		"OMOP Treatment Episode Intent Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4133895",
+					"Vocab": "SNOMED",
+					"Description": "Therapeutic"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "treatment_start_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Treatment Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "798885",
+					"Vocab": "CDM",
+					"Description": "episode.episode_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Cancer Treatment - Treatment Intent (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "treatment_intent",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Cancer Treatment - Treatment Intent (Text From Source)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "treatment_intent"
+				}
+			]
+		},
+		"OMOP Treatment Episode Response Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4082405",
+					"Vocab": "SNOMED",
+					"Description": "Response to treatment"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Cancer Treatment - Response To Treatment (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "response_to_treatment",
+					"Requirement Rule": "Placeholder:{missing_concept_id_value}"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Cancer Treatment - Response To Treatment (Text From Source)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "response_to_treatment"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "treatment_start_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Treatment Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "798885",
+					"Vocab": "CDM",
+					"Description": "episode.episode_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Cancer Treatment - Response To Treatment Criteria Method (Code)",
+					"Target Field": "qualifier_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "response_to_treatment_criteria_method"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Cancer Treatment - Response To Treatment Criteria Method (Text From Source)",
+					"Target Field": "qualifier_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "response_to_treatment_criteria_method"
+				}
+			]
+		}
+	},
+	"$.donors[].primary_diagnoses[].treatments[].systemic_therapies[]": {
+		"OMOP Systemic Therapy Episode": {
+			"episode": [
+				{
+					"Target Field": "episode_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "episode_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "32941",
+					"Vocab": "Episode",
+					"Description": "Cancer Drug Treatment"
+				},
+				{
+					"Target Field": "episode_source_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "0"
+				},
+				{
+					"Target Field": "episode_object_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Systemic Therapy",
+					"Source Field": "systemic_therapy_type",
+					"Requirement Rule": "Placeholder:{missing_concept_id_value}"
+				},
+				{
+					"Target Field": "episode_start_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Systemic Therapy",
+					"Source Field": "start_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "episode_end_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Systemic Therapy",
+					"Source Field": "end_date"
+				}
+			]
+		},
+		"OMOP Treatment Episode / Systemic Therapy Episode Event": {
+			"episode_event": [
+				{
+					"Target Field": "episode_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Treatment Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Systemic Therapy Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "episode_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "798885",
+					"Vocab": "CDM",
+					"Description": "episode.episode_id"
+				}
+			]
+		},
+		"OMOP Systemic Therapy Procedure": {
+			"procedure_occurrence": [
+				{
+					"Target Field": "procedure_occurrence_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Systemic Therapy - Treatment Type (Code)",
+					"Target Field": "procedure_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Systemic Therapy",
+					"Source Field": "systemic_therapy_type",
+					"Requirement Rule": "Placeholder:{missing_concept_id_value}"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Systemic Therapy - Treatment Type (Text From Source)",
+					"Target Field": "procedure_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Systemic Therapy",
+					"Source Field": "systemic_therapy_type"
+				},
+				{
+					"Target Field": "procedure_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Systemic Therapy",
+					"Source Field": "start_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Systemic Therapy - Number Of Cycles",
+					"Target Field": "quantity",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Systemic Therapy",
+					"Source Field": "number_of_cycles"
+				}
+			]
+		},
+		"OMOP Systemic Therapy Episode / Procedure Event": {
+			"episode_event": [
+				{
+					"Target Field": "episode_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Systemic Therapy Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Systemic Therapy Procedure",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "episode_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147082",
+					"Vocab": "CDM",
+					"Description": "procedure_occurrence.procedure_occurrence_id"
+				}
+			]
+		},
+		"OMOP Systemic Therapy Dose Given Drug Exposure": {
+			"_global_vars": [
+				{
+					"Target Field": "{Systemic Therapy.drug_reference_database}",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Systemic Therapy",
+					"Source Field": "drug_reference_database",
+					"Requirement Rule": "Placeholder String"
+				}
+			],
+			"drug_exposure": [
+				{
+					"Target Field": "drug_exposure_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "drug_type_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "32833",
+					"Vocab": "Type Concept",
+					"Description": "EHR order"
+				},
+				{
+					"Target Field": "drug_concept_id",
+					"Instruction": "Concept ID By Code",
+					"MOHCCN Source Schema": "Systemic Therapy",
+					"Source Field": "drug_reference_identifier",
+					"Vocab": "{Systemic Therapy.drug_reference_database}",
+					"Requirement Rule": "Placeholder:{missing_concept_id_value}"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Systemic Therapy - Drug Reference Database / \nSystemic Therapy - Drug Reference Identifier /\nSystemic Therapy - Drug Name",
+					"Target Field": "drug_source_value",
+					"Instruction": "Concatenate Values",
+					"MOHCCN Source Schema": "Systemic Therapy",
+					"Source Field": "drug_reference_database, drug_reference_identifier, drug_name"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Systemic Therapy - Start Date",
+					"Target Field": "drug_exposure_start_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Systemic Therapy",
+					"Source Field": "start_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Systemic Therapy - End Date",
+					"Target Field": "drug_exposure_end_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Systemic Therapy",
+					"Source Field": "end_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Systemic Therapy - Dose Units",
+					"Target Field": "dose_unit_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Systemic Therapy",
+					"Source Field": "drug_dose_units"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Systemic Therapy - Actual Cumulative Dose",
+					"Target Field": "quantity",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Systemic Therapy",
+					"Source Field": "actual_cumulative_drug_dose"
+				}
+			]
+		},
+		"OMOP Systemic Therapy Episode / Dose Given Drug Exposure Event": {
+			"episode_event": [
+				{
+					"Target Field": "episode_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Systemic Therapy Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Systemic Therapy Dose Given Drug Exposure",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "episode_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147094",
+					"Vocab": "CDM",
+					"Description": "drug_exposure.drug_exposure_id"
+				}
+			]
+		},
+		"OMOP Systemic Therapy Dose Prescribed Drug Exposure": {
+			"drug_exposure": [
+				{
+					"Target Field": "drug_exposure_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "drug_type_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "32838",
+					"Vocab": "Type Concept",
+					"Description": "EHR prescription"
+				},
+				{
+					"Target Field": "drug_concept_id",
+					"Instruction": "Concept ID By Code",
+					"MOHCCN Source Schema": "Systemic Therapy",
+					"Source Field": "drug_reference_identifier",
+					"Vocab": "{Systemic Therapy.drug_reference_database}",
+					"Requirement Rule": "Placeholder:{missing_concept_id_value}"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Systemic Therapy - Drug Reference Database / \nSystemic Therapy - Drug Reference Identifier /\nSystemic Therapy - Drug Name",
+					"Target Field": "drug_source_value",
+					"Instruction": "Concatenate Values",
+					"MOHCCN Source Schema": "Systemic Therapy",
+					"Source Field": "drug_reference_database, drug_reference_identifier, drug_name"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Systemic Therapy - Start Date",
+					"Target Field": "drug_exposure_start_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Systemic Therapy",
+					"Source Field": "start_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Systemic Therapy - End Date",
+					"Target Field": "drug_exposure_end_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Systemic Therapy",
+					"Source Field": "end_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Systemic Therapy - Dose Units",
+					"Target Field": "dose_unit_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Systemic Therapy",
+					"Source Field": "drug_dose_units"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Systemic Therapy - Prescribed Cumulative Dose",
+					"Target Field": "quantity",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Systemic Therapy",
+					"Source Field": "prescribed_cumulative_drug_dose"
+				}
+			]
+		},
+		"OMOP Systemic Therapy Episode / Dose Prescribed Drug Exposure Event": {
+			"episode_event": [
+				{
+					"Target Field": "episode_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Systemic Therapy Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Systemic Therapy Dose Prescribed Drug Exposure",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "episode_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147094",
+					"Vocab": "CDM",
+					"Description": "drug_exposure.drug_exposure_id"
+				}
+			]
+		}
+	},
+	"$.donors[].primary_diagnoses[].treatments[].radiations[]": {
+		"OMOP Radiation Episode": {
+			"episode": [
+				{
+					"Target Field": "episode_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "episode_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "32940",
+					"Vocab": "Episode",
+					"Description": "Cancer Radiotherapy"
+				},
+				{
+					"Target Field": "episode_source_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "0"
+				},
+				{
+					"Target Field": "episode_object_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Radiation",
+					"Source Field": "radiation_therapy_modality",
+					"Requirement Rule": "Placeholder:{missing_concept_id_value}"
+				},
+				{
+					"Target Field": "episode_start_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{Treatment.treatment_start_date}",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				}
+			]
+		},
+		"OMOP Treatment Episode / Radiation Episode Event": {
+			"episode_event": [
+				{
+					"Target Field": "episode_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Treatment Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Radiation Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "episode_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "798885",
+					"Vocab": "CDM",
+					"Description": "episode.episode_id"
+				}
+			]
+		},
+		"OMOP Radiation Procedure": {
+			"procedure_occurrence": [
+				{
+					"Target Field": "procedure_occurrence_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Radiation Therapy - Modality (Code)",
+					"Target Field": "procedure_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Radiation",
+					"Source Field": "radiation_therapy_modality",
+					"Requirement Rule": "Placeholder:{missing_concept_id_value}"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Radiation Therapy - Modality (Text From Source)",
+					"Target Field": "procedure_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Radiation",
+					"Source Field": "radiation_therapy_modality"
+				},
+				{
+					"Target Field": "procedure_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{Treatment.treatment_start_date}",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Radiation Therapy - External or Internal (Code)",
+					"Target Field": "modifier_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Radiation",
+					"Source Field": "radiation_therapy_type"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Radiation Therapy - External or Internal (Text From Source)",
+					"Target Field": "modifier_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Radiation",
+					"Source Field": "radiation_therapy_type"
+				}
+			]
+		},
+		"OMOP Radiation Episode / Procedure Event": {
+			"episode_event": [
+				{
+					"Target Field": "episode_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Radiation Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Radiation Procedure",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "episode_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147082",
+					"Vocab": "CDM",
+					"Description": "procedure_occurrence.procedure_occurrence_id"
+				}
+			]
+		},
+		"OMOP Radiation Episode Total Dose Given Measurement": {
+			"measurement": [
+				{
+					"Target Field": "measurement_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "measurement_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "40483776",
+					"Vocab": "SNOMED",
+					"Description": "Total radiation dose delivered"
+				},
+				{
+					"Target Field": "measurement_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{Treatment.treatment_start_date}",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "measurement_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Radiation Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "meas_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "798885",
+					"Vocab": "CDM",
+					"Description": "episode.episode_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Radiation Therapy - Total Dose Given",
+					"Target Field": "value_as_number",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Radiation",
+					"Source Field": "radiation_therapy_dosage",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Radiation Therapy - Total Dose Given Units",
+					"Target Field": "unit_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4037797",
+					"Vocab": "SNOMED",
+					"Description": "Gy"
+				}
+			]
+		},
+		"OMOP Radiation Episode Total Fractions Given Measurement": {
+			"measurement": [
+				{
+					"Target Field": "measurement_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "measurement_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "Radiation",
+					"Value": "4037631",
+					"Vocab": "SNOMED",
+					"Description": "Number of fractions"
+				},
+				{
+					"Target Field": "measurement_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{Treatment.treatment_start_date}",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "measurement_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Radiation Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "meas_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "798885",
+					"Vocab": "CDM",
+					"Description": "episode.episode_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Radiation Therapy - Total Dose Given",
+					"Target Field": "value_as_number",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Radiation",
+					"Source Field": "radiation_therapy_fractions",
+					"Requirement Rule": "Skip Record"
+				}
+			]
+		},
+		"OMOP Radiation Episode Radiated Site Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4181646",
+					"Vocab": "SNOMED",
+					"Description": "Procedure site"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{Treatment.treatment_start_date}",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Radiation Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "798885",
+					"Vocab": "CDM",
+					"Description": "episode.episode_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Radiation Therapy - Irradiated Site (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Radiation",
+					"Source Field": "anatomical_site_irradiated",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Radiation Therapy - Irradiated Site (Text From Source)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Radiation",
+					"Source Field": "anatomical_site_irradiated"
+				}
+			]
+		},
+		"OMOP Radiation Boost Procedure": {
+			"procedure_occurrence": [
+				{
+					"Target Field": "procedure_occurrence_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "procedure_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "40482853",
+					"Vocab": "SNOMED",
+					"Description": "Radiation boost therapy"
+				},
+				{
+					"Target Field": "procedure_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{Treatment.treatment_start_date}",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "modifier_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Radiation",
+					"Source Field": "radiation_boost",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "modifier_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Radiation",
+					"Source Field": "radiation_boost"
+				}
+			]
+		},
+		"OMOP Radiation Episode / Radiation Boost Procedure Event": {
+			"episode_event": [
+				{
+					"Target Field": "episode_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Radiation Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Radiation Boost Procedure",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "episode_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147082",
+					"Vocab": "CDM",
+					"Description": "procedure_occurrence.procedure_occurrence_id"
+				}
+			]
+		}
+	},
+	"$.donors[].primary_diagnoses[].treatments[].surgeries[]": {
+		"OMOP Surgery Episode": {
+			"_global_vars": [
+				{
+					"Target Field": "N/A",
+					"Instruction": "Save To Global Vars",
+					"MOHCCN Source Schema": "Surgery",
+					"Source Field": "surgery_reference_database"
+				}
+			],
+			"episode": [
+				{
+					"Target Field": "episode_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "episode_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "32939",
+					"Vocab": "Episode",
+					"Description": "Cancer Surgery"
+				},
+				{
+					"Target Field": "episode_source_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "0"
+				},
+				{
+					"Target Field": "episode_object_concept_id",
+					"Instruction": "Concept ID By Code",
+					"MOHCCN Source Schema": "Surgery",
+					"Source Field": "surgery_reference_identifier",
+					"Vocab": "{Surgery.surgery_reference_database}",
+					"Requirement Rule": "Placeholder:{missing_concept_id_value}"
+				},
+				{
+					"Target Field": "episode_start_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{Treatment.treatment_start_date}",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				}
+			]
+		},
+		"OMOP Treatment Episode / Surgery Episode Event": {
+			"episode_event": [
+				{
+					"Target Field": "episode_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Treatment Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Surgery Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "episode_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "798885",
+					"Vocab": "CDM",
+					"Description": "episode.episode_id"
+				}
+			]
+		},
+		"OMOP Surgery Procedure": {
+			"procedure_occurrence": [
+				{
+					"Target Field": "procedure_occurrence_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Surgery - Surgery Type (Code)",
+					"Target Field": "procedure_concept_id",
+					"Instruction": "Concept ID By Code",
+					"MOHCCN Source Schema": "Surgery",
+					"Source Field": "surgery_reference_identifier",
+					"Vocab": "{Surgery.surgery_reference_database}",
+					"Requirement Rule": "Placeholder:{missing_concept_id_value}"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Surgery - Surgery Reference Database (Text From Source),\nSurgery - Surgery Reference Identifier (Text From Source),\nSurgery - Surgery Name (Text From Source)",
+					"Target Field": "procedure_source_value",
+					"Instruction": "Concatenate Values",
+					"MOHCCN Source Schema": "Surgery",
+					"Source Field": "surgery_reference_database, surgery_reference_identifier,\nsurgery_type"
+				},
+				{
+					"Target Field": "procedure_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{Treatment.treatment_start_date}",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				}
+			]
+		},
+		"OMOP Surgery Episode / Procedure Event": {
+			"episode_event": [
+				{
+					"Target Field": "episode_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Surgery Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Surgery Procedure",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "episode_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147082",
+					"Vocab": "CDM",
+					"Description": "procedure_occurrence.procedure_occurrence_id"
+				}
+			]
+		},
+		"OMOP Surgery Episode Tumour Length Measurement": {
+			"measurement": [
+				{
+					"Target Field": "measurement_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "measurement_concept_id",
+					"Instruction": "Fixed Value",
+					"Value": "4156562",
+					"Vocab": "SNOMED",
+					"Description": "Tumor size, dimension 1"
+				},
+				{
+					"Target Field": "measurement_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{Treatment.treatment_start_date}",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "measurement_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Surgery Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "meas_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "798885",
+					"Vocab": "CDM",
+					"Description": "episode.episode_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Surgery - Tumour Length",
+					"Target Field": "value_as_number",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Surgery",
+					"Source Field": "tumour_length",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "unit_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4122379",
+					"Vocab": "SNOMED",
+					"Description": "mm"
+				}
+			]
+		},
+		"OMOP Surgery Episode Tumour Width Measurement": {
+			"measurement": [
+				{
+					"Target Field": "measurement_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "measurement_concept_id",
+					"Instruction": "Fixed Value",
+					"Value": "4156563",
+					"Vocab": "SNOMED",
+					"Description": "Tumor size, dimension 2"
+				},
+				{
+					"Target Field": "measurement_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{Treatment.treatment_start_date}",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "measurement_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Surgery Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "meas_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "798885",
+					"Vocab": "CDM",
+					"Description": "episode.episode_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Surgery - Tumour Width",
+					"Target Field": "value_as_number",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Surgery",
+					"Source Field": "tumour_width",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "unit_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4122379",
+					"Vocab": "SNOMED",
+					"Description": "mm"
+				}
+			]
+		},
+		"OMOP Surgery Episode Greatest Tumour Dimension Measurement": {
+			"measurement": [
+				{
+					"Target Field": "measurement_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "measurement_concept_id",
+					"Instruction": "Fixed Value",
+					"Value": "4154259",
+					"Vocab": "SNOMED",
+					"Description": "Tumor size, largest dimension"
+				},
+				{
+					"Target Field": "measurement_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{Treatment.treatment_start_date}",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "measurement_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Surgery Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "meas_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "798885",
+					"Vocab": "CDM",
+					"Description": "episode.episode_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Surgery - Tumour Width",
+					"Target Field": "value_as_number",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Surgery",
+					"Source Field": "greatest_dimension_tumour",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "unit_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4122379",
+					"Vocab": "SNOMED",
+					"Description": "mm"
+				}
+			]
+		},
+		"OMOP Surgery Episode Surgery Site Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4181646",
+					"Vocab": "SNOMED",
+					"Description": "Procedure site"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{Treatment.treatment_start_date}",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Surgery Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "798885",
+					"Vocab": "CDM",
+					"Description": "episode.episode_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Surgery - Body Site (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Surgery",
+					"Source Field": "surgery_site",
+					"Vocab": "ICDO3",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Surgery - Body Site (Text From Source)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Surgery",
+					"Source Field": "surgery_site"
+				}
+			]
+		},
+		"OMOP Surgery Episode Surgery Tumour Focality Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4244984",
+					"Vocab": "SNOMED",
+					"Description": "Tumor focality"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{Treatment.treatment_start_date}",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Surgery Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "798885",
+					"Vocab": "CDM",
+					"Description": "episode.episode_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Surgery - Tumour Focality (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Surgery",
+					"Source Field": "tumour_focality",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Surgery - Tumour Focality (Text From Source)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Surgery",
+					"Source Field": "tumour_focality"
+				}
+			]
+		},
+		"OMOP Surgery Episode Surgery Specimen Source Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "45773156",
+					"Vocab": "SNOMED",
+					"Description": "Specimen source"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{Treatment.treatment_start_date}",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Surgery Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "798885",
+					"Vocab": "CDM",
+					"Description": "episode.episode_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Surgery - Specimen Source (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Surgery",
+					"Source Field": "surgery_location",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Surgery - Specimen Source (Text From Source)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Surgery",
+					"Source Field": "surgery_location"
+				}
+			]
+		},
+		"OMOP Surgery Episode Residual Tumour Classification Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4077124",
+					"Vocab": "SNOMED",
+					"Description": "Residual tumor stage"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{Treatment.treatment_start_date}",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Surgery Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "798885",
+					"Vocab": "CDM",
+					"Description": "episode.episode_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Surgery - Residual Tumour Classification (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Surgery",
+					"Source Field": "residual_tumour_classification",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Surgery - Residual Tumour Classification (Text From Source)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Surgery",
+					"Source Field": "residual_tumour_classification"
+				}
+			]
+		},
+		"OMOP Surgery Episode Lymphovascular Invasion Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1074673",
+					"Vocab": "SNOMED",
+					"Description": "Status of lymphovascular invasion by tumour"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{Treatment.treatment_start_date}",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Surgery Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "798885",
+					"Vocab": "CDM",
+					"Description": "episode.episode_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Surgery - Lymphovascular Invasion (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Surgery",
+					"Source Field": "lymphovascular_invasion",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Surgery - Lymphovascular Invasion (Text From Source)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Surgery",
+					"Source Field": "lymphovascular_invasion"
+				}
+			]
+		},
+		"OMOP Surgery Episode Perineural Invasion Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4161179",
+					"Vocab": "SNOMED",
+					"Description": "Status of perineural invasion by tumour"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{Treatment.treatment_start_date}",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Surgery Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "798885",
+					"Vocab": "CDM",
+					"Description": "episode.episode_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Surgery - Perineural Invasion (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Surgery",
+					"Source Field": "perineural_invasion",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Surgery - Perineural Invasion (Text From Source)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Surgery",
+					"Source Field": "perineural_invasion"
+				}
+			]
+		},
+		"OMOP Surgery Episode Margin Positive Involvement Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4184217",
+					"Vocab": "SNOMED",
+					"Description": "Surgical margin involved by tumor"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{Treatment.treatment_start_date}",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Surgery Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "798885",
+					"Vocab": "CDM",
+					"Description": "episode.episode_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Surgery - Margin Types Involved (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "0"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Surgery - Margin Types Involved (Text From Source)",
+					"Target Field": "value_source_value",
+					"Instruction": "Concatenate Values",
+					"MOHCCN Source Schema": "Surgery",
+					"Source Field": "margin_types_involved",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "qualifier_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "9191",
+					"Vocab": "SNOMED",
+					"Description": "Positive"
+				}
+			]
+		},
+		"OMOP Surgery Episode Margin Negative Involvement Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4184217",
+					"Vocab": "SNOMED",
+					"Description": "Surgical margin involved by tumor"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{Treatment.treatment_start_date}",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Surgery Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "798885",
+					"Vocab": "CDM",
+					"Description": "episode.episode_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Surgery - Margin Types Not Involved (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "0"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Surgery - Margin Types Not Involved (Text From Source)",
+					"Target Field": "value_source_value",
+					"Instruction": "Concatenate Values",
+					"MOHCCN Source Schema": "Surgery",
+					"Source Field": "margin_types_not_involved",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "qualifier_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "9189",
+					"Vocab": "SNOMED",
+					"Description": "Negative"
+				}
+			]
+		},
+		"OMOP Surgery Episode Margin Unassessible Involvement Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4184217",
+					"Vocab": "SNOMED",
+					"Description": "Surgical margin involved by tumor"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{Treatment.treatment_start_date}",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Surgery Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "798885",
+					"Vocab": "CDM",
+					"Description": "episode.episode_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Surgery - Margin Types Not Assessable (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "0"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Surgery - Margin Types Not Assessable (Text From Source)",
+					"Target Field": "value_source_value",
+					"Instruction": "Concatenate Values",
+					"MOHCCN Source Schema": "Surgery",
+					"Source Field": "margin_types_not_assessed",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "qualifier_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4183475",
+					"Vocab": "SNOMED",
+					"Description": "Margins cannot be assessed"
+				}
+			]
+		}
+	},
+	"$.donors[].primary_diagnoses[].specimens[]": {
+		"OMOP Specimen": {
+			"_global_vars": [
+				{
+					"Target Field": "{Specimen.submitter_specimen_id}",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "submitter_specimen_id",
+					"Requirement Rule": "Skip Record"
+				}
+			],
+			"specimen": [
+				{
+					"Target Field": "specimen_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "submitter_specimen_id"
+				},
+				{
+					"Target Field": "specimen_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4002890",
+					"Vocab": "SNOMED",
+					"Description": "Tissue specimen"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Specimen - Specimen Collection Date",
+					"Target Field": "specimen_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "specimen_collection_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Specimen - Specimen Body Site (Code)",
+					"Target Field": "anatomic_site_concept_id",
+					"Instruction": "Concept ID By Code",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "specimen_anatomic_location",
+					"Vocab": "ICDO3"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Specimen - Specimen Body Site (Text From Source)",
+					"Target Field": "anatomic_site_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "specimen_anatomic_location"
+				}
+			]
+		},
+		"OMOP Specimen Tumour Morphology Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "submitter_specimen_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "36716952",
+					"Vocab": "SNOMED",
+					"Description": "Morphology"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "specimen_collection_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "submitter_specimen_id",
+					"Value": "OMOP Specimen",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147049",
+					"Vocab": "CDM",
+					"Description": "specimen.specimen_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Specimen - Tumour Histological Type (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Code",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "tumour_histological_type",
+					"Vocab": "ICDO3",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Specimen - Tumour Histological Type (Text From Source)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "tumour_histological_type"
+				}
+			]
+		},
+		"OMOP Specimen Tumour Grade Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "submitter_specimen_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4160340",
+					"Vocab": "SNOMED",
+					"Description": "Histologic grade"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "specimen_collection_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "submitter_specimen_id",
+					"Value": "OMOP Specimen",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147049",
+					"Vocab": "CDM",
+					"Description": "specimen.specimen_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Specimen - Tumour Grade (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "tumour_grade",
+					"Requirement Rule": "Placeholder:{missing_concept_id_value}"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Specimen - Tumour Grade (Code)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "tumour_grade"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Specimen - Tumour Grading System (Code)",
+					"Target Field": "qualifier_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "tumour_grading_system"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Specimen - Tumour Grading System (Code)",
+					"Target Field": "qualifier_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "tumour_grading_system"
+				}
+			]
+		},
+		"OMOP Specimen Laterality Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "submitter_specimen_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4298494",
+					"Vocab": "SNOMED",
+					"Description": "Specimen laterality"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "specimen_collection_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "submitter_specimen_id",
+					"Value": "OMOP Specimen",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147049",
+					"Vocab": "CDM",
+					"Description": "specimen.specimen_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Specimen - Specimen Laterality  (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "specimen_laterality",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Specimen - Specimen Laterality (Code)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "specimen_laterality"
+				}
+			]
+		},
+		"OMOP Specimen Processing Technique Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "submitter_specimen_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4154128",
+					"Vocab": "SNOMED",
+					"Description": "Specimen type"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "specimen_collection_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "submitter_specimen_id",
+					"Value": "OMOP Specimen",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147049",
+					"Vocab": "CDM",
+					"Description": "specimen.specimen_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Specimen - Specimen Processing Technique (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "specimen_processing",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Specimen - Specimen Processing Technique (Code)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "specimen_processing"
+				}
+			]
+		},
+		"OMOP Specimen Storage Method Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "submitter_specimen_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "37169821",
+					"Vocab": "SNOMED",
+					"Description": "Specimen storage"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "specimen_collection_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "submitter_specimen_id",
+					"Value": "OMOP Specimen",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147049",
+					"Vocab": "CDM",
+					"Description": "specimen.specimen_id"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Specimen - Specimen Storage Method (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "specimen_storage",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Specimen - Specimen Storage Method (Code)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "specimen_storage"
+				}
+			]
+		},
+		"OMOP Primary Dx Episode / Specimen Event": {
+			"episode_event": [
+				{
+					"Target Field": "episode_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Value": "OMOP Primary Dx Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "submitter_specimen_id",
+					"Value": "OMOP Specimen",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "episode_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147049",
+					"Vocab": "CDM",
+					"Description": "specimen.specimen_id"
+				}
+			]
+		},
+		"OMOP Treatment Episode / Specimen Event": {
+			"episode_event": [
+				{
+					"Target Field": "episode_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Treatment Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "submitter_specimen_id",
+					"Value": "OMOP Specimen",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "episode_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147049",
+					"Vocab": "CDM",
+					"Description": "specimen.specimen_id"
+				}
+			]
+		}
+	},
+	"$.donors[].primary_diagnoses[].treatments[].followups[]": {
+		"OMOP Follow Up Visit Occurrence": {
+			"_global_vars": [
+				{
+					"Target Field": "N/A",
+					"Instruction": "Save To Global Vars",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id"
+				}
+			],
+			"visit_occurrence": [
+				{
+					"Target Field": "visit_occurrence_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "visit_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "9202",
+					"Vocab": "Visit",
+					"Description": "Outpatient Visit"
+				},
+				{
+					"Target Field": "visit_start_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "date_of_followup",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "visit_end_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "date_of_followup",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				}
+			]
+		},
+		"OMOP Follow Up Disease Status Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4203711",
+					"Vocab": "SNOMED",
+					"Description": "Follow-up status"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "date_of_followup",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id",
+					"Value": "OMOP Follow Up Visit Occurrence"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147070",
+					"Vocab": "CDM",
+					"Description": "visit_occurrence.visit_occurrence_id"
+				},
+				{
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "disease_status_at_followup",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "disease_status_at_followup"
+				}
+			]
+		},
+		"OMOP Follow Up Relapse Type Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4117444",
+					"Vocab": "SNOMED",
+					"Description": "Relapse episode"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "date_of_relapse",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id",
+					"Value": "OMOP Follow Up Visit Occurrence",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147070",
+					"Vocab": "CDM",
+					"Description": "visit_occurrence.visit_occurrence_id"
+				},
+				{
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "relapse_type",
+					"Requirement Rule": "Placeholder:{missing_concept_id_value}"
+				},
+				{
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "relapse_type"
+				}
+			]
+		},
+		"OMOP Follow Up Relapse Site Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "3375793",
+					"Vocab": "SNOMED",
+					"Description": "Tumour site"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "date_of_relapse",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id",
+					"Value": "OMOP Follow Up Visit Occurrence",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147070",
+					"Vocab": "CDM",
+					"Description": "visit_occurrence.visit_occurrence_id"
+				},
+				{
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Code",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "anatomic_site_progression_or_recurrence",
+					"Vocab": "ICDO3",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "anatomic_site_progression_or_recurrence"
+				}
+			]
+		}
+	},
+	"$.donors[].biomarkers[]": {
+		"OMOP PSA Biomarker Measurement": {
+			"measurement": [
+				{
+					"Target Field": "measurement_id",
+					"Instruction": "Generate Unique ID From Path",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "measurement_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4272032",
+					"Vocab": "SNOMED",
+					"Description": "Prostate specific antigen measurement"
+				},
+				{
+					"Target Field": "measurement_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Biomarker",
+					"Source Field": "test_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "value_as_number",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Biomarker",
+					"Source Field": "psa_level",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "unit_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4120724",
+					"Vocab": "SNOMED",
+					"Description": "ng/mL"
+				}
+			]
+		},
+		"OMOP CA125 Biomarker Measurement": {
+			"measurement": [
+				{
+					"Target Field": "measurement_id",
+					"Instruction": "Generate Unique ID From Path",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "measurement_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4197913",
+					"Vocab": "SNOMED",
+					"Description": "CA 125 measurement"
+				},
+				{
+					"Target Field": "measurement_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Biomarker",
+					"Source Field": "test_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "value_as_number",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Biomarker",
+					"Source Field": "ca125",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "unit_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4118305",
+					"Vocab": "SNOMED",
+					"Description": "U/mL"
+				}
+			]
+		},
+		"OMOP CEA Biomarker Measurement": {
+			"measurement": [
+				{
+					"Target Field": "measurement_id",
+					"Instruction": "Generate Unique ID From Path",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "measurement_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4244721",
+					"Vocab": "SNOMED",
+					"Description": "Carcinoembryonic antigen measurement"
+				},
+				{
+					"Target Field": "measurement_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Biomarker",
+					"Source Field": "test_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "value_as_number",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Biomarker",
+					"Source Field": "cea",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "unit_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4120724",
+					"Vocab": "SNOMED",
+					"Description": "ng/mL"
+				}
+			]
+		},
+		"OMOP Estrogen Receptor Biomarker Measurement": {
+			"measurement": [
+				{
+					"Target Field": "measurement_id",
+					"Instruction": "Generate Unique ID From Path",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "measurement_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4307360",
+					"Vocab": "SNOMED",
+					"Description": "Estrogen receptor assay"
+				},
+				{
+					"Target Field": "measurement_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Biomarker",
+					"Source Field": "test_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Biomarker",
+					"Source Field": "er_status",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "value_as_number",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Biomarker",
+					"Source Field": "er_percent_positive"
+				},
+				{
+					"Target Field": "unit_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4041099",
+					"Vocab": "SNOMED",
+					"Description": "Percent"
+				}
+			]
+		},
+		"OMOP HER2 IHC Status Biomarker Measurement": {
+			"measurement": [
+				{
+					"Target Field": "measurement_id",
+					"Instruction": "Generate Unique ID From Path",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "measurement_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "35918264",
+					"Vocab": "NAACCR",
+					"Description": "HER2 IHC Summary"
+				},
+				{
+					"Target Field": "measurement_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Biomarker",
+					"Source Field": "test_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Biomarker",
+					"Source Field": "her2_ihc_status",
+					"Requirement Rule": "Skip Record"
+				}
+			]
+		},
+		"OMOP HER2 ISH Status Biomarker Measurement": {
+			"measurement": [
+				{
+					"Target Field": "measurement_id",
+					"Instruction": "Generate Unique ID From Path",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "measurement_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "35918706",
+					"Vocab": "NAACCR",
+					"Description": "HER2 ISH Summary"
+				},
+				{
+					"Target Field": "measurement_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Biomarker",
+					"Source Field": "test_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Biomarker",
+					"Source Field": "her2_ish_status",
+					"Requirement Rule": "Skip Record"
+				}
+			]
+		}
+	},
+	"$.donors[].exposures[]": {
+		"OMOP Tobacco Smoking Status Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID From Path",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "43054909",
+					"Vocab": "LOINC",
+					"Description": "Tobacco smoking status"
+				},
+				{
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Exposure",
+					"Source Field": "tobacco_smoking_status",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Exposure",
+					"Source Field": "tobacco_smoking_status"
+				}
+			]
+		},
+		"OMOP Cigarette Pack Years Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID From Path",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4151768",
+					"Vocab": "SNOMED",
+					"Description": "Pack years"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID From Path",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Value": "OMOP Tobacco Smoking Status Observation",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147165",
+					"Vocab": "CDM",
+					"Description": "observation.observation_id"
+				},
+				{
+					"Target Field": "value_as_number",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Exposure",
+					"Source Field": "pack_years_smoked",
+					"Requirement Rule": "Skip Record"
+				}
+			]
+		},
+		"OMOP Tobacco Type Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID From Path",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "37172639",
+					"Vocab": "SNOMED",
+					"Description": "Type of tobacco used"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID From Path",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Value": "OMOP Tobacco Smoking Status Observation",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147165",
+					"Vocab": "CDM",
+					"Description": "observation.observation_id"
+				},
+				{
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "0"
+				},
+				{
+					"Target Field": "value_source_value",
+					"Instruction": "Concatenate Values",
+					"MOHCCN Source Schema": "Exposure",
+					"Source Field": "tobacco_type",
+					"Requirement Rule": "Skip Record"
+				}
+			]
+		}
+	},
+	"$.donors[].comorbidities[].aaaa": {
+		"OMOP Comorbidity Condition": {
+			"condition_occurrence": [
+				{
+					"Target Field": "condition_occurence_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Comorbidity",
+					"Source Field": "@"
+				},
+				{
+					"Target Field": "condition_concept_id",
+					"Instruction": "Concept ID By Code",
+					"MOHCCN Source Schema": "Comorbidity",
+					"Source Field": "comorbidity_type_code",
+					"Vocab": "ICD10"
+				},
+				{
+					"Target Field": "condition_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Comorbidity",
+					"Source Field": "comorbidity_type_code"
+				},
+				{
+					"Target Field": "condition_start_date",
+					"Instruction": "Calculate Year From Interval",
+					"MOHCCN Source Schema": "Donor, Comorbidity",
+					"Source Field": "date_of_birth, age_at_comorbidity_diagnosis"
+				},
+				{
+					"Target Field": "condition_status_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Comorbidity",
+					"Source Field": "prior_malignancy"
+				},
+				{
+					"Target Field": "condition_status_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Comorbidity",
+					"Source Field": "prior_malignancy"
+				}
+			]
+		},
+		"OMOP Comorbidity Laterality Measurement": {
+			"measurement": [
+				{
+					"Target Field": "measurement_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Comorbidity",
+					"Source Field": "@"
+				},
+				{
+					"Target Field": "measurement_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "35918306",
+					"Vocab": "NAACCR"
+				},
+				{
+					"Target Field": "measurement_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Comorbidity",
+					"Source Field": "$.donors[].comorbidities[]",
+					"Value": "OMOP Comorbidity Condition"
+				},
+				{
+					"Target Field": "meas_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147127",
+					"Vocab": "CDM"
+				},
+				{
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Comorbidity",
+					"Source Field": "laterality_of_prior_malignancy"
+				},
+				{
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Comorbidity",
+					"Source Field": "laterality_of_prior_malignancy"
+				}
+			]
+		}
+	}
+}
