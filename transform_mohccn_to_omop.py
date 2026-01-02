@@ -33,10 +33,12 @@ class MohccnToOmopTransformer:
 	INSTRUCTION_GET_UNIQUE_ID_FROM_PATH = "Get Unique ID From Path"
 	INSTRUCTION_CONCEPT_ID_BY_TERM = "Concept ID By Term"
 	INSTRUCTION_COPY_VALUE = "Copy Value"
+	INSTRUCTION_COPY_NODE = "Copy Node"
 	INSTRUCTION_CALCULATE_YEAR_FROM_INTERVAL = "Calculate Year From Interval"
 	INSTRUCTION_CALCULATE_MONTH_FROM_INTERVAL = "Calculate Month From Interval"
 	INSTRUCTION_CALCULATE_DAY_FROM_INTERVAL = "Calculate Day From Interval"
 	INSTRUCTION_CALCULATE_DATE_FROM_INTERVAL = "Calculate Date From Interval"
+	INSTRUCTION_CALCULATE_DATE_FROM_AGE = "Calculate Date From Age"
 	INSTRUCTION_CONCEPT_ID_BY_CODE = "Concept ID By Code"
 	INSTRUCTION_CONCATENATE_VALUES = "Concatenate Values"
 	CONCATENATE_CHAR = "|"
@@ -247,7 +249,7 @@ class MohccnToOmopTransformer:
 		# sys.exit()
 		omop_records.append(omop_data)
 
-	def _load_value_for_instruction(self, target_dict: Dict, skip_errors: List, current_path: str, data_group: str, data: Dict, instructions: Dict) -> str:
+	def _load_value_for_instruction(self, target_dict: Dict, skip_errors: List, current_path: str, data_group: str, data: Dict, instructions: Dict, allow_empty_string: bool = False) -> str:
 		target_field = instructions["Target Field"]
 		instruction = instructions["Instruction"]
 		value = instructions["Value"] if "Value" in instructions else ""
@@ -260,6 +262,9 @@ class MohccnToOmopTransformer:
 			self.INSTRUCTION_GET_UNIQUE_ID, self.INSTRUCTION_GET_UNIQUE_ID_FROM_PATH, self.INSTRUCTION_GET_UNIQUE_ID_NO_GLOBAL_VARS]
 		
 
+		# if ( data_group == "OMOP Treatment Episode Procedure Occurrence" ):
+		# 	print(self._global_vars)
+		# 	print(f"{data_group} {target_field} {instruction} {value} {vocab} {source_schema} {source_field} = {data[source_field] if source_field in data else ""}")
 		# print(f"{var_name} {instruction} {value} {vocab} {source_schema} {source_field} = {data[source_field] if source_field in data else ""}")
 
 		final_value = ""
@@ -276,6 +281,15 @@ class MohccnToOmopTransformer:
 			target_field = f"{{{source_schema_and_field}}}"
 			final_value = data[source_field] if source_field in data else ""
 			# print(self._global_vars)
+		elif ( instruction == self.INSTRUCTION_COPY_NODE):
+			if ( source_schema != "N/A"):
+				if ( source_field == "N/A"):
+					self.log_message(f"Source field is N/A for {instructions}")
+					sys.exit()
+				# print(source_schema)
+				final_value = data[source_field] if source_field in data else ""
+			else:
+				final_value = data
 		elif ( instruction == self.INSTRUCTION_COPY_VALUE):
 			# print(f"{source_schema} {source_field}")
 			# Does source field exist in data?
@@ -325,7 +339,7 @@ class MohccnToOmopTransformer:
 				skip_errors.append(f"Skipped OMOP record referencing skipped unique_id: {final_value}")
 
 		elif ( instruction == self.INSTRUCTION_CONCEPT_ID_BY_TERM):
-			final_value = self._get_concept_id_by_term(source_schema, source_field, data)
+			final_value = self._get_concept_id_by_term(source_schema, source_field, data, value)
 		elif ( instruction == self.INSTRUCTION_CALCULATE_YEAR_FROM_INTERVAL):
 			final_value = self._calculate_year_from_interval(source_field, data)
 		elif ( instruction == self.INSTRUCTION_CALCULATE_MONTH_FROM_INTERVAL):
@@ -334,6 +348,10 @@ class MohccnToOmopTransformer:
 			final_value = self._calculate_day_from_interval(source_field, data)
 		elif ( instruction == self.INSTRUCTION_CALCULATE_DATE_FROM_INTERVAL):
 			new_date = self._calculate_date_from_interval(source_field, data, value)
+			if ( new_date and isinstance(new_date, datetime)):
+				final_value = new_date.strftime('%Y-%m-%d')			
+		elif ( instruction == self.INSTRUCTION_CALCULATE_DATE_FROM_AGE):
+			new_date = self._calculate_day_from_age(source_field, data)
 			if ( new_date and isinstance(new_date, datetime)):
 				final_value = new_date.strftime('%Y-%m-%d')			
 		elif ( instruction == self.INSTRUCTION_CONCEPT_ID_BY_CODE):
@@ -359,7 +377,7 @@ class MohccnToOmopTransformer:
 		elif ( final_value == "" and requirement_rule == self.REQUIREMENT_RULE_SKIP_RECORD ):
 			skip_errors.append(f"Data for '{source_field}' is missing for '{data_group}' / '{instruction}' at {current_path}")
 		
-		if ( final_value != "" ):
+		if ( final_value != "" or allow_empty_string ):
 			target_dict[target_field] = final_value
 			
 		return final_value
@@ -382,6 +400,22 @@ class MohccnToOmopTransformer:
 		new_date = self._calculate_date_from_interval(source_field, data, "")
 		if ( new_date and isinstance(new_date, datetime)):
 			return str(new_date.day)
+		else:
+			return ""
+		
+	def _calculate_day_from_age(self, source_field: str, data: Dict) -> str:
+		dob_interval = self._global_vars["{Donor.date_of_birth}"]
+		age = int(data[source_field]) if source_field in data else 0
+
+		# Convert dob_interval to incorporate age in years as the delta, and overwrite value in data
+		age_interval = {
+			"day_interval": int(dob_interval["day_interval"]) + age * 365,
+			"month_interval": int(dob_interval["month_interval"]) + age * 12}
+		data[source_field] = age_interval
+
+		new_date = self._calculate_date_from_interval(source_field, data, "")
+		if ( new_date and isinstance(new_date, datetime)):
+			return new_date
 		else:
 			return ""
 		
@@ -486,11 +520,18 @@ class MohccnToOmopTransformer:
 			# print(f"Unexpected error processing row {row_count}: {e}")
 
 
-	def _get_concept_id_by_term(self, source_schema: str, source_field: str, data: Dict) -> str:
+	def _get_concept_id_by_term(self, source_schema: str, source_field: str, data: Dict, value: str) -> str:
 		"""
 		Get the concept ID by term.
 		"""
-		initial_value = data[source_field] if source_field in data else ""
+		if ( source_field == "N/A"):
+			initial_value = self._replace_global_var_name_with_value(value)
+			# print(data)
+			# print(type(data))
+			# sys.exit()
+		else:
+			initial_value = data[source_field] if source_field in data else ""
+
 		possible_terms = self._term_to_concept_id_mappings[source_schema.lower()][source_field.lower()] if source_schema.lower() in self._term_to_concept_id_mappings and source_field.lower() in self._term_to_concept_id_mappings[source_schema.lower()] else {}
 
 		# print(f"Initial value for term map: {initial_value}")
@@ -514,7 +555,7 @@ class MohccnToOmopTransformer:
 		# print(meta_data)
 		# print("")
 		for item in meta_data:
-			self._load_value_for_instruction(self._global_vars, [], current_path, data_group, data, item)
+			self._load_value_for_instruction(self._global_vars, [], current_path, data_group, data, item, True)
 
 			# print(self._global_vars)
 
@@ -609,6 +650,32 @@ class MohccnToOmopTransformer:
 				
 				# Recursively traverse child nodes
 				self.traverse_nodes(results_by_json_path, item, node_path, paths)
+		elif isinstance(data, (str, int, float, bool)):
+			# Check if sanitized path is in ETL rules for primitive values, e.g. treatment_type
+			sanitized_path = self._sanitize_path(current_path)
+			if ( sanitized_path in self._etl_rules):
+				etl_rules = self._etl_rules[sanitized_path]
+				print(current_path)
+
+				# Initialize array for json path
+				if ( current_path not in results_by_json_path ):
+					results_by_json_path[current_path] = []
+				# print(etl_rules)
+				for data_group, target_tables in etl_rules.items():
+					# Skip Default Values
+					if ( data_group == "Default Values"):
+						continue
+
+					for target_table, meta_data in target_tables.items():
+						# First process target_table "_global_vars"
+						if ( target_table == "_global_vars"):
+							self._process_global_vars(current_path, data_group, data, meta_data)
+						else:
+							self._process_omop_table(results_by_json_path[current_path], current_path, data_group, target_table, data, meta_data)
+
+
+			# Primitive value, nothing to traverse further
+			
 		# For primitive values (strings, numbers, booleans, None), we don't traverse further
 		# The path was already added when we encountered the parent
 		

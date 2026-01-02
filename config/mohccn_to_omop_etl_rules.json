@@ -299,6 +299,12 @@
 					"Instruction": "Save To Global Vars",
 					"MOHCCN Source Schema": "Donor",
 					"Source Field": "program_id"
+				},
+				{
+					"Target Field": "N/A",
+					"Instruction": "Save To Global Vars",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "date_of_birth"
 				}
 			],
 			"dataset": [
@@ -1270,6 +1276,12 @@
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "treatment_start_date",
 					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "N/A",
+					"Instruction": "Save To Global Vars",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "status_of_treatment"
 				}
 			],
 			"episode": [
@@ -1327,81 +1339,6 @@
 				}
 			]
 		},
-		"OMOP Treatment Procedure Status": {
-			"procedure_occurrence": [
-				{
-					"Target Field": "procedure_occurrence_id",
-					"Instruction": "Generate Unique ID",
-					"MOHCCN Source Schema": "Treatment",
-					"Source Field": "submitter_treatment_id",
-					"Requirement Rule": "Skip Record"
-				},
-				{
-					"Target Field": "procedure_concept_id",
-					"Instruction": "Fixed Value",
-					"MOHCCN Source Schema": "N/A",
-					"Source Field": "N/A",
-					"Value": "0"
-				},
-				{
-					"DHDP Data Catalog Identifier": "Cancer Treatment - Treatment Type (Text From Source)",
-					"Target Field": "procedure_source_value",
-					"Instruction": "Concatenate Values",
-					"MOHCCN Source Schema": "Treatment",
-					"Source Field": "treatment_type"
-				},
-				{
-					"Target Field": "procedure_date",
-					"Instruction": "Calculate Date From Interval",
-					"MOHCCN Source Schema": "Treatment",
-					"Source Field": "treatment_start_date",
-					"Requirement Rule": "Placeholder:{missing_date_value}"
-				},
-				{
-					"DHDP Data Catalog Identifier": "Cancer Treatment - Treatment Status (Code)",
-					"Target Field": "modifier_concept_id",
-					"Instruction": "Concept ID By Term",
-					"MOHCCN Source Schema": "Treatment",
-					"Source Field": "status_of_treatment"
-				},
-				{
-					"DHDP Data Catalog Identifier": "Cancer Treatment - Treatment Status (Text From Source)",
-					"Target Field": "modifier_source_value",
-					"Instruction": "Copy Value",
-					"MOHCCN Source Schema": "Treatment",
-					"Source Field": "status_of_treatment"
-				}
-			]
-		},
-		"OMOP Treatment Episode / Procedure Status Event": {
-			"episode_event": [
-				{
-					"Target Field": "episode_id",
-					"Instruction": "Get Unique ID",
-					"MOHCCN Source Schema": "Treatment",
-					"Source Field": "submitter_treatment_id",
-					"Value": "OMOP Treatment Episode",
-					"Requirement Rule": "Skip Record"
-				},
-				{
-					"Target Field": "event_id",
-					"Instruction": "Get Unique ID",
-					"MOHCCN Source Schema": "Treatment",
-					"Source Field": "submitter_treatment_id",
-					"Value": "OMOP Treatment Procedure Status",
-					"Requirement Rule": "Skip Record"
-				},
-				{
-					"Target Field": "episode_event_field_concept_id",
-					"Instruction": "Fixed Value",
-					"MOHCCN Source Schema": "N/A",
-					"Source Field": "N/A",
-					"Value": "1147082",
-					"Vocab": "CDM",
-					"Description": "procedure_occurrence.procedure_occurrence_id"
-				}
-			]
-		},
 		"OMOP Treatment Episode Intent Observation": {
 			"observation": [
 				{
@@ -1418,7 +1355,7 @@
 					"Source Field": "N/A",
 					"Value": "4133895",
 					"Vocab": "SNOMED",
-					"Description": "Therapeutic"
+					"Description": "Therapeutic intent"
 				},
 				{
 					"Target Field": "observation_date",
@@ -1531,6 +1468,86 @@
 					"Instruction": "Copy Value",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "response_to_treatment_criteria_method"
+				}
+			]
+		}
+	},
+	"$.donors[].primary_diagnoses[].treatments[].treatment_type[]": {
+		"OMOP Treatment Episode Procedure Occurrence": {
+			"procedure_occurrence": [
+				{
+					"Target Field": "procedure_occurrence_id",
+					"Instruction": "Generate Unique ID From Path",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "procedure_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "0"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Cancer Treatment - Treatment Type (Text From Source)",
+					"Target Field": "procedure_source_value",
+					"Instruction": "Copy Node",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A"
+				},
+				{
+					"Target Field": "procedure_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{Treatment.treatment_start_date}",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Cancer Treatment - Treatment Status (Code)",
+					"Target Field": "modifier_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{Treatment.status_of_treatment}"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Cancer Treatment - Treatment Status (Text From Source)",
+					"Target Field": "modifier_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{Treatment.status_of_treatment}"
+				}
+			]
+		},
+		"OMOP Treatment Episode / Procedure Occurrence Event": {
+			"episode_event": [
+				{
+					"Target Field": "episode_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Treatment Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Treatment Episode Procedure Occurrence",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "episode_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147082",
+					"Vocab": "CDM",
+					"Description": "procedure_occurrence.procedure_occurrence_id"
 				}
 			]
 		}
@@ -4185,14 +4202,14 @@
 			]
 		}
 	},
-	"$.donors[].comorbidities[].aaaa": {
+	"$.donors[].comorbidities[]": {
 		"OMOP Comorbidity Condition": {
 			"condition_occurrence": [
 				{
 					"Target Field": "condition_occurence_id",
-					"Instruction": "Generate Unique ID",
-					"MOHCCN Source Schema": "Comorbidity",
-					"Source Field": "@"
+					"Instruction": "Generate Unique ID From Path",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id"
 				},
 				{
 					"Target Field": "condition_concept_id",
@@ -4209,9 +4226,9 @@
 				},
 				{
 					"Target Field": "condition_start_date",
-					"Instruction": "Calculate Year From Interval",
-					"MOHCCN Source Schema": "Donor, Comorbidity",
-					"Source Field": "date_of_birth, age_at_comorbidity_diagnosis"
+					"Instruction": "Calculate Date From Age",
+					"MOHCCN Source Schema": "Comorbidity",
+					"Source Field": "age_at_comorbidity_diagnosis"
 				},
 				{
 					"Target Field": "condition_status_concept_id",
@@ -4231,9 +4248,9 @@
 			"measurement": [
 				{
 					"Target Field": "measurement_id",
-					"Instruction": "Generate Unique ID",
-					"MOHCCN Source Schema": "Comorbidity",
-					"Source Field": "@"
+					"Instruction": "Generate Unique ID From Path",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id"
 				},
 				{
 					"Target Field": "measurement_concept_id",
