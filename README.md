@@ -1,43 +1,105 @@
 # MOHCCN-to-OMOP ETL Script Library
 
-This repository contains Python scripts for generating and processing configuration files that enable the transformation of MOHCCN JSON data to a JSON structure ready for CanDIG ingestion of records compliant with OMOP CDM v5.4. 
+This repository contains Python scripts for generating and processing configuration files that enable the transformation of MOHCCN JSON data to a JSON structure ready for CanDIG ingestion of records compliant with OMOP CDM v5.4. It currently assumes you are running this in a location that can access a vocabulary server (see [Vocabulary Server Setup](#vocabulary-server-setup)).
+
+If you simply want to transform MOHCCN data from CanDIGv2 to the OMOP ingest format, see [Transform MOHCCN data to OMOP](#transform-mohccn-data-to-omop).
+
+The scripts in [Run ETL pipeline](#run-etl-pipeline) demonstrate the full ETL development process of going from the MOHCCN data model to an OMOP mapping. This is useful if you want to know more about the mapping process, make changes to the mapping, or use this process as a starting point for mapping a different data model. 
 
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
 * You have installed Python 3.7 or higher
 * You have a Windows, Linux, or macOS machine
-* You have read the configuration section below for environment variable setup
-
-### Dependencies
-
-Required Python packages (listed in `requirements.txt`):
-- `pandas>=1.3.0`
-- `requests>=2.25.0`
-- `openpyxl>=3.0.0`
-- `python-dotenv>=0.19.0`
+* You have set the appropriate configuration variables in the `.env` file 
+* This script can access a vocabulary server, see [Vocabulary Server Setup](#vocabulary-server-setup) 
 
 ## Installing MOHCCN-to-OMOP ETL Script Library
 
-To install MOHCCN-to-OMOP ETL Script Library, follow these steps:
+To install MOHCCN-to-OMOP ETL Script Library, follow these steps. We recommend creating a virtual environment (using [venv](https://docs.python.org/3/library/venv.html) or your tool of choice). Once your environment is active:
 
-Linux and macOS:
 ```bash
 git clone https://github.com/CanDIG/mohccn-omop-etl
 cd mohccn-omop-etl
 pip install -r requirements.txt
 ```
 
-Windows:
-```bash
-git clone https://github.com/CanDIG/mohccn-omop-etl
-cd mohccn-omop-etl
-pip install -r requirements.txt
-```
+## Transform MOHCCN data to OMOP
+
+The `transform_mohccn_to_omop.py` script will transform a MOHCCN JSON file from CanDIG to the OMOP ingest JSON using the ETL pipeline. 
 
 ### Configuration
 
-Create a `.env` file in the project root with the following variables. The variables are described in further detail in their respective Python scripts. Change the variables as necessary:
+This script uses the following environment variables, defined in `.env`. By default, these point to the example files in the `config` directory. Unless you want to change the how the ETL process works, the default values should be fine. See [Configuration](#configuration) for details on environment variables. 
+
+* `GENERATED_VALIDATION_RULES_JSON_FILE_NAME`
+* `GENERATED_MOHCCN_TO_OMOP_ETL_SETTINGS_JSON_FILE_NAME`
+* `EXISTING_MAPPED_VOCAB_XLSX_FILE_NAME`
+
+It also requires access to the vocaculary server defined in `VOCAB_SERVER_SEARCH_BY_CODE_URL`. See see [Vocabulary Server Setup](#vocabulary-server-setup) 
+
+#### Purpose
+Transforms MOHCCN JSON data to OMOP CDM format. Outputs final JSON structure that is nested by dataset then donor, e.g.:
+```json
+{
+    "datasets": [
+        {
+            "dataset": {
+                "id": "SYNTH_01",
+                "linked_records": [
+                    {
+                        "person": {
+                            /* OMOP table columns */
+                        },
+                        "linked_records": [
+                            {
+                                /* OMOP table columns */
+                            },
+							...
+						]
+					}
+				]
+			}
+		}
+	]
+}
+```
+
+#### Usage
+```bash
+python transform_MOHCCN_to_omop.py -i input_MOHCCN_data.json
+```
+
+**Options**:
+- `-i, --input_MOHCCN_json_file` - Path to source MOHCCN JSON file (required)
+- `-o, --output_final_json_file` - Path to output JSON file (default: output_omop_data.json)
+- `--debug_output_log_file` - Path to debug log file (optional)
+- `--debug_raw_json_node_paths_file` - Path to log file for all node paths (optional)
+- `--debug_omop_json_file` - Path to JSON file with full debugging info (optional)
+
+**Example With Options**:
+```bash
+python transform_MOHCCN_to_omop.py \
+  -i input_mohccn_data.json \
+  -o output_omop_data.json \
+  --debug_output_log_file debug_output.log \
+  --debug_omop_json_file debug_omop.json \
+  --debug_raw_json_node_paths_file raw_data_node_paths.txt
+```
+
+#### Features
+- Makes API requests to vocabulary endpoint `VOCAB_SERVER_SEARCH_BY_CODE_URL` for certain MOHCCN fields, e.g. Primary Diagnosis.cancer_type_code
+- If command line argument --debug_output_log_file is provided, detailed debugging info is saved to file.
+- If command line argument --debug_omop_json_file is provided, complete unnested transformed OMOP JSON is saved to file with skip_errors and source JSON path data.
+- If command line argument --debug_raw_json_node_paths_file is provided, all distinct source JSON node paths is saved to file for debugging.
+
+## Run ETL pipeline
+
+The ETL pipeline generates the MOHCCN to OMOP mappings required for `transform_mohccn_to_omop.py` to transform an MOHCCN file to OMOP. 
+
+### Configuration
+
+Edit the `.env` file in the project root with the following variables. The variables are described in further detail in their respective Python scripts. 
 
 `MOHCCN_STANDARD_DEFINITION_XLSX_FILE_NAME` - Location of MOHCCN Excel spreadsheet that describes the MOHCCN Schema field requirements, data types and permitted values (e.g. 'config/mohccn_clinical_data_modelv3-1_sep2024.xlsx'). Downloaded from https://www.marathonofhopecancercentres.ca/docs/default-source/policies-and-guidelines/cdm-v3.1/mohccn_clinical_data_modelv3-1_sep2024.xlsx?sfvrsn=331eefaa_1
 
@@ -58,11 +120,6 @@ Create a `.env` file in the project root with the following variables. The varia
 `VOCAB_SERVER_SEARCH_BY_TERM_URL` - URL of web page used by script 'process_vocabulary_mapping.py' to map terms from `GENERATED_UNMAPPED_VOCAB_CSV_FILE_NAME` to Athena concept IDs. Example: 'https://techna-omop.uhndata.io/dhdp-vocab-search/index.php'
 
 `VOCAB_SERVER_SEARCH_BY_CODE_URL` - URL of web page used by script 'transform_mohccn_to_omop.py' to map certain coded values in source MOHCCN JSON to Athena concept IDs. Example: 'https://techna-omop.uhndata.io/dhdp-vocab-search/search-by-code.php'
-
-
-## Running MOHCCN-to-OMOP ETL Script Library
-
-To use MOHCCN-to-OMOP ETL Script Library, follow these steps:
 
 ### 1. **generate_validation_rules.py**
 
@@ -167,9 +224,6 @@ https://techna-omop.uhndata.io/dhdp-vocab-search/index.php?term=ORIGINAL_TERM&li
 
 
 
-
-
-
 ### 4. **generate_etl_rules.py**
 
 #### Purpose
@@ -262,66 +316,6 @@ Resets global variables used for cross-record data sharing.
 Saves a value to global variables for use in subsequent transformations.
 
 
-
-
-### 5. **transform_mohccn_to_omop.py**
-
-#### Purpose
-Transforms MOHCCN JSON data to OMOP CDM format using configuration files `GENERATED_VALIDATION_RULES_JSON_FILE_NAME`, `GENERATED_MOHCCN_TO_OMOP_ETL_SETTINGS_JSON_FILE_NAME`, `EXISTING_MAPPED_VOCAB_XLSX_FILE_NAME`. Outputs final JSON structure that is nested by dataset then donor, e.g.:
-```json
-{
-    "datasets": [
-        {
-            "dataset": {
-                "id": "SYNTH_01",
-                "linked_records": [
-                    {
-                        "person": {
-                            /* OMOP table columns */
-                        },
-                        "linked_records": [
-                            {
-                                /* OMOP table columns */
-                            },
-							...
-						]
-					}
-				]
-			}
-		}
-	]
-}
-```
-
-#### Usage
-```bash
-python transform_MOHCCN_to_omop.py -i input_MOHCCN_data.json
-```
-
-**Options**:
-- `-i, --input_MOHCCN_json_file` - Path to source MOHCCN JSON file (required)
-- `-o, --output_final_json_file` - Path to output JSON file (default: output_omop_data.json)
-- `--debug_output_log_file` - Path to debug log file (optional)
-- `--debug_raw_json_node_paths_file` - Path to log file for all node paths (optional)
-- `--debug_omop_json_file` - Path to JSON file with full debugging info (optional)
-
-**Example With Options**:
-```bash
-python transform_MOHCCN_to_omop.py \
-  -i input_mohccn_data.json \
-  -o output_omop_data.json \
-  --debug_output_log_file debug_output.log \
-  --debug_omop_json_file debug_omop.json \
-  --debug_raw_json_node_paths_file raw_data_node_paths.txt
-```
-
-#### Features
-- Makes API requests to vocabulary endpoint `VOCAB_SERVER_SEARCH_BY_CODE_URL` for certain MOHCCN fields, e.g. Primary Diagnosis.cancer_type_code
-- If command line argument --debug_output_log_file is provided, detailed debugging info is saved to file.
-- If command line argument --debug_omop_json_file is provided, complete unnested transformed OMOP JSON is saved to file with skip_errors and source JSON path data.
-- If command line argument --debug_raw_json_node_paths_file is provided, all distinct source JSON node paths is saved to file for debugging.
-
-
 ## Testing
 
 Add information about what tests are available for the software and how to run them
@@ -334,9 +328,9 @@ See our [CONTRIBUTING](CONTRIBUTING.md) page for details on how to contribute to
 
 Thanks to the following people who have contributed to this project:
 
-* [@github-username](https://github.com/github-username) 📖
-* [@github-username](https://github.com/github-username) 🐛
-* [@github-username](https://github.com/github-username) 🐛
+* [@jiliu-uhn](https://github.com/jiliu-uhn)
+* [@mshadbolt](https://github.com/mshadbolt)
+* [@kcranston](https://github.com/kcranston)
 
 ## License
 
