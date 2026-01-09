@@ -315,6 +315,11 @@ Resets global variables used for cross-record data sharing.
 ##### Save To Global Vars
 Saves a value to global variables for use in subsequent transformations.
 
+## Vocabulary Server Setup 
+
+The ETL pipeline requires access to an OMOP Vocabulary Server, both to access the standard [OMOP Athena vocabularies](https://athena.ohdsi.org/search-terms/start) and to make modifications to the standard vocabulary. 
+
+We provide a set of docker compose files in `vocabulary_server_setup` for setting up the vocabulary server. See `vocabulary_server_setup/readme` for more details on setting up the server.
 
 ## Testing
 
