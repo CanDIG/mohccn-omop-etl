@@ -8,6 +8,7 @@ import settings
 import requests
 from generate_etl_rules import generate_etl_rules
 # from clinical_etl import mohschemav3
+import re
 
 from urllib.parse import quote
 from datetime import datetime, timedelta
@@ -73,6 +74,13 @@ class MohccnToOmopTransformer:
 		self._debug_output_log_filename = debug_output_log_filename
 		self._debug_omop_json_filename = debug_omop_json_filename
 		self._vocab_server_search_by_code_url = vocab_server_search_by_code_url
+		self._field_regex_for_integer_conversion = [
+			"^[\\w\\_]+\\.[\\w\\_]+_concept_id$",
+			"^person\\.year_of_birth$",
+			"^person\\.month_of_birth$",
+			"^person\\.day_of_birth$",
+			"^episode\\.episode_number$"
+		]
 
 		self.log_message(f"Logging debug output to: {self._debug_output_log_filename}", True, False)
 
@@ -222,12 +230,12 @@ class MohccnToOmopTransformer:
 		if target_table in default_values:
 			default_value_meta_data = default_values[target_table]
 			for instructions in default_value_meta_data:
-				self._load_value_for_instruction(omop_data["omop_record"], omop_data["skip_errors"], current_path, data_group, data, instructions)
+				self._load_value_for_instruction(target_table, omop_data["omop_record"], omop_data["skip_errors"], current_path, data_group, data, instructions)
 
 
 		current_unique_id = None
 		for instructions in meta_data:
-			value = self._load_value_for_instruction(omop_data["omop_record"], omop_data["skip_errors"], current_path, data_group, data, instructions)
+			value = self._load_value_for_instruction(target_table, omop_data["omop_record"], omop_data["skip_errors"], current_path, data_group, data, instructions)
 
 			# Store all generated unique IDs
 			if (instructions["Instruction"] in [self.INSTRUCTION_GENERATE_UNIQUE_ID, self.INSTRUCTION_GENERATE_UNIQUE_ID_FROM_PATH]):
@@ -249,7 +257,7 @@ class MohccnToOmopTransformer:
 		# sys.exit()
 		omop_records.append(omop_data)
 
-	def _load_value_for_instruction(self, target_dict: Dict, skip_errors: List, current_path: str, data_group: str, data: Dict, instructions: Dict, allow_empty_string: bool = False) -> str:
+	def _load_value_for_instruction(self, target_table: str, target_dict: Dict, skip_errors: List, current_path: str, data_group: str, data: Dict, instructions: Dict, allow_empty_string: bool = False) -> str:
 		target_field = instructions["Target Field"]
 		instruction = instructions["Instruction"]
 		value = instructions["Value"] if "Value" in instructions else ""
@@ -378,6 +386,18 @@ class MohccnToOmopTransformer:
 			skip_errors.append(f"Data for '{source_field}' is missing for '{data_group}' / '{instruction}' at {current_path}")
 		
 		if ( final_value != "" or allow_empty_string ):
+			target_table_and_field = f"{target_table}.{target_field}"
+
+			# Cycle through the regexes and convert the field to an integer if it matches
+			for regex in self._field_regex_for_integer_conversion:
+				if re.match(regex, target_table_and_field):
+					try:
+						# print(f"Converting {target_table_and_field} {final_value} to int")
+						final_value = int(final_value)
+						break
+					except (ValueError, TypeError):
+						pass  # If conversion fails, leave as is
+					break
 			target_dict[target_field] = final_value
 			
 		return final_value
@@ -555,7 +575,7 @@ class MohccnToOmopTransformer:
 		# print(meta_data)
 		# print("")
 		for item in meta_data:
-			self._load_value_for_instruction(self._global_vars, [], current_path, data_group, data, item, True)
+			self._load_value_for_instruction("_global_vars", self._global_vars, [], current_path, data_group, data, item, True)
 
 			# print(self._global_vars)
 
