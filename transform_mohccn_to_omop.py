@@ -745,8 +745,8 @@ class MohccnToOmopTransformer:
 						new_record = {omop_table_name: omop_record["omop_record"].copy()}
 						del new_record[omop_table_name]["person_id"]
 						results_by_datasets["datasets"][current_dataset_array_index]["dataset"]["linked_records"].append({
-							"person":new_record,
-							"linked_records" : []
+							"person": new_record["person"],
+							"linked_records": []
 						})
 						current_donor_array_index = len(results_by_datasets["datasets"][current_dataset_array_index]["dataset"]["linked_records"])-1
 				elif ( len(skip_errors) == 0 ):
