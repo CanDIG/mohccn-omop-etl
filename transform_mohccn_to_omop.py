@@ -675,7 +675,7 @@ class MohccnToOmopTransformer:
 			sanitized_path = self._sanitize_path(current_path)
 			if ( sanitized_path in self._etl_rules):
 				etl_rules = self._etl_rules[sanitized_path]
-				print(current_path)
+				# print(current_path)
 
 				# Initialize array for json path
 				if ( current_path not in results_by_json_path ):
