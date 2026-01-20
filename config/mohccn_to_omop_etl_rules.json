@@ -4206,7 +4206,7 @@
 		"OMOP Comorbidity Condition": {
 			"condition_occurrence": [
 				{
-					"Target Field": "condition_occurence_id",
+					"Target Field": "condition_occurrence_id",
 					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Donor",
 					"Source Field": "submitter_donor_id"
