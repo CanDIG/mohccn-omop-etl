@@ -330,8 +330,8 @@ class MohccnToOmopTransformer:
 				}
 				
 			if ( isinstance(final_value, dict) and instruction in [self.INSTRUCTION_GENERATE_UNIQUE_ID_FROM_PATH, self.INSTRUCTION_GET_UNIQUE_ID_FROM_PATH]):
-				final_value["source_value"] = f"{final_value['source_value']} + {current_path}"
-				final_value["source_desc"] = f"{final_value['source_desc']} + {self._sanitize_path(current_path)}"
+				final_value["source_value"] = f"{final_value['source_value']}+{current_path}"
+				final_value["source_desc"] = f"{final_value['source_desc']}+{self._sanitize_path(current_path)}"
 
 			# For get unique ID, check if is in the skipped unique ids list
 			if ( isinstance(final_value, dict) and instruction in [self.INSTRUCTION_GET_UNIQUE_ID, self.INSTRUCTION_GET_UNIQUE_ID_FROM_PATH] and final_value in self._skipped_unique_ids):
