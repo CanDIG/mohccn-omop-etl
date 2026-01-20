@@ -767,10 +767,10 @@ class MohccnToOmopTransformer:
 				if ( omop_table_name == "dataset"):
 					current_dataset_id = omop_record["omop_record"]["id"]
 					if ( current_dataset_id not in dataset_source_value_to_dataset_array_index_map ):
-						results_by_datasets["datasets"].append({"dataset":{
+						results_by_datasets["datasets"].append({
 							"id": current_dataset_id,
 							"linked_records" : []
-						}})
+						})
 						current_dataset_array_index = len(results_by_datasets["datasets"])-1
 						dataset_source_value_to_dataset_array_index_map[current_dataset_id] = current_dataset_array_index
 					else:
@@ -780,11 +780,11 @@ class MohccnToOmopTransformer:
 						current_donor_id = omop_record["omop_record"]["person_id"]
 						new_record = {omop_table_name: omop_record["omop_record"].copy()}
 						del new_record[omop_table_name]["person_id"]
-						results_by_datasets["datasets"][current_dataset_array_index]["dataset"]["linked_records"].append({
+						results_by_datasets["datasets"][current_dataset_array_index]["linked_records"].append({
 							"person": new_record["person"],
 							"linked_records": []
 						})
-						current_donor_array_index = len(results_by_datasets["datasets"][current_dataset_array_index]["dataset"]["linked_records"])-1
+						current_donor_array_index = len(results_by_datasets["datasets"][current_dataset_array_index]["linked_records"])-1
 				elif ( len(skip_errors) == 0 ):
 					new_record = {omop_table_name: omop_record["omop_record"].copy()}
 
@@ -798,7 +798,7 @@ class MohccnToOmopTransformer:
 						if ( isinstance(value, dict) and value.get("type") == "id_map" ):
 							new_record[omop_table_name][attribute] = new_record[omop_table_name][attribute]["source_value"] + "~" + new_record[omop_table_name][attribute]["target_desc"].replace(" ", "_")
 
-					results_by_datasets["datasets"][current_dataset_array_index]["dataset"]["linked_records"][current_donor_array_index]["linked_records"].append(new_record)
+					results_by_datasets["datasets"][current_dataset_array_index]["linked_records"][current_donor_array_index]["linked_records"].append(new_record)
 
 			# print(results_by_donor["datasets"])
 			# print(current_donor_array_index)
