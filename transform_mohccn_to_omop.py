@@ -742,7 +742,7 @@ class MohccnToOmopTransformer:
 				elif ( omop_table_name == "person"):
 					if ( current_donor_id != omop_record["omop_record"]["person_id"] ):
 						current_donor_id = omop_record["omop_record"]["person_id"]
-						new_record = {omop_table_name: omop_record["omop_record"].copy()}
+						new_record = {omop_record["omop_record"].copy()}
 						del new_record[omop_table_name]["person_id"]
 						results_by_datasets["datasets"][current_dataset_array_index]["dataset"]["linked_records"].append({
 							"person":new_record,
