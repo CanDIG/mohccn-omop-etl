@@ -81,6 +81,9 @@ class MohccnToOmopTransformer:
 			"^person\\.day_of_birth$",
 			"^episode\\.episode_number$"
 		]
+		self._field_regex_to_maxlength = {
+			"^procedure_occurrence\\.procedure_source_value$" : 50
+		}
 		self._duplicate_id_map_check = []
 
 		self.log_message(f"Logging debug output to: {self._debug_output_log_filename}", True, False)
@@ -243,6 +246,7 @@ class MohccnToOmopTransformer:
 				current_unique_id = value
 				if ( current_unique_id in self._duplicate_id_map_check ):
 					self.log_message(f"Duplicate ID map found: {current_unique_id}")
+					pass
 				else:
 					self._duplicate_id_map_check.append(current_unique_id)
 
@@ -393,11 +397,18 @@ class MohccnToOmopTransformer:
 		if ( final_value != "" or allow_empty_string ):
 			target_table_and_field = f"{target_table}.{target_field}"
 
+			# Cycle through the field regex to maxlength dictionary and if the field matches, check if the final value is longer than the maxlength
+			for regex, maxlength in self._field_regex_to_maxlength.items():
+				if re.match(regex, target_table_and_field) and len(final_value) > maxlength:
+					self.log_message(f"Truncating {target_table_and_field} '{final_value}' to {maxlength} chars", False)
+					final_value = final_value[:maxlength]
+					break
+
 			# Cycle through the regexes and convert the field to an integer if it matches
 			for regex in self._field_regex_for_integer_conversion:
 				if re.match(regex, target_table_and_field):
 					try:
-						# print(f"Converting {target_table_and_field} {final_value} to int")
+						self.log_message(f"Converting {target_table_and_field} '{final_value}' to int", False)
 						final_value = int(final_value)
 						break
 					except (ValueError, TypeError):
