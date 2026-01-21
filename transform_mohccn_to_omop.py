@@ -82,7 +82,8 @@ class MohccnToOmopTransformer:
 			"^episode\\.episode_number$"
 		]
 		self._field_regex_to_maxlength = {
-			"^procedure_occurrence\\.procedure_source_value$" : 50
+			"^procedure_occurrence\\.procedure_source_value$" : 50,
+			"^procedure_occurrence\\.modifier_source_value$" : 50,
 		}
 		self._duplicate_id_map_check = []
 

@@ -1557,7 +1557,7 @@
 			"episode": [
 				{
 					"Target Field": "episode_id",
-					"Instruction": "Generate Unique ID",
+					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
@@ -1604,7 +1604,7 @@
 			"episode_event": [
 				{
 					"Target Field": "episode_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Treatment Episode",
@@ -1612,7 +1612,7 @@
 				},
 				{
 					"Target Field": "event_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Systemic Therapy Episode",
@@ -1633,7 +1633,7 @@
 			"procedure_occurrence": [
 				{
 					"Target Field": "procedure_occurrence_id",
-					"Instruction": "Generate Unique ID",
+					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
@@ -1681,7 +1681,7 @@
 				},
 				{
 					"Target Field": "event_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Systemic Therapy Procedure",
@@ -1711,7 +1711,7 @@
 			"drug_exposure": [
 				{
 					"Target Field": "drug_exposure_id",
-					"Instruction": "Generate Unique ID",
+					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
@@ -1784,7 +1784,7 @@
 				},
 				{
 					"Target Field": "event_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Systemic Therapy Dose Given Drug Exposure",
@@ -1805,7 +1805,7 @@
 			"drug_exposure": [
 				{
 					"Target Field": "drug_exposure_id",
-					"Instruction": "Generate Unique ID",
+					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
@@ -1878,7 +1878,7 @@
 				},
 				{
 					"Target Field": "event_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Systemic Therapy Dose Prescribed Drug Exposure",
