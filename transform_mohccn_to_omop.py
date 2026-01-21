@@ -81,6 +81,7 @@ class MohccnToOmopTransformer:
 			"^person\\.day_of_birth$",
 			"^episode\\.episode_number$"
 		]
+		self._duplicate_id_map_check = []
 
 		self.log_message(f"Logging debug output to: {self._debug_output_log_filename}", True, False)
 
@@ -240,6 +241,10 @@ class MohccnToOmopTransformer:
 			# Store all generated unique IDs
 			if (instructions["Instruction"] in [self.INSTRUCTION_GENERATE_UNIQUE_ID, self.INSTRUCTION_GENERATE_UNIQUE_ID_FROM_PATH]):
 				current_unique_id = value
+				if ( current_unique_id in self._duplicate_id_map_check ):
+					self.log_message(f"Duplicate ID map found: {current_unique_id}")
+				else:
+					self._duplicate_id_map_check.append(current_unique_id)
 
 
 		if len(omop_data["skip_errors"]) != 0 and current_unique_id:
