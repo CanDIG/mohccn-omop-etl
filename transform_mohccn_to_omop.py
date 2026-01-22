@@ -82,8 +82,9 @@ class MohccnToOmopTransformer:
 			"^episode\\.episode_number$"
 		]
 		self._field_regex_to_maxlength = {
-			"^procedure_occurrence\\.procedure_source_value$" : 50,
-			"^procedure_occurrence\\.modifier_source_value$" : 50,
+			"^[\\w\\_]+\\.[\\w\\_]+_source_value$" : 50
+			# "^procedure_occurrence\\.procedure_source_value$" : 50,
+			# "^procedure_occurrence\\.modifier_source_value$" : 50,
 		}
 		self._duplicate_id_map_check = []
 
@@ -441,7 +442,11 @@ class MohccnToOmopTransformer:
 			return ""
 		
 	def _calculate_day_from_age(self, source_field: str, data: Dict) -> str:
-		dob_interval = self._global_vars["{Donor.date_of_birth}"]
+		dob_interval = self._global_vars["{Donor.date_of_birth}"] if "{Donor.date_of_birth}" in self._global_vars else ""
+		# dob_interval = self._global_vars["{Donor.date_of_birth}"]
+		if ( dob_interval == ""):
+			self.log_message(f"Error: Date of birth interval not found in global vars")
+			return ""
 		age = int(data[source_field]) if source_field in data else 0
 
 		# Convert dob_interval to incorporate age in years as the delta, and overwrite value in data
