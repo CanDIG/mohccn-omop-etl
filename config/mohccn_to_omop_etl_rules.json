@@ -4216,7 +4216,8 @@
 					"Instruction": "Concept ID By Code",
 					"MOHCCN Source Schema": "Comorbidity",
 					"Source Field": "comorbidity_type_code",
-					"Vocab": "ICD10"
+					"Vocab": "ICD10",
+					"Requirement Rule": "Placeholder:{missing_concept_id_value}"
 				},
 				{
 					"Target Field": "condition_source_value",
@@ -4228,7 +4229,8 @@
 					"Target Field": "condition_start_date",
 					"Instruction": "Calculate Date From Age",
 					"MOHCCN Source Schema": "Comorbidity",
-					"Source Field": "age_at_comorbidity_diagnosis"
+					"Source Field": "age_at_comorbidity_diagnosis",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
 				},
 				{
 					"Target Field": "condition_status_concept_id",

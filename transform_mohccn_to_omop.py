@@ -445,7 +445,7 @@ class MohccnToOmopTransformer:
 		dob_interval = self._global_vars["{Donor.date_of_birth}"] if "{Donor.date_of_birth}" in self._global_vars else ""
 		# dob_interval = self._global_vars["{Donor.date_of_birth}"]
 		if ( dob_interval == ""):
-			self.log_message(f"Error: Date of birth interval not found in global vars")
+			self.log_message(f"Info: Date of birth interval not found in global vars", False)
 			return ""
 		age = int(data[source_field]) if source_field in data else 0
 
