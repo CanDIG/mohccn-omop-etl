@@ -3,15 +3,30 @@ import json
 import sys
 from collections import Counter
 from pathlib import Path
+from urllib.request import urlopen
 
 import yaml
 from jsonschema import Draft7Validator, FormatChecker
 from referencing import Registry, Resource
 
 
-def load_openapi_schema(schema_path: Path) -> dict:
-    with schema_path.open("r", encoding="utf-8") as handle:
-        return yaml.safe_load(handle)
+def load_openapi_schema(schema_path: str) -> dict:
+	if (schema_path.startswith("http://") or schema_path.startswith("https://")):
+		from urllib.error import HTTPError, URLError
+		try:
+			with urlopen(schema_path) as handle:
+				return yaml.safe_load(handle)
+		except HTTPError as e:
+			if e.code != 200:
+				raise RuntimeError(f"Failed to fetch schema from URL '{schema_path}': HTTP {e.code} {e.reason}")
+			else:
+				raise
+		except URLError as e:
+			raise RuntimeError(f"Failed to fetch schema from URL '{schema_path}': {e.reason}")
+	else:
+		path = Path(schema_path) if isinstance(schema_path, str) else schema_path
+		with path.open("r", encoding="utf-8") as handle:
+			return yaml.safe_load(handle)
 
 
 def build_validator(
@@ -37,26 +52,38 @@ def format_error_path(error) -> str:
         if isinstance(part, int):
             parts.append(f"[{part}]")
         else:
-            if parts and not parts[-1].startswith("["):
-                parts.append(f".{part}")
-            else:
-                parts.append(str(part))
-    return "".join(parts)
+            parts.append(f".{part}")
+    return "$" + "".join(parts)
 
 
 def validate_json(
-    openapi_path: Path,
-    data_path: Path,
+    openapi_schema_path_or_url: str,
+    omop_json_file_path: str,
+	output_issues_csv_file_path: str,
     schema_name: str,
-) -> tuple[list[dict], list[str], Counter]:
-    warnings: list[str] = []
-    openapi_doc = load_openapi_schema(openapi_path)
+) -> tuple[list[dict], Counter]:
+    try:
+        openapi_doc = load_openapi_schema(openapi_schema_path_or_url)
+    except Exception as e:
+        print(f"ERROR: {e}")
+        return [], Counter()
+
+    openapi_doc = load_openapi_schema(openapi_schema_path_or_url)
+    
+    # Determine base URI: use URL directly if it's a URL, otherwise convert Path to URI
+    if isinstance(openapi_schema_path_or_url, str) and (openapi_schema_path_or_url.startswith("http://") or openapi_schema_path_or_url.startswith("https://")):
+        base_uri = openapi_schema_path_or_url
+    else:
+        path = Path(openapi_schema_path_or_url) if isinstance(openapi_schema_path_or_url, str) else openapi_schema_path_or_url
+        base_uri = path.resolve().as_uri()
+    
     validator = build_validator(
         openapi_doc,
         schema_name,
-        openapi_path.resolve().as_uri(),
+        base_uri,
     )
 
+    data_path = Path(omop_json_file_path)
     with data_path.open("r", encoding="utf-8") as handle:
         data = json.load(handle)
 
@@ -72,56 +99,34 @@ def validate_json(
             }
         )
         error_type_counts[error.validator] += 1
-    return errors, warnings, error_type_counts
+
+    if ( output_issues_csv_file_path != "" and len(errors) > 0 ):
+        write_errors_to_csv(errors, output_issues_csv_file_path)
+
+    return errors, error_type_counts
 
 
-def main() -> int:
-    if len(sys.argv) < 3:
-        print(
-            "Usage: python validate_openapi_json.py <openapi.yml> <data.json> "
-            "[schema_name]",
-            file=sys.stderr,
-        )
-        return 2
+def write_errors_to_csv(errors: list[dict], csv_path: str):
+	"""Write validation errors to a CSV file.
+	
+	Args:
+		errors: List of error dictionaries with 'path', 'message', and 'validator' keys
+		csv_path: Path where the CSV file should be written (default: "validation_errors.csv")
+	
+	Returns:
+		Path object of the written CSV file
+	"""
+	path = Path(csv_path) if isinstance(csv_path, str) else csv_path
+	with path.open("w", encoding="utf-8", newline="") as handle:
+		writer = csv.DictWriter(handle, fieldnames=["index", "path", "message", "validator"])
+		writer.writeheader()
+		for i, error in enumerate(errors, 1):
+			writer.writerow(
+				{
+					"index": i,
+					"path": error["path"],
+					"message": error["message"],
+					"validator": error["validator"],
+				}
+			)
 
-    openapi_path = Path(sys.argv[1])
-    data_path = Path(sys.argv[2])
-    schema_name = sys.argv[3] if len(sys.argv) > 3 else "IngestOmopDatasets"
-
-    errors, warnings, error_type_counts = validate_json(
-        openapi_path, data_path, schema_name
-    )
-    if warnings:
-        print(f"Warnings: {len(warnings)}")
-        for i, message in enumerate(warnings, 1):
-            print(f"{i}. {message}")
-    if errors:
-        print(f"Found {len(errors)} schema violations:")
-        for i, error in enumerate(errors, 1):
-            print(f"{i}. {error['path']}: {error['message']} ({error['validator']})")
-        if error_type_counts:
-            print("Violation types:")
-            for error_type, count in error_type_counts.most_common():
-                print(f"  {error_type}: {count}")
-        csv_path = Path("validation_errors.csv")
-        with csv_path.open("w", encoding="utf-8", newline="") as handle:
-            writer = csv.DictWriter(handle, fieldnames=["index", "path", "message", "validator"])
-            writer.writeheader()
-            for i, error in enumerate(errors, 1):
-                writer.writerow(
-                    {
-                        "index": i,
-                        "path": error["path"],
-                        "message": error["message"],
-                        "validator": error["validator"],
-                    }
-                )
-        print(f"Wrote violations to {csv_path}")
-        return 1
-
-    print("No schema violations found.")
-    return 0
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())

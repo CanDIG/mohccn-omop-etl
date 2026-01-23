@@ -7,6 +7,8 @@ import argparse
 import settings
 import requests
 from generate_etl_rules import generate_etl_rules
+from validate_openapi_json import validate_json
+from pathlib import Path
 # from clinical_etl import mohschemav3
 import re
 
@@ -83,8 +85,6 @@ class MohccnToOmopTransformer:
 		]
 		self._field_regex_to_maxlength = {
 			"^[\\w\\_]+\\.[\\w\\_]+_source_value$" : 50
-			# "^procedure_occurrence\\.procedure_source_value$" : 50,
-			# "^procedure_occurrence\\.modifier_source_value$" : 50,
 		}
 		self._duplicate_id_map_check = []
 
@@ -841,6 +841,8 @@ def main():
 	                    help='Optional path to a log file for all node paths in transfromation')
 	parser.add_argument('--debug_omop_json_file', type=str, default='', 
 	                    help='Optional path to a JSON file with full debugging info for transformation process')
+	parser.add_argument('--debug_omop_validation_issues_csv_file', type=str, default='', 
+	                    help='Optional path to a CSV file with schema validation results')
 	
 	
 	args = parser.parse_args()
@@ -891,6 +893,17 @@ def main():
 	# 	raise ValueError("Data validation failed. Please fix validation errors before proceeding.")
 
 	transformed_data = transformer.transform_mohccn_to_omop(raw_data, args.output_final_json_file)
+
+	if ( args.debug_omop_validation_issues_csv_file != "" ):
+		transformer.log_message(f"Validating '{args.output_final_json_file}' against OpenAPI schema '{settings.CANDIG_API_SCHEMA_YML_URL}'...")
+		errors, error_type_counts = validate_json(
+			settings.CANDIG_API_SCHEMA_YML_URL, args.output_final_json_file, args.debug_omop_validation_issues_csv_file, "IngestOmopDatasets"
+		)
+		if ( len(errors) > 0 ):
+			transformer.log_message(f"WARNING: {len(errors)} schema validation issue(s) found, saved to {args.debug_omop_validation_issues_csv_file}.")
+		else:
+			transformer.log_message(f"No schema validation issues found.")
+
 
 	end_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 	transformer.log_message(f"Transformation process completed at: {end_time}")

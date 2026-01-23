@@ -76,6 +76,7 @@ python transform_MOHCCN_to_omop.py -i input_MOHCCN_data.json
 - `--debug_output_log_file` - Path to debug log file (optional)
 - `--debug_raw_json_node_paths_file` - Path to log file for all node paths (optional)
 - `--debug_omop_json_file` - Path to JSON file with full debugging info (optional)
+- `--debug_omop_validation_issues_csv_file` - Path to CSV file with schema validation results
 
 **Example With Options**:
 ```bash
@@ -85,6 +86,7 @@ python transform_MOHCCN_to_omop.py \
   --debug_output_log_file debug_output.log \
   --debug_omop_json_file debug_omop.json \
   --debug_raw_json_node_paths_file raw_data_node_paths.txt
+  --debug_omop_validation_issues_csv_file debug_omop_validation_issues.csv
 ```
 
 #### Features
@@ -120,6 +122,9 @@ Edit the `.env` file in the project root with the following variables. The varia
 `VOCAB_SERVER_SEARCH_BY_TERM_URL` - URL of web page used by script 'process_vocabulary_mapping.py' to map terms from `GENERATED_UNMAPPED_VOCAB_CSV_FILE_NAME` to Athena concept IDs. Example: 'https://techna-omop.uhndata.io/dhdp-vocab-search/index.php'
 
 `VOCAB_SERVER_SEARCH_BY_CODE_URL` - URL of web page used by script 'transform_mohccn_to_omop.py' to map certain coded values in source MOHCCN JSON to Athena concept IDs. Example: 'https://techna-omop.uhndata.io/dhdp-vocab-search/search-by-code.php'
+
+`CANDIG_API_SCHEMA_YML_URL` - URL to CANDIG OMOP CDM OpenAPI schema, used for validating transformed OMOP JSON
+Example: 'https://raw.githubusercontent.com/CanDIG/candig-api/refs/heads/mshadbolt/ingest-schema-update/schema.yml'
 
 ### 1. **generate_validation_rules.py**
 
