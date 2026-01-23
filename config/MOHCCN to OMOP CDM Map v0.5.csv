@@ -1,4 +1,4 @@
-﻿Source JSON Level,DHDP Data Group,DHDP Data Catalog Identifier,OMOP Table,Target Field,Instruction,MOHCCN Source Schema,Source Field,Value,Vocab,Requirement Rule,Description
+Source JSON Level,DHDP Data Group,DHDP Data Catalog Identifier,OMOP Table,Target Field,Instruction,MOHCCN Source Schema,Source Field,Value,Vocab,Requirement Rule,Description
 $,Default Values,,observation,observation_type_concept_id,Fixed Value,N/A,N/A,32879,Type Concept,,Registry
 ,,,observation,observation_date,Copy Value,N/A,N/A,{missing_date_value},,,
 ,,,episode,episode_type_concept_id,Fixed Value,N/A,N/A,32879,Type Concept,,Registry
