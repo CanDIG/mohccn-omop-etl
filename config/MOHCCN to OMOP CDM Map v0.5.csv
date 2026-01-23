@@ -1,0 +1,535 @@
+﻿Source JSON Level,DHDP Data Group,DHDP Data Catalog Identifier,OMOP Table,Target Field,Instruction,MOHCCN Source Schema,Source Field,Value,Vocab,Requirement Rule,Description
+$,Default Values,,observation,observation_type_concept_id,Fixed Value,N/A,N/A,32879,Type Concept,,Registry
+,,,observation,observation_date,Copy Value,N/A,N/A,{missing_date_value},,,
+,,,episode,episode_type_concept_id,Fixed Value,N/A,N/A,32879,Type Concept,,Registry
+,,,specimen,specimen_type_concept_id,Fixed Value,N/A,N/A,32879,Type Concept,,Registry
+,,,visit_occurrence,visit_type_concept_id,Fixed Value,N/A,N/A,32879,Type Concept,,Registry
+,,,measurement,measurement_type_concept_id,Fixed Value,N/A,N/A,32879,Type Concept,,Registry
+,,,measurement,measurement_date,Copy Value,N/A,N/A,{missing_date_value},,,
+,,,procedure_occurrence,procedure_type_concept_id,Fixed Value,N/A,N/A,32879,Type Concept,,Registry
+,,,condition_occurrence,condition_type_concept_id,Fixed Value,N/A,N/A,32879,Type Concept,,Registry
+,,,death,person_id,Get Unique ID,Donor,submitter_donor_id,OMOP Patient Person,,Skip Record,
+,,,observation,person_id,Get Unique ID,Donor,submitter_donor_id,OMOP Patient Person,,Skip Record,
+,,,condition_occurrence,person_id,Get Unique ID,Donor,submitter_donor_id,OMOP Patient Person,,Skip Record,
+,,,drug_exposure,person_id,Get Unique ID,Donor,submitter_donor_id,OMOP Patient Person,,Skip Record,
+,,,procedure_occurrence,person_id,Get Unique ID,Donor,submitter_donor_id,OMOP Patient Person,,Skip Record,
+,,,measurement,person_id,Get Unique ID,Donor,submitter_donor_id,OMOP Patient Person,,Skip Record,
+,,,visit_occurrence,person_id,Get Unique ID,Donor,submitter_donor_id,OMOP Patient Person,,Skip Record,
+,,,specimen,person_id,Get Unique ID,Donor,submitter_donor_id,OMOP Patient Person,,Skip Record,
+,,,episode,person_id,Get Unique ID,Donor,submitter_donor_id,OMOP Patient Person,,Skip Record,
+,,,measurement,measurement_event_id,Get Unique ID (No Global Vars),Specimen,submitter_specimen_id,OMOP Specimen,,,
+,,,measurement,measurement_event_id,Get Unique ID (No Global Vars),Primary Diagnosis,submitter_primary_diagnosis_id,OMOP Primary Dx Episode,,,
+,,,measurement,measurement_event_id,Get Unique ID (No Global Vars),Treatment,submitter_treatment_id,OMOP Treatment Episode,,,
+,,,measurement,measurement_event_id,Get Unique ID (No Global Vars),Follow Up,submitter_follow_up_id,OMOP Follow Up Visit Occurrence,,,
+,,,measurement,meas_event_field_concept_id,Fixed Value If Not Empty,Specimen,submitter_specimen_id,1147049,CDM,,specimen.specimen_id
+,,,measurement,meas_event_field_concept_id,Fixed Value If Not Empty,Primary Diagnosis,submitter_primary_diagnosis_id,798885,CDM,,episode.episode_id
+,,,measurement,meas_event_field_concept_id,Fixed Value If Not Empty,Treatment,submitter_treatment_id,798885,CDM,,episode.episode_id
+,,,measurement,meas_event_field_concept_id,Fixed Value If Not Empty,Follow Up,submitter_follow_up_id,1147070,CDM,,visit_occurrence.visit_occurrence_id
+$.donors[],Global Variables,,_global_vars,N/A,Reset Global Vars,N/A,N/A,,,,
+,,,_global_vars,{source_id},Copy Value,N/A,N/A,SITE_{siteId},,,
+,,,_global_vars,{fixed_date},Fixed Value,N/A,N/A,2000-01-01,,,
+,,,_global_vars,{missing_date_value},Fixed Value,N/A,N/A,1800-01-01,,,
+,,,_global_vars,{missing_concept_id_value},Fixed Value,N/A,N/A,4255047,,,
+,,,_global_vars,{missing_string_value},Fixed Value,N/A,N/A,(Missing value),,,
+,CanDIG Dataset Definition,,_global_vars,N/A,Save To Global Vars,Donor,date_resolution,,,,
+,,,_global_vars,N/A,Save To Global Vars,Donor,submitter_donor_id,,,,
+,,,_global_vars,N/A,Save To Global Vars,Donor,program_id,,,,
+,,,_global_vars,N/A,Save To Global Vars,Donor,date_of_birth,,,,
+,,,dataset,id,Copy Value,N/A,N/A,{source_id}~{Donor.program_id},,Skip Record,
+,OMOP Patient Person,,person,person_id,Generate Unique ID,Donor,submitter_donor_id,,,Skip Record,
+,,,,person_source_value,Copy Value,N/A,N/A,{source_id}~{Donor.program_id}~{Donor.submitter_donor_id},,Skip Record,
+,,Patient - Sex At Birth (Code),,gender_concept_id,Concept ID By Term,Donor,sex_at_birth,,Gender,Placeholder:{missing_concept_id_value},https://athena.ohdsi.org/search-terms/terms?domain=Gender&standardConcept=Standard&page=1&pageSize=15&query=
+,,Patient - Sex At Birth (Text From Source),,gender_source_value,Copy Value,Donor,sex_at_birth,,,,
+,,Patient - Birth Year,,year_of_birth,Calculate Year From Interval,Donor,date_of_birth,,,Placeholder:1800,
+,,Patient - Birth Month,,month_of_birth,Calculate Month From Interval,Donor,date_of_birth,,,Placeholder:1,
+,,Patient - Birth Day,,day_of_birth,Calculate Day From Interval,Donor,date_of_birth,,,Placeholder:1,
+,,,,race_concept_id,Copy Value,N/A,N/A,{missing_concept_id_value},,,
+,,,,ethnicity_concept_id,Copy Value,N/A,N/A,{missing_concept_id_value},,,
+,OMOP Gender Identity Observation,,observation,observation_id,Generate Unique ID,Donor,submitter_donor_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,37171290,SNOMED,,Gender identity
+,,Patient - Gender Identity (Code),,value_as_concept_id,Concept ID By Term,Donor,gender,,,Skip Record,
+,,Patient - Gender Identity (Text From Source),,value_source_value,Copy Value,Donor,gender,,,,
+,OMOP Patient Death,,death,death_type_concept_id,Fixed Value,N/A,N/A,32879,Type Concept,,Registry
+,,Patient Death - Date Of Death,,death_date,Calculate Date From Interval,Donor,date_of_death,,,Placeholder:{missing_date_value},
+,,Patient Death - Cause Of Death (Code),,cause_concept_id,Concept ID By Term,Donor,cause_of_death,,,,
+,,Patient Death - Cause Of Death (Text From Source),,cause_source_value,Copy Value,Donor,cause_of_death,,,,
+,MOHCCN Donor Incomplete Modeling,,,?,,Donor,lost_to_followup_after_clinical_event_identifier,,,,
+,,,,?,,Donor,lost_to_followup_reason,,,,
+,,,,?,,Donor,date_alive_after_lost_to_followup,,,,
+$.donors[].primary_diagnoses[],OMOP Primary Dx Condition,,_global_vars,N/A,Save To Global Vars,Primary Diagnosis,submitter_primary_diagnosis_id,,,Skip Record,
+,,,condition_occurrence,condition_occurrence_id,Generate Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,,,Skip Record,
+,,Primary Diagnosis - Condition (Code),,condition_concept_id,Concept ID By Code,Primary Diagnosis,cancer_type_code,,ICD10,Placeholder:{missing_concept_id_value},
+,,Primary Diagnosis - Condition (Text From Source),,condition_source_value,Copy Value,Primary Diagnosis,cancer_type_code,,,,
+,,Primary Diagnosis - Diagnosis Date,,condition_start_date,Calculate Date From Interval,Primary Diagnosis,date_of_diagnosis,,,Placeholder:{missing_date_value},
+,,,,condition_status_concept_id,Fixed Value,N/A,N/A,32902,Condition Status,,Primary Diagnosis
+,OMOP Primary Dx Episode,,episode,episode_id,Generate Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,,,Skip Record,
+,,,,episode_concept_id,Fixed Value,N/A,N/A,32528,Episode,,Disease First Occurrence
+,,,,episode_source_concept_id,Fixed Value,N/A,N/A,0,,,
+,,,,episode_object_concept_id,Concept ID By Code,Primary Diagnosis,cancer_type_code,,ICD10,Placeholder:{missing_concept_id_value},
+,,,,episode_number,Fixed Value,N/A,N/A,1,,,
+,,,,episode_start_date,Copy Value,N/A,N/A,{fixed_date},,,
+,,,,episode_end_date,Copy Value,N/A,N/A,{fixed_date},,,
+,OMOP Primary Dx Episode / Condition Event,,episode_event,episode_id,Get Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,OMOP Primary Dx Episode,,Skip Record,
+,,,,event_id,Get Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,OMOP Primary Dx Condition,,Skip Record,
+,,,,episode_event_field_concept_id,Fixed Value,N/A,N/A,1147127,CDM,,condition_occurrence.condition_occurrence_id
+,OMOP Primary Dx Initial Diagnosis Measurement,,measurement,measurement_id,Generate Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,,,Skip Record,
+,,,,measurement_concept_id,Fixed Value,N/A,N/A,734306,Cancer Modifier,,Initial Diagnosis
+,,,,measurement_date,Copy Value,N/A,N/A,{fixed_date},,,
+,,,,measurement_event_id,Get Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,OMOP Primary Dx Condition,,Skip Record,
+,,,,meas_event_field_concept_id,Fixed Value,N/A,N/A,1147127,CDM,,condition_occurrence.condition_occurrence_id
+,,Primary Diagnosis - Basis of Diagnosis (Code),,value_as_concept_id,Concept ID By Term,Primary Diagnosis,basis_of_diagnosis,,,,
+,,Primary Diagnosis - Basis of Diagnosis (Text),,value_source_value,Copy Value,Primary Diagnosis,basis_of_diagnosis,,,,
+,OMOP Primary Dx Laterality Measurement,,measurement,measurement_id,Generate Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,,,Skip Record,
+,,,,measurement_concept_id,Fixed Value,N/A,N/A,35918306,NAACCR,,Laterality
+,,,,measurement_date,Copy Value,N/A,N/A,{fixed_date},,,
+,,,,measurement_event_id,Get Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,OMOP Primary Dx Condition,,Skip Record,
+,,,,meas_event_field_concept_id,Fixed Value,N/A,N/A,1147127,CDM,,condition_occurrence.condition_occurrence_id
+,,Primary Diagnosis - Disease Laterality (Code),,value_as_concept_id,Concept ID By Term,Primary Diagnosis,laterality,,,Skip Record,
+,,Primary Diagnosis - Disease Laterality (Text From Source),,value_source_value,Copy Value,Primary Diagnosis,laterality,,,,
+,OMOP Primary Dx Site Observation,,observation,observation_id,Generate Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,3011717,LOINC,,Primary site Cancer
+,,,,observation_date,Copy Value,N/A,N/A,{fixed_date},,,
+,,Primary Diagnosis - Primary Site (Code),,value_as_concept_id,Concept ID By Term,Primary Diagnosis,primary_site,,,Skip Record,
+,,Primary Diagnosis - Primary Site (Text From Source),,value_source_value,Copy Value,Primary Diagnosis,primary_site,,,,
+,,,,observation_event_id,Get Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,OMOP Primary Dx Condition,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,1147127,CDM,,condition_occurrence.condition_occurrence_id
+,OMOP TNM Clin T Stage Measurement,,measurement,measurement_id,Generate Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,,,Skip Record,
+,,,,measurement_concept_id,Fixed Value,N/A,N/A,4164336,SNOMED,,Clinical T category
+,,,,measurement_date,Copy Value,N/A,N/A,{fixed_date},,,
+,,,,measurement_event_id,Get Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,OMOP Primary Dx Condition,,Skip Record,
+,,,,meas_event_field_concept_id,Fixed Value,N/A,N/A,1147127,CDM,,condition_occurrence.condition_occurrence_id
+,,Primary Diagnosis - Clinical TNM T Stage (Code),,value_as_concept_id,Concept ID By Term,Primary Diagnosis,clinical_t_category,,,Skip Record,
+,,Primary Diagnosis - Clinical TNM T Stage (Text From Source),,value_source_value,Copy Value,Primary Diagnosis,clinical_t_category,,,,
+,OMOP TNM Clin N Stage Measurement,,measurement,measurement_id,Generate Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,,,Skip Record,
+,,,,measurement_concept_id,Fixed Value,N/A,N/A,4164466,SNOMED,,Clinical N category
+,,,,measurement_date,Copy Value,N/A,N/A,{fixed_date},,,
+,,,,measurement_event_id,Get Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,OMOP Primary Dx Condition,,Skip Record,
+,,,,meas_event_field_concept_id,Fixed Value,N/A,N/A,1147127,CDM,,condition_occurrence.condition_occurrence_id
+,,Primary Diagnosis - Clinical TNM N Stage (Code),,value_as_concept_id,Concept ID By Term,Primary Diagnosis,clinical_n_category,,,Skip Record,
+,,Primary Diagnosis - Clinical TNM N Stage (Text From Source),,value_source_value,Copy Value,Primary Diagnosis,clinical_n_category,,,,
+,OMOP TNM Clin M Stage Measurement,,measurement,measurement_id,Generate Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,,,Skip Record,
+,,,,measurement_concept_id,Fixed Value,N/A,N/A,4164182,SNOMED,,Clinical M category
+,,,,measurement_date,Copy Value,N/A,N/A,{fixed_date},,,
+,,,,measurement_event_id,Get Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,OMOP Primary Dx Condition,,Skip Record,
+,,,,meas_event_field_concept_id,Fixed Value,N/A,N/A,1147127,CDM,,condition_occurrence.condition_occurrence_id
+,,Primary Diagnosis - Clinical TNM M Stage (Code),,value_as_concept_id,Concept ID By Term,Primary Diagnosis,clinical_m_category,,,Skip Record,
+,,Primary Diagnosis - Clinical TNM M Stage (Text From Source),,value_source_value,Copy Value,Primary Diagnosis,clinical_m_category,,,,
+,OMOP Clinical Stage Measurement,,measurement,measurement_id,Generate Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,,,Skip Record,
+,,Primary Diagnosis - Clinical Staging System (Code),,measurement_concept_id,Concept ID By Term,Primary Diagnosis,clinical_tumour_staging_system,,,Placeholder:{missing_concept_id_value},
+,,Primary Diagnosis - Clinical Staging System (Text From Source),,measurement_source_value,Copy Value,Primary Diagnosis,clinical_tumour_staging_system,,,,
+,,,,measurement_date,Copy Value,N/A,N/A,{fixed_date},,,
+,,,,measurement_event_id,Get Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,OMOP Primary Dx Condition,,,
+,,,,meas_event_field_concept_id,Fixed Value,N/A,N/A,1147127,CDM,,condition_occurrence.condition_occurrence_id
+,,Primary Diagnosis - Clinical Stage Group (Code),,value_as_concept_id,Concept ID By Term,Primary Diagnosis,clinical_stage_group,,,,
+,,Primary Diagnosis - Clinical Stage Group (Text From Source),,value_source_value,Copy Value,Primary Diagnosis,clinical_stage_group,,,,
+,OMOP TNM Path T Stage Measurement,,measurement,measurement_id,Generate Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,,,Skip Record,
+,,,,measurement_concept_id,Fixed Value,N/A,N/A,4293617,SNOMED,,Pathologic T category
+,,,,measurement_date,Copy Value,N/A,N/A,{fixed_date},,,
+,,,,measurement_event_id,Get Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,OMOP Primary Dx Condition,,Skip Record,
+,,,,meas_event_field_concept_id,Fixed Value,N/A,N/A,1147127,CDM,,condition_occurrence.condition_occurrence_id
+,,Primary Diagnosis - Pathological TNM T Stage (Code),,value_as_concept_id,Concept ID By Term,Primary Diagnosis,pathological_t_category,,,Skip Record,
+,,Primary Diagnosis - Pathological TNM T Stage (Text From Source),,value_source_value,Copy Value,Primary Diagnosis,pathological_t_category,,,,
+,OMOP TNM Path N Stage Measurement,,measurement,measurement_id,Generate Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,,,Skip Record,
+,,,,measurement_concept_id,Fixed Value,N/A,N/A,4161174,SNOMED,,Pathologic N category
+,,,,measurement_date,Copy Value,N/A,N/A,{fixed_date},,,
+,,,,measurement_event_id,Get Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,OMOP Primary Dx Condition,,Skip Record,
+,,,,meas_event_field_concept_id,Fixed Value,N/A,N/A,1147127,CDM,,condition_occurrence.condition_occurrence_id
+,,Primary Diagnosis - Pathological TNM N Stage (Code),,value_as_concept_id,Concept ID By Term,Primary Diagnosis,pathological_n_category,,,Skip Record,
+,,Primary Diagnosis - Pathological TNM N Stage (Text From Source),,value_source_value,Copy Value,Primary Diagnosis,pathological_n_category,,,,
+,OMOP TNM Path M Stage Measurement,,measurement,measurement_id,Generate Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,,,Skip Record,
+,,,,measurement_concept_id,Fixed Value,N/A,N/A,4154262,SNOMED,,Pathologic M category
+,,,,measurement_date,Copy Value,N/A,N/A,{fixed_date},,,
+,,,,measurement_event_id,Get Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,OMOP Primary Dx Condition,,Skip Record,
+,,,,meas_event_field_concept_id,Fixed Value,N/A,N/A,1147127,CDM,,condition_occurrence.condition_occurrence_id
+,,Primary Diagnosis - Pathological TNM M Stage (Code),,value_as_concept_id,Concept ID By Term,Primary Diagnosis,pathological_m_category,,,Skip Record,
+,,Primary Diagnosis - Pathological TNM M Stage (Text From Source),,value_source_value,Copy Value,Primary Diagnosis,pathological_m_category,,,,
+,OMOP Pathological Stage Measurement,,measurement,measurement_id,Generate Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,,,Skip Record,
+,,Primary Diagnosis - Pathological Staging System (Code),,measurement_concept_id,Concept ID By Term,Primary Diagnosis,pathological_tumour_staging_system,,,Placeholder:{missing_concept_id_value},
+,,Primary Diagnosis - Pathological Staging System (Text From Source),,measurement_source_value,Copy Value,Primary Diagnosis,pathological_tumour_staging_system,,,,
+,,,,measurement_date,Copy Value,N/A,N/A,{fixed_date},,,
+,,,,measurement_event_id,Get Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,OMOP Primary Dx Condition,,Skip Record,
+,,,,meas_event_field_concept_id,Fixed Value,N/A,N/A,1147127,CDM,,condition_occurrence.condition_occurrence_id
+,,Primary Diagnosis - Pathological Staging Group (Code),,value_as_concept_id,Concept ID By Term,Primary Diagnosis,pathological_stage_group,,,,
+,,Primary Diagnosis - Pathological Staging Group (Text From Source),,value_source_value,Copy Value,Primary Diagnosis,pathological_stage_group,,,,
+$.donors[].primary_diagnoses[].treatments[],OMOP Treatment Episode,,_global_vars,N/A,Save To Global Vars,Treatment,submitter_treatment_id,,,Skip Record,
+,,,_global_vars,N/A,Save To Global Vars,Treatment,treatment_start_date,,,Placeholder:{missing_date_value},
+,,,_global_vars,N/A,Save To Global Vars,Treatment,status_of_treatment,,,,
+,,,episode,episode_id,Generate Unique ID,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,episode_concept_id,Fixed Value,N/A,N/A,32531,Episode,,Treatment Regimen
+,,,,episode_source_concept_id,Fixed Value,N/A,N/A,0,,,
+,,,,episode_object_concept_id,Fixed Value,N/A,N/A,0,,,
+,,Cancer Treatment - Treatment Start Date,,episode_start_date,Calculate Date From Interval,Treatment,treatment_start_date,,,Placeholder:{missing_date_value},
+,,Cancer Treatment - Treatment End Date,,episode_end_date,Calculate Date From Interval,Treatment,treatment_end_date,,,,
+,,Cancer Treatment - Is Primary Treatment,,episode_number,Concept ID By Term,Treatment,is_primary_treatment,,,,
+,OMOP Treatment Episode Intent Observation,,observation,observation_id,Generate Unique ID,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,4133895,SNOMED,,Therapeutic intent
+,,,,observation_date,Calculate Date From Interval,Treatment,treatment_start_date,,,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID,Treatment,submitter_treatment_id,OMOP Treatment Episode,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
+,,Cancer Treatment - Treatment Intent (Code),,value_as_concept_id,Concept ID By Term,Treatment,treatment_intent,,,Skip Record,
+,,Cancer Treatment - Treatment Intent (Text From Source),,value_source_value,Copy Value,Treatment,treatment_intent,,,,
+,OMOP Treatment Episode Response Observation,,observation,observation_id,Generate Unique ID,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,4082405,SNOMED,,Response to treatment
+,,Cancer Treatment - Response To Treatment (Code),,value_as_concept_id,Concept ID By Term,Treatment,response_to_treatment,,,Placeholder:{missing_concept_id_value},
+,,Cancer Treatment - Response To Treatment (Text From Source),,value_source_value,Copy Value,Treatment,response_to_treatment,,,,
+,,,,observation_date,Calculate Date From Interval,Treatment,treatment_start_date,,,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID,Treatment,submitter_treatment_id,OMOP Treatment Episode,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
+,,Cancer Treatment - Response To Treatment Criteria Method (Code),,qualifier_concept_id,Concept ID By Term,Treatment,response_to_treatment_criteria_method,,,,
+,,Cancer Treatment - Response To Treatment Criteria Method (Text From Source),,qualifier_source_value,Copy Value,Treatment,response_to_treatment_criteria_method,,,,
+$.donors[].primary_diagnoses[].treatments[].treatment_type[],OMOP Treatment Episode Procedure Occurrence,,procedure_occurrence,procedure_occurrence_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,procedure_concept_id,Fixed Value,N/A,N/A,0,,,
+,,Cancer Treatment - Treatment Type (Text From Source),,procedure_source_value,Copy Node,N/A,N/A,,,,
+,,,,procedure_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
+,,Cancer Treatment - Treatment Status (Code),,modifier_concept_id,Concept ID By Term,N/A,N/A,{Treatment.status_of_treatment},,,
+,,Cancer Treatment - Treatment Status (Text From Source),,modifier_source_value,Copy Value,N/A,N/A,{Treatment.status_of_treatment},,,
+,OMOP Treatment Episode / Procedure Occurrence Event,,episode_event,episode_id,Get Unique ID,Treatment,submitter_treatment_id,OMOP Treatment Episode,,Skip Record,
+,,,,event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Treatment Episode Procedure Occurrence,,Skip Record,
+,,,,episode_event_field_concept_id,Fixed Value,N/A,N/A,1147082,CDM,,procedure_occurrence.procedure_occurrence_id
+$.donors[].primary_diagnoses[].treatments[].systemic_therapies[],OMOP Systemic Therapy Episode,,episode,episode_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,episode_concept_id,Fixed Value,N/A,N/A,32941,Episode,,Cancer Drug Treatment
+,,,,episode_source_concept_id,Fixed Value,N/A,N/A,0,,,
+,,,,episode_object_concept_id,Concept ID By Term,Systemic Therapy,systemic_therapy_type,,,Placeholder:{missing_concept_id_value},
+,,,,episode_start_date,Calculate Date From Interval,Systemic Therapy,start_date,,,Placeholder:{missing_date_value},
+,,,,episode_end_date,Calculate Date From Interval,Systemic Therapy,end_date,,,,
+,OMOP Treatment Episode / Systemic Therapy Episode Event,,episode_event,episode_id,Get Unique ID,Treatment,submitter_treatment_id,OMOP Treatment Episode,,Skip Record,
+,,,,event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Systemic Therapy Episode,,Skip Record,
+,,,,episode_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
+,OMOP Systemic Therapy Procedure,,procedure_occurrence,procedure_occurrence_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,Systemic Therapy - Treatment Type (Code),,procedure_concept_id,Concept ID By Term,Systemic Therapy,systemic_therapy_type,,,Placeholder:{missing_concept_id_value},
+,,Systemic Therapy - Treatment Type (Text From Source),,procedure_source_value,Copy Value,Systemic Therapy,systemic_therapy_type,,,,
+,,,,procedure_date,Calculate Date From Interval,Systemic Therapy,start_date,,,Placeholder:{missing_date_value},
+,,Systemic Therapy - Number Of Cycles,,quantity,Copy Value,Systemic Therapy,number_of_cycles,,,,
+,OMOP Systemic Therapy Episode / Procedure Event,,episode_event,episode_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Systemic Therapy Episode,,Skip Record,
+,,,,event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Systemic Therapy Procedure,,Skip Record,
+,,,,episode_event_field_concept_id,Fixed Value,N/A,N/A,1147082,CDM,,procedure_occurrence.procedure_occurrence_id
+,OMOP Systemic Therapy Dose Given Drug Exposure,,_global_vars,{Systemic Therapy.drug_reference_database},Copy Value,Systemic Therapy,drug_reference_database,,,Placeholder String,
+,,,drug_exposure,drug_exposure_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,drug_type_concept_id,Fixed Value,N/A,N/A,32833,Type Concept,,EHR order
+,,,,drug_concept_id,Concept ID By Code,Systemic Therapy,drug_reference_identifier,,{Systemic Therapy.drug_reference_database},Placeholder:{missing_concept_id_value},
+,,"Systemic Therapy - Drug Reference Database / 
+Systemic Therapy - Drug Reference Identifier /
+Systemic Therapy - Drug Name",,drug_source_value,Concatenate Values,Systemic Therapy,"drug_reference_database, drug_reference_identifier, drug_name",,,,
+,,Systemic Therapy - Start Date,,drug_exposure_start_date,Calculate Date From Interval,Systemic Therapy,start_date,,,Placeholder:{missing_date_value},
+,,Systemic Therapy - End Date,,drug_exposure_end_date,Calculate Date From Interval,Systemic Therapy,end_date,,,Placeholder:{missing_date_value},
+,,Systemic Therapy - Dose Units,,dose_unit_source_value,Copy Value,Systemic Therapy,drug_dose_units,,,,
+,,Systemic Therapy - Actual Cumulative Dose,,quantity,Copy Value,Systemic Therapy,actual_cumulative_drug_dose,,,,
+,OMOP Systemic Therapy Episode / Dose Given Drug Exposure Event,,episode_event,episode_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Systemic Therapy Episode,,Skip Record,
+,,,,event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Systemic Therapy Dose Given Drug Exposure,,Skip Record,
+,,,,episode_event_field_concept_id,Fixed Value,N/A,N/A,1147094,CDM,,drug_exposure.drug_exposure_id
+,OMOP Systemic Therapy Dose Prescribed Drug Exposure,,drug_exposure,drug_exposure_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,drug_type_concept_id,Fixed Value,N/A,N/A,32838,Type Concept,,EHR prescription
+,,,,drug_concept_id,Concept ID By Code,Systemic Therapy,drug_reference_identifier,,{Systemic Therapy.drug_reference_database},Placeholder:{missing_concept_id_value},
+,,"Systemic Therapy - Drug Reference Database / 
+Systemic Therapy - Drug Reference Identifier /
+Systemic Therapy - Drug Name",,drug_source_value,Concatenate Values,Systemic Therapy,"drug_reference_database, drug_reference_identifier, drug_name",,,,
+,,Systemic Therapy - Start Date,,drug_exposure_start_date,Calculate Date From Interval,Systemic Therapy,start_date,,,Placeholder:{missing_date_value},
+,,Systemic Therapy - End Date,,drug_exposure_end_date,Calculate Date From Interval,Systemic Therapy,end_date,,,Placeholder:{missing_date_value},
+,,Systemic Therapy - Dose Units,,dose_unit_source_value,Copy Value,Systemic Therapy,drug_dose_units,,,,
+,,Systemic Therapy - Prescribed Cumulative Dose,,quantity,Copy Value,Systemic Therapy,prescribed_cumulative_drug_dose,,,,
+,OMOP Systemic Therapy Episode / Dose Prescribed Drug Exposure Event,,episode_event,episode_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Systemic Therapy Episode,,Skip Record,
+,,,,event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Systemic Therapy Dose Prescribed Drug Exposure,,Skip Record,
+,,,,episode_event_field_concept_id,Fixed Value,N/A,N/A,1147094,CDM,,drug_exposure.drug_exposure_id
+,MOHCCN Systemic Therapy Incomplete Modeling,,,,,Systemic Therapy,days_per_cycle,,,,
+$.donors[].primary_diagnoses[].treatments[].radiations[],OMOP Radiation Episode,,episode,episode_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,episode_concept_id,Fixed Value,N/A,N/A,32940,Episode,,Cancer Radiotherapy
+,,,,episode_source_concept_id,Fixed Value,N/A,N/A,0,,,
+,,,,episode_object_concept_id,Concept ID By Term,Radiation,radiation_therapy_modality,,,Placeholder:{missing_concept_id_value},
+,,,,episode_start_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
+,OMOP Treatment Episode / Radiation Episode Event,,episode_event,episode_id,Get Unique ID,Treatment,submitter_treatment_id,OMOP Treatment Episode,,Skip Record,
+,,,,event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Radiation Episode,,Skip Record,
+,,,,episode_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
+,OMOP Radiation Procedure,,procedure_occurrence,procedure_occurrence_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,Radiation Therapy - Modality (Code),,procedure_concept_id,Concept ID By Term,Radiation,radiation_therapy_modality,,,Placeholder:{missing_concept_id_value},
+,,Radiation Therapy - Modality (Text From Source),,procedure_source_value,Copy Value,Radiation,radiation_therapy_modality,,,,
+,,,,procedure_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
+,,Radiation Therapy - External or Internal (Code),,modifier_concept_id,Concept ID By Term,Radiation,radiation_therapy_type,,,,
+,,Radiation Therapy - External or Internal (Text From Source),,modifier_source_value,Copy Value,Radiation,radiation_therapy_type,,,,
+,OMOP Radiation Episode / Procedure Event,,episode_event,episode_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Radiation Episode,,Skip Record,
+,,,,event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Radiation Procedure,,Skip Record,
+,,,,episode_event_field_concept_id,Fixed Value,N/A,N/A,1147082,CDM,,procedure_occurrence.procedure_occurrence_id
+,OMOP Radiation Episode Total Dose Given Measurement,,measurement,measurement_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,measurement_concept_id,Fixed Value,N/A,N/A,40483776,SNOMED,,Total radiation dose delivered
+,,,,measurement_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
+,,,,measurement_event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Radiation Episode,,Skip Record,
+,,,,meas_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
+,,Radiation Therapy - Total Dose Given,,value_as_number,Copy Value,Radiation,radiation_therapy_dosage,,,Skip Record,
+,,Radiation Therapy - Total Dose Given Units,,unit_concept_id,Fixed Value,N/A,N/A,4037797,SNOMED,,Gy
+,OMOP Radiation Episode Total Fractions Given Measurement,,measurement,measurement_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,measurement_concept_id,Fixed Value,Radiation,,4037631,SNOMED,,Number of fractions
+,,,,measurement_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
+,,,,measurement_event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Radiation Episode,,Skip Record,
+,,,,meas_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
+,,Radiation Therapy - Total Dose Given,,value_as_number,Copy Value,Radiation,radiation_therapy_fractions,,,Skip Record,
+,OMOP Radiation Episode Radiated Site Observation,,observation,observation_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,4181646,SNOMED,,Procedure site
+,,,,observation_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Radiation Episode,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
+,,Radiation Therapy - Irradiated Site (Code),,value_as_concept_id,Concept ID By Term,Radiation,anatomical_site_irradiated ,,,Skip Record,
+,,Radiation Therapy - Irradiated Site (Text From Source),,value_source_value,Copy Value,Radiation,anatomical_site_irradiated ,,,,
+,OMOP Radiation Boost Procedure,,procedure_occurrence,procedure_occurrence_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,procedure_concept_id,Fixed Value,N/A,N/A,40482853,SNOMED,,Radiation boost therapy
+,,,,procedure_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
+,,,,modifier_concept_id,Concept ID By Term,Radiation,radiation_boost,,,Skip Record,
+,,,,modifier_source_value,Copy Value,Radiation,radiation_boost,,,,
+,OMOP Radiation Episode / Radiation Boost Procedure Event,,episode_event,episode_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Radiation Episode,,Skip Record,
+,,,,event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Radiation Boost Procedure,,Skip Record,
+,,,,episode_event_field_concept_id,Fixed Value,N/A,N/A,1147082,CDM,,procedure_occurrence.procedure_occurrence_id
+$.donors[].primary_diagnoses[].treatments[].surgeries[],OMOP Surgery Episode,,_global_vars,N/A,Save To Global Vars,Surgery,surgery_reference_database,,,,
+,,,episode,episode_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,episode_concept_id,Fixed Value,N/A,N/A,32939,Episode,,Cancer Surgery
+,,,,episode_source_concept_id,Fixed Value,N/A,N/A,0,,,
+,,,,episode_object_concept_id,Concept ID By Code,Surgery,surgery_reference_identifier,,{Surgery.surgery_reference_database},Placeholder:{missing_concept_id_value},
+,,,,episode_start_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
+,OMOP Treatment Episode / Surgery Episode Event,,episode_event,episode_id,Get Unique ID,Treatment,submitter_treatment_id,OMOP Treatment Episode,,Skip Record,
+,,,,event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Surgery Episode,,Skip Record,
+,,,,episode_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
+,OMOP Surgery Procedure,,procedure_occurrence,procedure_occurrence_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,Surgery - Surgery Type (Code),,procedure_concept_id,Concept ID By Code,Surgery,surgery_reference_identifier,,{Surgery.surgery_reference_database},Placeholder:{missing_concept_id_value},
+,,"Surgery - Surgery Reference Database (Text From Source),
+Surgery - Surgery Reference Identifier (Text From Source),
+Surgery - Surgery Name (Text From Source)",,procedure_source_value,Concatenate Values,Surgery,"surgery_reference_database, surgery_reference_identifier,
+surgery_type",,,,
+,,,,procedure_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
+,OMOP Surgery Episode / Procedure Event,,episode_event,episode_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Surgery Episode,,Skip Record,
+,,,,event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Surgery Procedure,,Skip Record,
+,,,,episode_event_field_concept_id,Fixed Value,N/A,N/A,1147082,CDM,,procedure_occurrence.procedure_occurrence_id
+,OMOP Surgery Episode Tumour Length Measurement,,measurement,measurement_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,measurement_concept_id,Fixed Value,,,4156562,SNOMED,,"Tumor size, dimension 1"
+,,,,measurement_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
+,,,,measurement_event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Surgery Episode,,Skip Record,
+,,,,meas_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
+,,Surgery - Tumour Length,,value_as_number,Copy Value,Surgery,tumour_length,,,Skip Record,
+,,,,unit_concept_id,Fixed Value,N/A,N/A,4122379,SNOMED,,mm
+,OMOP Surgery Episode Tumour Width Measurement,,measurement,measurement_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,measurement_concept_id,Fixed Value,,,4156563,SNOMED,,"Tumor size, dimension 2"
+,,,,measurement_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
+,,,,measurement_event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Surgery Episode,,Skip Record,
+,,,,meas_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
+,,Surgery - Tumour Width,,value_as_number,Copy Value,Surgery,tumour_width,,,Skip Record,
+,,,,unit_concept_id,Fixed Value,N/A,N/A,4122379,SNOMED,,mm
+,OMOP Surgery Episode Greatest Tumour Dimension Measurement,,measurement,measurement_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,measurement_concept_id,Fixed Value,,,4154259,SNOMED,,"Tumor size, largest dimension"
+,,,,measurement_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
+,,,,measurement_event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Surgery Episode,,Skip Record,
+,,,,meas_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
+,,Surgery - Tumour Width,,value_as_number,Copy Value,Surgery,greatest_dimension_tumour,,,Skip Record,
+,,,,unit_concept_id,Fixed Value,N/A,N/A,4122379,SNOMED,,mm
+,OMOP Surgery Episode Surgery Site Observation,,observation,observation_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,4181646,SNOMED,,Procedure site
+,,,,observation_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Surgery Episode,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
+,,Surgery - Body Site (Code),,value_as_concept_id,Concept ID By Term,Surgery,surgery_site,,ICDO3,Skip Record,
+,,Surgery - Body Site (Text From Source),,value_source_value,Copy Value,Surgery,surgery_site,,,,
+,OMOP Surgery Episode Surgery Tumour Focality Observation,,observation,observation_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,4244984,SNOMED,,Tumor focality
+,,,,observation_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Surgery Episode,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
+,,Surgery - Tumour Focality (Code),,value_as_concept_id,Concept ID By Term,Surgery,tumour_focality,,,Skip Record,
+,,Surgery - Tumour Focality (Text From Source),,value_source_value,Copy Value,Surgery,tumour_focality,,,,
+,OMOP Surgery Episode Surgery Specimen Source Observation,,observation,observation_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,45773156,SNOMED,,Specimen source
+,,,,observation_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Surgery Episode,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
+,,Surgery - Specimen Source (Code),,value_as_concept_id,Concept ID By Term,Surgery,surgery_location,,,Skip Record,
+,,Surgery - Specimen Source (Text From Source),,value_source_value,Copy Value,Surgery,surgery_location,,,,
+,OMOP Surgery Episode Residual Tumour Classification Observation,,observation,observation_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,4077124,SNOMED,,Residual tumor stage
+,,,,observation_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Surgery Episode,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
+,,Surgery - Residual Tumour Classification (Code),,value_as_concept_id,Concept ID By Term,Surgery,residual_tumour_classification,,,Skip Record,
+,,Surgery - Residual Tumour Classification (Text From Source),,value_source_value,Copy Value,Surgery,residual_tumour_classification,,,,
+,OMOP Surgery Episode Lymphovascular Invasion Observation,,observation,observation_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,1074673,SNOMED,,Status of lymphovascular invasion by tumour
+,,,,observation_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Surgery Episode,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
+,,Surgery - Lymphovascular Invasion (Code),,value_as_concept_id,Concept ID By Term,Surgery,lymphovascular_invasion,,,Skip Record,
+,,Surgery - Lymphovascular Invasion (Text From Source),,value_source_value,Copy Value,Surgery,lymphovascular_invasion,,,,
+,OMOP Surgery Episode Perineural Invasion Observation,,observation,observation_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,4161179,SNOMED,,Status of perineural invasion by tumour
+,,,,observation_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Surgery Episode,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
+,,Surgery - Perineural Invasion (Code),,value_as_concept_id,Concept ID By Term,Surgery,perineural_invasion,,,Skip Record,
+,,Surgery - Perineural Invasion (Text From Source),,value_source_value,Copy Value,Surgery,perineural_invasion,,,,
+,OMOP Surgery Episode Margin Positive Involvement Observation,,observation,observation_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,4184217,SNOMED,,Surgical margin involved by tumor
+,,,,observation_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Surgery Episode,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
+,,Surgery - Margin Types Involved (Code),,value_as_concept_id,Fixed Value,N/A,N/A,0,,,
+,,Surgery - Margin Types Involved (Text From Source),,value_source_value,Concatenate Values,Surgery,margin_types_involved,,,Skip Record,
+,,,,qualifier_concept_id,Fixed Value,N/A,N/A,9191,SNOMED,,Positive
+,OMOP Surgery Episode Margin Negative Involvement Observation,,observation,observation_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,4184217,SNOMED,,Surgical margin involved by tumor
+,,,,observation_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Surgery Episode,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
+,,Surgery - Margin Types Not Involved (Code),,value_as_concept_id,Fixed Value,N/A,N/A,0,,,
+,,Surgery - Margin Types Not Involved (Text From Source),,value_source_value,Concatenate Values,Surgery,margin_types_not_involved,,,Skip Record,
+,,,,qualifier_concept_id,Fixed Value,N/A,N/A,9189,SNOMED,,Negative
+,OMOP Surgery Episode Margin Unassessible Involvement Observation,,observation,observation_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,4184217,SNOMED,,Surgical margin involved by tumor
+,,,,observation_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Surgery Episode,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
+,,Surgery - Margin Types Not Assessable (Code),,value_as_concept_id,Fixed Value,N/A,N/A,0,,,
+,,Surgery - Margin Types Not Assessable (Text From Source),,value_source_value,Concatenate Values,Surgery,margin_types_not_assessed,,,Skip Record,
+,,,,qualifier_concept_id,Fixed Value,N/A,N/A,4183475,SNOMED,,Margins cannot be assessed
+$.donors[].primary_diagnoses[].specimens[],OMOP Specimen,,_global_vars,{Specimen.submitter_specimen_id},Copy Value,Specimen,submitter_specimen_id,,,Skip Record,
+,,,specimen,specimen_id,Generate Unique ID,Specimen,submitter_specimen_id,,,,
+,,,,specimen_concept_id,Fixed Value,N/A,N/A,4002890,SNOMED,,Tissue specimen
+,,Specimen - Specimen Collection Date,,specimen_date,Calculate Date From Interval,Specimen,specimen_collection_date,,,Placeholder:{missing_date_value},
+,,Specimen - Specimen Body Site (Code),,anatomic_site_concept_id,Concept ID By Code,Specimen,specimen_anatomic_location,,ICDO3,,
+,,Specimen - Specimen Body Site (Text From Source),,anatomic_site_source_value,Copy Value,Specimen,specimen_anatomic_location,,,,
+,OMOP Specimen Tumour Morphology Observation,,observation,observation_id,Generate Unique ID,Specimen,submitter_specimen_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,36716952,SNOMED,,Morphology
+,,,,observation_date,Calculate Date From Interval,Specimen,specimen_collection_date,,,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID,Specimen,submitter_specimen_id,OMOP Specimen,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,1147049,CDM,,specimen.specimen_id
+,,Specimen - Tumour Histological Type (Code),,value_as_concept_id,Concept ID By Code,Specimen,tumour_histological_type,,ICDO3,Skip Record,
+,,Specimen - Tumour Histological Type (Text From Source),,value_source_value,Copy Value,Specimen,tumour_histological_type,,,,
+,OMOP Specimen Tumour Grade Observation,,observation,observation_id,Generate Unique ID,Specimen,submitter_specimen_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,4160340,SNOMED,,Histologic grade
+,,,,observation_date,Calculate Date From Interval,Specimen,specimen_collection_date,,,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID,Specimen,submitter_specimen_id,OMOP Specimen,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,1147049,CDM,,specimen.specimen_id
+,,Specimen - Tumour Grade (Code),,value_as_concept_id,Concept ID By Term,Specimen,tumour_grade,,,Placeholder:{missing_concept_id_value},
+,,Specimen - Tumour Grade (Code),,value_source_value,Copy Value,Specimen,tumour_grade,,,,
+,,Specimen - Tumour Grading System (Code),,qualifier_concept_id,Concept ID By Term,Specimen,tumour_grading_system,,,,
+,,Specimen - Tumour Grading System (Code),,qualifier_source_value,Copy Value,Specimen,tumour_grading_system,,,,
+,OMOP Specimen Laterality Observation,,observation,observation_id,Generate Unique ID,Specimen,submitter_specimen_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,4298494,SNOMED,,Specimen laterality
+,,,,observation_date,Calculate Date From Interval,Specimen,specimen_collection_date,,,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID,Specimen,submitter_specimen_id,OMOP Specimen,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,1147049,CDM,,specimen.specimen_id
+,,Specimen - Specimen Laterality  (Code),,value_as_concept_id,Concept ID By Term,Specimen,specimen_laterality,,,Skip Record,
+,,Specimen - Specimen Laterality (Code),,value_source_value,Copy Value,Specimen,specimen_laterality,,,,
+,OMOP Specimen Processing Technique Observation,,observation,observation_id,Generate Unique ID,Specimen,submitter_specimen_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,4154128,SNOMED,,Specimen type
+,,,,observation_date,Calculate Date From Interval,Specimen,specimen_collection_date,,,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID,Specimen,submitter_specimen_id,OMOP Specimen,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,1147049,CDM,,specimen.specimen_id
+,,Specimen - Specimen Processing Technique (Code),,value_as_concept_id,Concept ID By Term,Specimen,specimen_processing,,,Skip Record,
+,,Specimen - Specimen Processing Technique (Code),,value_source_value,Copy Value,Specimen,specimen_processing,,,,
+,OMOP Specimen Storage Method Observation,,observation,observation_id,Generate Unique ID,Specimen,submitter_specimen_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,37169821,SNOMED,,Specimen storage
+,,,,observation_date,Calculate Date From Interval,Specimen,specimen_collection_date,,,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID,Specimen,submitter_specimen_id,OMOP Specimen,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,1147049,CDM,,specimen.specimen_id
+,,Specimen - Specimen Storage Method (Code),,value_as_concept_id,Concept ID By Term,Specimen,specimen_storage,,,Skip Record,
+,,Specimen - Specimen Storage Method (Code),,value_source_value,Copy Value,Specimen,specimen_storage,,,,
+,OMOP Primary Dx Episode / Specimen Event,,episode_event,episode_id,Get Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,OMOP Primary Dx Episode,,Skip Record,
+,,,,event_id,Get Unique ID,Specimen,submitter_specimen_id,OMOP Specimen,,Skip Record,
+,,,,episode_event_field_concept_id,Fixed Value,N/A,N/A,1147049,CDM,,specimen.specimen_id
+,OMOP Treatment Episode / Specimen Event,,episode_event,episode_id,Get Unique ID,Treatment,submitter_treatment_id,OMOP Treatment Episode,,Skip Record,
+,,,,event_id,Get Unique ID,Specimen,submitter_specimen_id,OMOP Specimen,,Skip Record,
+,,,,episode_event_field_concept_id,Fixed Value,N/A,N/A,1147049,CDM,,specimen.specimen_id
+,MOHCCN Specimen Incomplete Modeling,,,,,Specimen,reference_pathology_confirmed_diagnosis,,,,
+,,,,,,Specimen,reference_pathology_confirmed_tumour_presence,,,,
+,,,,,,Specimen,percent_tumour_cells_range,,,,
+,,,,,,Specimen,percent_tumour_cells_measurement_method,,,,
+$.donors[].primary_diagnoses[].treatments[].followups[],OMOP Follow Up Visit Occurrence,,_global_vars,N/A,Save To Global Vars,Follow Up,submitter_follow_up_id,,,,
+,,,visit_occurrence,visit_occurrence_id,Generate Unique ID,Follow Up,submitter_follow_up_id,,,Skip Record,
+,,,,visit_concept_id,Fixed Value,N/A,N/A,9202,Visit,,Outpatient Visit
+,,,,visit_start_date,Calculate Date From Interval,Follow Up,date_of_followup,,,Placeholder:{missing_date_value},
+,,,,visit_end_date,Calculate Date From Interval,Follow Up,date_of_followup,,,Placeholder:{missing_date_value},
+,OMOP Follow Up Disease Status Observation,,observation,observation_id,Generate Unique ID,Follow Up,submitter_follow_up_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,4203711,SNOMED,,Follow-up status
+,,,,observation_date,Calculate Date From Interval,Follow Up,date_of_followup,,,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID,Follow Up,submitter_follow_up_id,OMOP Follow Up Visit Occurrence,,,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,1147070,CDM,,visit_occurrence.visit_occurrence_id
+,,,,value_as_concept_id,Concept ID By Term,Follow Up,disease_status_at_followup,,,Skip Record,
+,,,,value_source_value,Copy Value,Follow Up,disease_status_at_followup,,,,
+,OMOP Follow Up Relapse Type Observation,,observation,observation_id,Generate Unique ID,Follow Up,submitter_follow_up_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,4117444,SNOMED,,Relapse episode
+,,,,observation_date,Calculate Date From Interval,Follow Up,date_of_relapse,,,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID,Follow Up,submitter_follow_up_id,OMOP Follow Up Visit Occurrence,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,1147070,CDM,,visit_occurrence.visit_occurrence_id
+,,,,value_as_concept_id,Concept ID By Term,Follow Up,relapse_type,,,Placeholder:{missing_concept_id_value},
+,,,,value_source_value,Copy Value,Follow Up,relapse_type,,,,
+,OMOP Follow Up Relapse Site Observation,,observation,observation_id,Generate Unique ID,Follow Up,submitter_follow_up_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,3375793,SNOMED,,Tumour site
+,,,,observation_date,Calculate Date From Interval,Follow Up,date_of_relapse,,,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID,Follow Up,submitter_follow_up_id,OMOP Follow Up Visit Occurrence,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,1147070,CDM,,visit_occurrence.visit_occurrence_id
+,,,,value_as_concept_id,Concept ID By Code,Follow Up,anatomic_site_progression_or_recurrence,,ICDO3,Skip Record,
+,,,,value_source_value,Copy Value,Follow Up,anatomic_site_progression_or_recurrence,,,,
+,MOHCCN Follow Up Incomplete Modeling,,,,,Follow Up,method_of_progression_status,,,,
+$.donors[].biomarkers[],OMOP PSA Biomarker Measurement,,measurement,measurement_id,Generate Unique ID From Path,Donor,submitter_donor_id,,,Skip Record,
+,,,,measurement_concept_id,Fixed Value,N/A,N/A,4272032,SNOMED,,Prostate specific antigen measurement
+,,,,measurement_date,Calculate Date From Interval,Biomarker,test_date,,,Placeholder:{missing_date_value},
+,,,,value_as_number,Copy Value,Biomarker,psa_level,,,Skip Record,
+,,,,unit_concept_id,Fixed Value,N/A,N/A,4120724,SNOMED,,ng/mL
+,OMOP CA125 Biomarker Measurement,,measurement,measurement_id,Generate Unique ID From Path,Donor,submitter_donor_id,,,Skip Record,
+,,,,measurement_concept_id,Fixed Value,N/A,N/A,4197913,SNOMED,,CA 125 measurement
+,,,,measurement_date,Calculate Date From Interval,Biomarker,test_date,,,Placeholder:{missing_date_value},
+,,,,value_as_number,Copy Value,Biomarker,ca125,,,Skip Record,
+,,,,unit_concept_id,Fixed Value,N/A,N/A,4118305,SNOMED,,U/mL
+,OMOP CEA Biomarker Measurement,,measurement,measurement_id,Generate Unique ID From Path,Donor,submitter_donor_id,,,Skip Record,
+,,,,measurement_concept_id,Fixed Value,N/A,N/A,4244721,SNOMED,,Carcinoembryonic antigen measurement
+,,,,measurement_date,Calculate Date From Interval,Biomarker,test_date,,,Placeholder:{missing_date_value},
+,,,,value_as_number,Copy Value,Biomarker,cea,,,Skip Record,
+,,,,unit_concept_id,Fixed Value,N/A,N/A,4120724,SNOMED,,ng/mL
+,OMOP Estrogen Receptor Biomarker Measurement,,measurement,measurement_id,Generate Unique ID From Path,Donor,submitter_donor_id,,,Skip Record,
+,,,,measurement_concept_id,Fixed Value,N/A,N/A,4307360,SNOMED,,Estrogen receptor assay
+,,,,measurement_date,Calculate Date From Interval,Biomarker,test_date,,,Placeholder:{missing_date_value},
+,,,,value_as_concept_id,Concept ID By Term,Biomarker,er_status,,,Skip Record,
+,,,,value_as_number,Copy Value,Biomarker,er_percent_positive,,,,
+,,,,unit_concept_id,Fixed Value,N/A,N/A,4041099,SNOMED,,Percent
+,OMOP HER2 IHC Status Biomarker Measurement,,measurement,measurement_id,Generate Unique ID From Path,Donor,submitter_donor_id,,,Skip Record,
+,,,,measurement_concept_id,Fixed Value,N/A,N/A,35918264,NAACCR,,HER2 IHC Summary
+,,,,measurement_date,Calculate Date From Interval,Biomarker,test_date,,,Placeholder:{missing_date_value},
+,,,,value_as_concept_id,Concept ID By Term,Biomarker,her2_ihc_status,,,Skip Record,
+,OMOP HER2 ISH Status Biomarker Measurement,,measurement,measurement_id,Generate Unique ID From Path,Donor,submitter_donor_id,,,Skip Record,
+,,,,measurement_concept_id,Fixed Value,N/A,N/A,35918706,NAACCR,,HER2 ISH Summary
+,,,,measurement_date,Calculate Date From Interval,Biomarker,test_date,,,Placeholder:{missing_date_value},
+,,,,value_as_concept_id,Concept ID By Term,Biomarker,her2_ish_status,,,Skip Record,
+,MOHCCN Biomarkers Incomplete Modeling,,,,,Biomarker,hpv_ihc_status,,,,
+,,,,,,Biomarker,hpv_pcr_status,,,,
+,,,,,,Biomarker,hpv_strain,,,,
+$.donors[].exposures[],OMOP Tobacco Smoking Status Observation,,observation,observation_id,Generate Unique ID From Path,Donor,submitter_donor_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,43054909,LOINC,,Tobacco smoking status
+,,,,value_as_concept_id,Concept ID By Term,Exposure,tobacco_smoking_status,,,Skip Record,
+,,,,value_source_value,Copy Value,Exposure,tobacco_smoking_status,,,,
+,OMOP Cigarette Pack Years Observation,,observation,observation_id,Generate Unique ID From Path,Donor,submitter_donor_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,4151768,SNOMED,,Pack years
+,,,,observation_event_id,Get Unique ID From Path,Donor,submitter_donor_id,OMOP Tobacco Smoking Status Observation,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,1147165,CDM,,observation.observation_id
+,,,,value_as_number,Copy Value,Exposure,pack_years_smoked,,,Skip Record,
+,OMOP Tobacco Type Observation,,observation,observation_id,Generate Unique ID From Path,Donor,submitter_donor_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,37172639,SNOMED,,Type of tobacco used
+,,,,observation_event_id,Get Unique ID From Path,Donor,submitter_donor_id,OMOP Tobacco Smoking Status Observation,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,1147165,CDM,,observation.observation_id
+,,,,value_as_concept_id,Fixed Value,N/A,N/A,0,,,
+,,,,value_source_value,Concatenate Values,Exposure,tobacco_type,,,Skip Record,
+$.donors[].comorbidities[],OMOP Comorbidity Condition,,condition_occurrence,condition_occurrence_id,Generate Unique ID From Path,Donor,submitter_donor_id,,,,
+,,,,condition_concept_id,Concept ID By Code,Comorbidity,comorbidity_type_code,,ICD10,,
+,,,,condition_source_value,Copy Value,Comorbidity,comorbidity_type_code,,,,
+,,,,condition_start_date,Calculate Date From Age,Comorbidity,age_at_comorbidity_diagnosis,,,,
+,,,,condition_status_concept_id,Concept ID By Term,Comorbidity,prior_malignancy,,,,
+,,,,condition_status_source_value,Copy Value,Comorbidity,prior_malignancy,,,,
+,OMOP Comorbidity Laterality Measurement,,measurement,measurement_id,Generate Unique ID From Path,Donor,submitter_donor_id,,,,
+,,,,measurement_concept_id,Fixed Value,N/A,N/A,35918306,NAACCR,,
+,,,,measurement_event_id,Get Unique ID,Comorbidity,$.donors[].comorbidities[],OMOP Comorbidity Condition,,,
+,,,,meas_event_field_concept_id,Fixed Value,N/A,N/A,1147127,CDM,,
+,,,,value_as_concept_id,Concept ID By Term,Comorbidity,laterality_of_prior_malignancy,,,,
+,,,,value_source_value,Copy Value,Comorbidity,laterality_of_prior_malignancy,,,,
+,MOHCCN Comorbidity Incomplete Modeling,Will probably need to create a comorbidity episode and link procedure_occurrence via episode_event,,,,Comorbidity,comorbidity_treatment_status,,,,
+,,,,,,Comorbidity,comorbidity_treatment,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,MOHCCN Sample Registration Incomplete Modeling,,,,,Sample Registration,submitter_specimen_id,,,,
+,,,,,,Sample Registration,specimen_tissue_source,,,,
+,,,,,,Sample Registration,tumour_normal_designation,,,,
+,,,,,,Sample Registration,specimen_type,,,,
+,,,,,,Sample Registration,submitter_sample_id,,,,
+,,,,,,Sample Registration,sample_type,,,,

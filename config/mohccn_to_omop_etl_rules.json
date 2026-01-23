@@ -1534,7 +1534,7 @@
 				},
 				{
 					"Target Field": "event_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Treatment Episode Procedure Occurrence",
@@ -1604,7 +1604,7 @@
 			"episode_event": [
 				{
 					"Target Field": "episode_id",
-					"Instruction": "Get Unique ID From Path",
+					"Instruction": "Get Unique ID",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Treatment Episode",
@@ -1673,7 +1673,7 @@
 			"episode_event": [
 				{
 					"Target Field": "episode_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Systemic Therapy Episode",
@@ -1776,7 +1776,7 @@
 			"episode_event": [
 				{
 					"Target Field": "episode_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Systemic Therapy Episode",
@@ -1870,7 +1870,7 @@
 			"episode_event": [
 				{
 					"Target Field": "episode_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Systemic Therapy Episode",
@@ -1901,7 +1901,7 @@
 			"episode": [
 				{
 					"Target Field": "episode_id",
-					"Instruction": "Generate Unique ID",
+					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
@@ -1951,7 +1951,7 @@
 				},
 				{
 					"Target Field": "event_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Radiation Episode",
@@ -1972,7 +1972,7 @@
 			"procedure_occurrence": [
 				{
 					"Target Field": "procedure_occurrence_id",
-					"Instruction": "Generate Unique ID",
+					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
@@ -2020,7 +2020,7 @@
 			"episode_event": [
 				{
 					"Target Field": "episode_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Radiation Episode",
@@ -2028,7 +2028,7 @@
 				},
 				{
 					"Target Field": "event_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Radiation Procedure",
@@ -2049,7 +2049,7 @@
 			"measurement": [
 				{
 					"Target Field": "measurement_id",
-					"Instruction": "Generate Unique ID",
+					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
@@ -2073,7 +2073,7 @@
 				},
 				{
 					"Target Field": "measurement_event_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Radiation Episode",
@@ -2112,7 +2112,7 @@
 			"measurement": [
 				{
 					"Target Field": "measurement_id",
-					"Instruction": "Generate Unique ID",
+					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
@@ -2135,7 +2135,7 @@
 				},
 				{
 					"Target Field": "measurement_event_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Radiation Episode",
@@ -2164,7 +2164,7 @@
 			"observation": [
 				{
 					"Target Field": "observation_id",
-					"Instruction": "Generate Unique ID",
+					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
@@ -2188,7 +2188,7 @@
 				},
 				{
 					"Target Field": "observation_event_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Radiation Episode",
@@ -2224,7 +2224,7 @@
 			"procedure_occurrence": [
 				{
 					"Target Field": "procedure_occurrence_id",
-					"Instruction": "Generate Unique ID",
+					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
@@ -2265,7 +2265,7 @@
 			"episode_event": [
 				{
 					"Target Field": "episode_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Radiation Episode",
@@ -2273,7 +2273,7 @@
 				},
 				{
 					"Target Field": "event_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Radiation Boost Procedure",
@@ -2304,7 +2304,7 @@
 			"episode": [
 				{
 					"Target Field": "episode_id",
-					"Instruction": "Generate Unique ID",
+					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
@@ -2355,7 +2355,7 @@
 				},
 				{
 					"Target Field": "event_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Surgery Episode",
@@ -2376,7 +2376,7 @@
 			"procedure_occurrence": [
 				{
 					"Target Field": "procedure_occurrence_id",
-					"Instruction": "Generate Unique ID",
+					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
@@ -2411,7 +2411,7 @@
 			"episode_event": [
 				{
 					"Target Field": "episode_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Surgery Episode",
@@ -2419,7 +2419,7 @@
 				},
 				{
 					"Target Field": "event_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Surgery Procedure",
@@ -2440,7 +2440,7 @@
 			"measurement": [
 				{
 					"Target Field": "measurement_id",
-					"Instruction": "Generate Unique ID",
+					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
@@ -2462,7 +2462,7 @@
 				},
 				{
 					"Target Field": "measurement_event_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Surgery Episode",
@@ -2500,7 +2500,7 @@
 			"measurement": [
 				{
 					"Target Field": "measurement_id",
-					"Instruction": "Generate Unique ID",
+					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
@@ -2522,7 +2522,7 @@
 				},
 				{
 					"Target Field": "measurement_event_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Surgery Episode",
@@ -2560,7 +2560,7 @@
 			"measurement": [
 				{
 					"Target Field": "measurement_id",
-					"Instruction": "Generate Unique ID",
+					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
@@ -2582,7 +2582,7 @@
 				},
 				{
 					"Target Field": "measurement_event_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Surgery Episode",
@@ -2620,7 +2620,7 @@
 			"observation": [
 				{
 					"Target Field": "observation_id",
-					"Instruction": "Generate Unique ID",
+					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
@@ -2644,7 +2644,7 @@
 				},
 				{
 					"Target Field": "observation_event_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Surgery Episode",
@@ -2681,7 +2681,7 @@
 			"observation": [
 				{
 					"Target Field": "observation_id",
-					"Instruction": "Generate Unique ID",
+					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
@@ -2705,7 +2705,7 @@
 				},
 				{
 					"Target Field": "observation_event_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Surgery Episode",
@@ -2741,7 +2741,7 @@
 			"observation": [
 				{
 					"Target Field": "observation_id",
-					"Instruction": "Generate Unique ID",
+					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
@@ -2765,7 +2765,7 @@
 				},
 				{
 					"Target Field": "observation_event_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Surgery Episode",
@@ -2801,7 +2801,7 @@
 			"observation": [
 				{
 					"Target Field": "observation_id",
-					"Instruction": "Generate Unique ID",
+					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
@@ -2825,7 +2825,7 @@
 				},
 				{
 					"Target Field": "observation_event_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Surgery Episode",
@@ -2861,7 +2861,7 @@
 			"observation": [
 				{
 					"Target Field": "observation_id",
-					"Instruction": "Generate Unique ID",
+					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
@@ -2885,7 +2885,7 @@
 				},
 				{
 					"Target Field": "observation_event_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Surgery Episode",
@@ -2921,7 +2921,7 @@
 			"observation": [
 				{
 					"Target Field": "observation_id",
-					"Instruction": "Generate Unique ID",
+					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
@@ -2945,7 +2945,7 @@
 				},
 				{
 					"Target Field": "observation_event_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Surgery Episode",
@@ -2981,7 +2981,7 @@
 			"observation": [
 				{
 					"Target Field": "observation_id",
-					"Instruction": "Generate Unique ID",
+					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
@@ -3005,7 +3005,7 @@
 				},
 				{
 					"Target Field": "observation_event_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Surgery Episode",
@@ -3051,7 +3051,7 @@
 			"observation": [
 				{
 					"Target Field": "observation_id",
-					"Instruction": "Generate Unique ID",
+					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
@@ -3075,7 +3075,7 @@
 				},
 				{
 					"Target Field": "observation_event_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Surgery Episode",
@@ -3121,7 +3121,7 @@
 			"observation": [
 				{
 					"Target Field": "observation_id",
-					"Instruction": "Generate Unique ID",
+					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
@@ -3145,7 +3145,7 @@
 				},
 				{
 					"Target Field": "observation_event_id",
-					"Instruction": "Get Unique ID",
+					"Instruction": "Get Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Surgery Episode",
@@ -4216,8 +4216,7 @@
 					"Instruction": "Concept ID By Code",
 					"MOHCCN Source Schema": "Comorbidity",
 					"Source Field": "comorbidity_type_code",
-					"Vocab": "ICD10",
-					"Requirement Rule": "Placeholder:{missing_concept_id_value}"
+					"Vocab": "ICD10"
 				},
 				{
 					"Target Field": "condition_source_value",
@@ -4229,8 +4228,7 @@
 					"Target Field": "condition_start_date",
 					"Instruction": "Calculate Date From Age",
 					"MOHCCN Source Schema": "Comorbidity",
-					"Source Field": "age_at_comorbidity_diagnosis",
-					"Requirement Rule": "Placeholder:{missing_date_value}"
+					"Source Field": "age_at_comorbidity_diagnosis"
 				},
 				{
 					"Target Field": "condition_status_concept_id",

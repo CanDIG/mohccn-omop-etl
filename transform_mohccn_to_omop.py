@@ -354,7 +354,7 @@ class MohccnToOmopTransformer:
 
 			# For get unique ID, check if is in the skipped unique ids list
 			if ( isinstance(final_value, dict) and instruction in [self.INSTRUCTION_GET_UNIQUE_ID, self.INSTRUCTION_GET_UNIQUE_ID_FROM_PATH] and final_value in self._skipped_unique_ids):
-				self.log_message(f"Skipping OMOP record with unique_id: {final_value['source_value']}")
+				self.log_message(f"Skipped OMOP record for '{target_table}' referencing skipped unique_id: {final_value}")
 				skip_errors.append(f"Skipped OMOP record referencing skipped unique_id: {final_value}")
 
 		elif ( instruction == self.INSTRUCTION_CONCEPT_ID_BY_TERM):
