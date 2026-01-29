@@ -1,4 +1,4 @@
-Schema,Field,Original Term,Preferred Target Classes,Preferred Target Domains,Preferred Target Vocabularies,Mapped Term,Concept ID,Concept Code,Term Type,Status,Match Type,Class,Domain,Vocabulary,Match Type.1,Mapped By,Approved By,Review URL,Notes
+Schema,Field,Original Term,Preferred Target Classes,Preferred Target Domains,Preferred Target Vocabularies,Mapped Term,Concept ID,Concept Code,Term Type,Status,Match Type,Class,Domain,Vocabulary,Manual Map Type,Mapped By,Approved By,Review URL,Notes
 Sample Registration,specimen_tissue_source,Abdominal fluid,,,,Abdominal fluid sample,37155821,33511000087108,Synonym,Active,Inexact,Specimen,Specimen,SNOMED,,Justin Liu,,Review,
 Sample Registration,specimen_tissue_source,Amniotic fluid,,,,Amniotic fluid,4297445,77012006,Concept,Active,Exact,Substance,Observation,SNOMED,,Justin Liu,,Review,
 Sample Registration,specimen_tissue_source,Arterial blood,,,,Arterial blood,4187930,4635002,Concept,Active,Exact,Substance,Observation,SNOMED,,Justin Liu,,Review,
