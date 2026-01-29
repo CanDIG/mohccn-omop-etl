@@ -77,10 +77,10 @@ def generate_etl_rules():
 		json.dump(rules, f, indent='\t')
 
 	# Export XLSX file to CSV file with same name but with .csv extension
-	json_file_name = settings.MOHCCN_TO_OMOP_ETL_MODEL_XLSX_FILE_NAME
+	xlsx_file_name = settings.MOHCCN_TO_OMOP_ETL_MODEL_XLSX_FILE_NAME
 	# Check if the file name ends with .xlsx (case-insensitive)
-	if json_file_name.lower().endswith('.xlsx'):
-		csv_file_name = json_file_name[:-5] + '.csv'
+	if xlsx_file_name.lower().endswith('.xlsx'):
+		csv_file_name = xlsx_file_name[:-5] + '.csv'
 		df.to_csv(csv_file_name, index=False)
 	
 	print(f"ETL rules generated successfully: {output_file}")

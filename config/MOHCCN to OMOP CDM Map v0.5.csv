@@ -435,7 +435,7 @@ $.donors[].primary_diagnoses[].specimens[],OMOP Specimen,,_global_vars,{Specimen
 ,,,,,,Specimen,reference_pathology_confirmed_tumour_presence,,,,
 ,,,,,,Specimen,percent_tumour_cells_range,,,,
 ,,,,,,Specimen,percent_tumour_cells_measurement_method,,,,
-$.donors[].primary_diagnoses[].treatments[].followups[],OMOP Follow Up Visit Occurrence,,_global_vars,N/A,Save To Global Vars,Follow Up,submitter_follow_up_id,,,,
+$.donors[].followups[],OMOP Follow Up Visit Occurrence,,_global_vars,N/A,Save To Global Vars,Follow Up,submitter_follow_up_id,,,,
 ,,,visit_occurrence,visit_occurrence_id,Generate Unique ID,Follow Up,submitter_follow_up_id,,,Skip Record,
 ,,,,visit_concept_id,Fixed Value,N/A,N/A,9202,Visit,,Outpatient Visit
 ,,,,visit_start_date,Calculate Date From Interval,Follow Up,date_of_followup,,,Placeholder:{missing_date_value},
@@ -462,6 +462,64 @@ $.donors[].primary_diagnoses[].treatments[].followups[],OMOP Follow Up Visit Occ
 ,,,,value_as_concept_id,Concept ID By Code,Follow Up,anatomic_site_progression_or_recurrence,,ICDO3,Skip Record,
 ,,,,value_source_value,Copy Value,Follow Up,anatomic_site_progression_or_recurrence,,,,
 ,MOHCCN Follow Up Incomplete Modeling,,,,,Follow Up,method_of_progression_status,,,,
+$.donors[].primary_diagnoses[].followups[],OMOP Follow Up Visit Occurrence,,_global_vars,N/A,Save To Global Vars,Follow Up,submitter_follow_up_id,,,,
+,,,visit_occurrence,visit_occurrence_id,Generate Unique ID,Follow Up,submitter_follow_up_id,,,Skip Record,
+,,,,visit_concept_id,Fixed Value,N/A,N/A,9202,Visit,,Outpatient Visit
+,,,,visit_start_date,Calculate Date From Interval,Follow Up,date_of_followup,,,Placeholder:{missing_date_value},
+,,,,visit_end_date,Calculate Date From Interval,Follow Up,date_of_followup,,,Placeholder:{missing_date_value},
+,OMOP Follow Up Disease Status Observation,,observation,observation_id,Generate Unique ID,Follow Up,submitter_follow_up_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,4203711,SNOMED,,Follow-up status
+,,,,observation_date,Calculate Date From Interval,Follow Up,date_of_followup,,,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID,Follow Up,submitter_follow_up_id,OMOP Follow Up Visit Occurrence,,,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,1147070,CDM,,visit_occurrence.visit_occurrence_id
+,,,,value_as_concept_id,Concept ID By Term,Follow Up,disease_status_at_followup,,,Skip Record,
+,,,,value_source_value,Copy Value,Follow Up,disease_status_at_followup,,,,
+,OMOP Follow Up Relapse Type Observation,,observation,observation_id,Generate Unique ID,Follow Up,submitter_follow_up_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,4117444,SNOMED,,Relapse episode
+,,,,observation_date,Calculate Date From Interval,Follow Up,date_of_relapse,,,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID,Follow Up,submitter_follow_up_id,OMOP Follow Up Visit Occurrence,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,1147070,CDM,,visit_occurrence.visit_occurrence_id
+,,,,value_as_concept_id,Concept ID By Term,Follow Up,relapse_type,,,Placeholder:{missing_concept_id_value},
+,,,,value_source_value,Copy Value,Follow Up,relapse_type,,,,
+,OMOP Follow Up Relapse Site Observation,,observation,observation_id,Generate Unique ID,Follow Up,submitter_follow_up_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,3375793,SNOMED,,Tumour site
+,,,,observation_date,Calculate Date From Interval,Follow Up,date_of_relapse,,,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID,Follow Up,submitter_follow_up_id,OMOP Follow Up Visit Occurrence,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,1147070,CDM,,visit_occurrence.visit_occurrence_id
+,,,,value_as_concept_id,Concept ID By Code,Follow Up,anatomic_site_progression_or_recurrence,,ICDO3,Skip Record,
+,,,,value_source_value,Copy Value,Follow Up,anatomic_site_progression_or_recurrence,,,,
+,OMOP Primary Dx Episode / Visit Occurrence Event,,episode_event,episode_id,Get Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,OMOP Primary Dx Episode,,Skip Record,
+,,,,event_id,Get Unique ID,Follow Up,submitter_follow_up_id,OMOP Follow Up Visit Occurrence,,Skip Record,
+,,,,episode_event_field_concept_id,Fixed Value,N/A,N/A,1147070,CDM,,visit_occurrence.visit_occurrence_id
+$.donors[].primary_diagnoses[].treatments[].followups[],OMOP Follow Up Visit Occurrence,,_global_vars,N/A,Save To Global Vars,Follow Up,submitter_follow_up_id,,,,
+,,,visit_occurrence,visit_occurrence_id,Generate Unique ID,Follow Up,submitter_follow_up_id,,,Skip Record,
+,,,,visit_concept_id,Fixed Value,N/A,N/A,9202,Visit,,Outpatient Visit
+,,,,visit_start_date,Calculate Date From Interval,Follow Up,date_of_followup,,,Placeholder:{missing_date_value},
+,,,,visit_end_date,Calculate Date From Interval,Follow Up,date_of_followup,,,Placeholder:{missing_date_value},
+,OMOP Follow Up Disease Status Observation,,observation,observation_id,Generate Unique ID,Follow Up,submitter_follow_up_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,4203711,SNOMED,,Follow-up status
+,,,,observation_date,Calculate Date From Interval,Follow Up,date_of_followup,,,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID,Follow Up,submitter_follow_up_id,OMOP Follow Up Visit Occurrence,,,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,1147070,CDM,,visit_occurrence.visit_occurrence_id
+,,,,value_as_concept_id,Concept ID By Term,Follow Up,disease_status_at_followup,,,Skip Record,
+,,,,value_source_value,Copy Value,Follow Up,disease_status_at_followup,,,,
+,OMOP Follow Up Relapse Type Observation,,observation,observation_id,Generate Unique ID,Follow Up,submitter_follow_up_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,4117444,SNOMED,,Relapse episode
+,,,,observation_date,Calculate Date From Interval,Follow Up,date_of_relapse,,,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID,Follow Up,submitter_follow_up_id,OMOP Follow Up Visit Occurrence,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,1147070,CDM,,visit_occurrence.visit_occurrence_id
+,,,,value_as_concept_id,Concept ID By Term,Follow Up,relapse_type,,,Placeholder:{missing_concept_id_value},
+,,,,value_source_value,Copy Value,Follow Up,relapse_type,,,,
+,OMOP Follow Up Relapse Site Observation,,observation,observation_id,Generate Unique ID,Follow Up,submitter_follow_up_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,3375793,SNOMED,,Tumour site
+,,,,observation_date,Calculate Date From Interval,Follow Up,date_of_relapse,,,Placeholder:{missing_date_value},
+,,,,observation_event_id,Get Unique ID,Follow Up,submitter_follow_up_id,OMOP Follow Up Visit Occurrence,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,1147070,CDM,,visit_occurrence.visit_occurrence_id
+,,,,value_as_concept_id,Concept ID By Code,Follow Up,anatomic_site_progression_or_recurrence,,ICDO3,Skip Record,
+,,,,value_source_value,Copy Value,Follow Up,anatomic_site_progression_or_recurrence,,,,
+,OMOP Treatment Episode / Visit Occurrence Event,,episode_event,episode_id,Get Unique ID,Treatment,submitter_treatment_id,OMOP Treatment Episode,,Skip Record,
+,,,,event_id,Get Unique ID,Follow Up,submitter_follow_up_id,OMOP Follow Up Visit Occurrence,,Skip Record,
+,,,,episode_event_field_concept_id,Fixed Value,N/A,N/A,1147070,CDM,,visit_occurrence.visit_occurrence_id
 $.donors[].biomarkers[],OMOP PSA Biomarker Measurement,,measurement,measurement_id,Generate Unique ID From Path,Donor,submitter_donor_id,,,Skip Record,
 ,,,,measurement_concept_id,Fixed Value,N/A,N/A,4272032,SNOMED,,Prostate specific antigen measurement
 ,,,,measurement_date,Calculate Date From Interval,Biomarker,test_date,,,Placeholder:{missing_date_value},
