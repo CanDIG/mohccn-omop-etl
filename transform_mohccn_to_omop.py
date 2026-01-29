@@ -151,6 +151,13 @@ class MohccnToOmopTransformer:
 
 			# Load vocabulary mappings from Excel file
 			df = pd.read_excel(vocabulary_term_mappings_xlsx_filename, dtype=str)
+
+
+			# Export XLSX file to CSV file with same name but with .csv extension
+			if vocabulary_term_mappings_xlsx_filename.lower().endswith('.xlsx'):
+				csv_file_name = vocabulary_term_mappings_xlsx_filename[:-5] + '.csv'
+				df.to_csv(csv_file_name, index=False)
+
 			
 			# Replace nan with empty string
 			# df.fillna('', inplace=True)

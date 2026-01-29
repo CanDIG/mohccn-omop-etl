@@ -3609,6 +3609,465 @@
 			]
 		}
 	},
+	"$.donors[].followups[]": {
+		"OMOP Follow Up Visit Occurrence": {
+			"_global_vars": [
+				{
+					"Target Field": "N/A",
+					"Instruction": "Save To Global Vars",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id"
+				}
+			],
+			"visit_occurrence": [
+				{
+					"Target Field": "visit_occurrence_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "visit_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "9202",
+					"Vocab": "Visit",
+					"Description": "Outpatient Visit"
+				},
+				{
+					"Target Field": "visit_start_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "date_of_followup",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "visit_end_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "date_of_followup",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				}
+			]
+		},
+		"OMOP Follow Up Disease Status Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4203711",
+					"Vocab": "SNOMED",
+					"Description": "Follow-up status"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "date_of_followup",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id",
+					"Value": "OMOP Follow Up Visit Occurrence"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147070",
+					"Vocab": "CDM",
+					"Description": "visit_occurrence.visit_occurrence_id"
+				},
+				{
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "disease_status_at_followup",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "disease_status_at_followup"
+				}
+			]
+		},
+		"OMOP Follow Up Relapse Type Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4117444",
+					"Vocab": "SNOMED",
+					"Description": "Relapse episode"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "date_of_relapse",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id",
+					"Value": "OMOP Follow Up Visit Occurrence",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147070",
+					"Vocab": "CDM",
+					"Description": "visit_occurrence.visit_occurrence_id"
+				},
+				{
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "relapse_type",
+					"Requirement Rule": "Placeholder:{missing_concept_id_value}"
+				},
+				{
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "relapse_type"
+				}
+			]
+		},
+		"OMOP Follow Up Relapse Site Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "3375793",
+					"Vocab": "SNOMED",
+					"Description": "Tumour site"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "date_of_relapse",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id",
+					"Value": "OMOP Follow Up Visit Occurrence",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147070",
+					"Vocab": "CDM",
+					"Description": "visit_occurrence.visit_occurrence_id"
+				},
+				{
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Code",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "anatomic_site_progression_or_recurrence",
+					"Vocab": "ICDO3",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "anatomic_site_progression_or_recurrence"
+				}
+			]
+		}
+	},
+	"$.donors[].primary_diagnoses[].followups[]": {
+		"OMOP Follow Up Visit Occurrence": {
+			"_global_vars": [
+				{
+					"Target Field": "N/A",
+					"Instruction": "Save To Global Vars",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id"
+				}
+			],
+			"visit_occurrence": [
+				{
+					"Target Field": "visit_occurrence_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "visit_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "9202",
+					"Vocab": "Visit",
+					"Description": "Outpatient Visit"
+				},
+				{
+					"Target Field": "visit_start_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "date_of_followup",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "visit_end_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "date_of_followup",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				}
+			]
+		},
+		"OMOP Follow Up Disease Status Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4203711",
+					"Vocab": "SNOMED",
+					"Description": "Follow-up status"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "date_of_followup",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id",
+					"Value": "OMOP Follow Up Visit Occurrence"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147070",
+					"Vocab": "CDM",
+					"Description": "visit_occurrence.visit_occurrence_id"
+				},
+				{
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "disease_status_at_followup",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "disease_status_at_followup"
+				}
+			]
+		},
+		"OMOP Follow Up Relapse Type Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4117444",
+					"Vocab": "SNOMED",
+					"Description": "Relapse episode"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "date_of_relapse",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id",
+					"Value": "OMOP Follow Up Visit Occurrence",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147070",
+					"Vocab": "CDM",
+					"Description": "visit_occurrence.visit_occurrence_id"
+				},
+				{
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "relapse_type",
+					"Requirement Rule": "Placeholder:{missing_concept_id_value}"
+				},
+				{
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "relapse_type"
+				}
+			]
+		},
+		"OMOP Follow Up Relapse Site Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "3375793",
+					"Vocab": "SNOMED",
+					"Description": "Tumour site"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "date_of_relapse",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "observation_event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id",
+					"Value": "OMOP Follow Up Visit Occurrence",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "obs_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147070",
+					"Vocab": "CDM",
+					"Description": "visit_occurrence.visit_occurrence_id"
+				},
+				{
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Code",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "anatomic_site_progression_or_recurrence",
+					"Vocab": "ICDO3",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "anatomic_site_progression_or_recurrence"
+				}
+			]
+		},
+		"OMOP Primary Dx Episode / Visit Occurrence Event": {
+			"episode_event": [
+				{
+					"Target Field": "episode_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Value": "OMOP Primary Dx Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id",
+					"Value": "OMOP Follow Up Visit Occurrence",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "episode_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147070",
+					"Vocab": "CDM",
+					"Description": "visit_occurrence.visit_occurrence_id"
+				}
+			]
+		}
+	},
 	"$.donors[].primary_diagnoses[].treatments[].followups[]": {
 		"OMOP Follow Up Visit Occurrence": {
 			"_global_vars": [
@@ -3820,6 +4279,35 @@
 					"Instruction": "Copy Value",
 					"MOHCCN Source Schema": "Follow Up",
 					"Source Field": "anatomic_site_progression_or_recurrence"
+				}
+			]
+		},
+		"OMOP Treatment Episode / Visit Occurrence Event": {
+			"episode_event": [
+				{
+					"Target Field": "episode_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Treatment Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Follow Up",
+					"Source Field": "submitter_follow_up_id",
+					"Value": "OMOP Follow Up Visit Occurrence",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "episode_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147070",
+					"Vocab": "CDM",
+					"Description": "visit_occurrence.visit_occurrence_id"
 				}
 			]
 		}
