@@ -2662,7 +2662,7 @@
 				{
 					"DHDP Data Catalog Identifier": "Surgery - Body Site (Code)",
 					"Target Field": "value_as_concept_id",
-					"Instruction": "Concept ID By Term",
+					"Instruction": "Concept ID By Code",
 					"MOHCCN Source Schema": "Surgery",
 					"Source Field": "surgery_site",
 					"Vocab": "ICDO3",

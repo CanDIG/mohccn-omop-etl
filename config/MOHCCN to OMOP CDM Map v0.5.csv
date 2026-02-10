@@ -321,7 +321,7 @@ surgery_type",,,,
 ,,,,observation_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
 ,,,,observation_event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Surgery Episode,,Skip Record,
 ,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
-,,Surgery - Body Site (Code),,value_as_concept_id,Concept ID By Term,Surgery,surgery_site,,ICDO3,Skip Record,
+,,Surgery - Body Site (Code),,value_as_concept_id,Concept ID By Code,Surgery,surgery_site,,ICDO3,Skip Record,
 ,,Surgery - Body Site (Text From Source),,value_source_value,Copy Value,Surgery,surgery_site,,,,
 ,OMOP Surgery Episode Surgery Tumour Focality Observation,,observation,observation_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
 ,,,,observation_concept_id,Fixed Value,N/A,N/A,4244984,SNOMED,,Tumor focality
