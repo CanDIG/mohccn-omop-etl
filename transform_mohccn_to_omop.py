@@ -35,6 +35,7 @@ class MohccnToOmopTransformer:
 	INSTRUCTION_GET_UNIQUE_ID_NO_GLOBAL_VARS = "Get Unique ID (No Global Vars)"
 	INSTRUCTION_GET_UNIQUE_ID_FROM_PATH = "Get Unique ID From Path"
 	INSTRUCTION_CONCEPT_ID_BY_TERM = "Concept ID By Term"
+	INSTRUCTION_CONCEPT_ID_BY_NODE = "Concept ID By Node"
 	INSTRUCTION_COPY_VALUE = "Copy Value"
 	INSTRUCTION_COPY_NODE = "Copy Node"
 	INSTRUCTION_CALCULATE_YEAR_FROM_INTERVAL = "Calculate Year From Interval"
@@ -366,6 +367,9 @@ class MohccnToOmopTransformer:
 
 		elif ( instruction == self.INSTRUCTION_CONCEPT_ID_BY_TERM):
 			final_value = self._get_concept_id_by_term(source_schema, source_field, data, value)
+		elif ( instruction == self.INSTRUCTION_CONCEPT_ID_BY_NODE):
+			# print(f"Concept ID By Node: {data}")
+			final_value = self._get_concept_id_by_term(source_schema, source_field, data, data)
 		elif ( instruction == self.INSTRUCTION_CALCULATE_YEAR_FROM_INTERVAL):
 			final_value = self._calculate_year_from_interval(source_field, data)
 		elif ( instruction == self.INSTRUCTION_CALCULATE_MONTH_FROM_INTERVAL):
@@ -573,7 +577,9 @@ class MohccnToOmopTransformer:
 		"""
 		Get the concept ID by term.
 		"""
-		if ( source_field == "N/A"):
+
+		# If value is not empty, use the value as the initial value, otherwise use the source field from the data
+		if ( value != ""):
 			initial_value = self._replace_global_var_name_with_value(value)
 			# print(data)
 			# print(type(data))

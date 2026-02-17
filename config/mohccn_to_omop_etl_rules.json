@@ -1484,10 +1484,9 @@
 				},
 				{
 					"Target Field": "procedure_concept_id",
-					"Instruction": "Fixed Value",
-					"MOHCCN Source Schema": "N/A",
-					"Source Field": "N/A",
-					"Value": "0"
+					"Instruction": "Concept ID By Node",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "treatment_type"
 				},
 				{
 					"DHDP Data Catalog Identifier": "Cancer Treatment - Treatment Type (Text From Source)",
@@ -1508,8 +1507,8 @@
 					"DHDP Data Catalog Identifier": "Cancer Treatment - Treatment Status (Code)",
 					"Target Field": "modifier_concept_id",
 					"Instruction": "Concept ID By Term",
-					"MOHCCN Source Schema": "N/A",
-					"Source Field": "N/A",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "status_of_treatment",
 					"Value": "{Treatment.status_of_treatment}"
 				},
 				{
