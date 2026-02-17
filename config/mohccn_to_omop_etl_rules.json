@@ -3673,7 +3673,7 @@
 					"Target Field": "observation_date",
 					"Instruction": "Calculate Date From Interval",
 					"MOHCCN Source Schema": "Follow Up",
-					"Source Field": "date_of_followup",
+					"Source Field": "date_of_relapse",
 					"Requirement Rule": "Placeholder:{missing_date_value}"
 				},
 				{
@@ -3726,13 +3726,6 @@
 					"Description": "Relapse episode"
 				},
 				{
-					"Target Field": "observation_date",
-					"Instruction": "Calculate Date From Interval",
-					"MOHCCN Source Schema": "Follow Up",
-					"Source Field": "date_of_relapse",
-					"Requirement Rule": "Placeholder:{missing_date_value}"
-				},
-				{
 					"Target Field": "observation_event_id",
 					"Instruction": "Get Unique ID",
 					"MOHCCN Source Schema": "Follow Up",
@@ -3754,7 +3747,7 @@
 					"Instruction": "Concept ID By Term",
 					"MOHCCN Source Schema": "Follow Up",
 					"Source Field": "relapse_type",
-					"Requirement Rule": "Placeholder:{missing_concept_id_value}"
+					"Requirement Rule": "Skip Record"
 				},
 				{
 					"Target Field": "value_source_value",
@@ -3781,13 +3774,6 @@
 					"Value": "3375793",
 					"Vocab": "SNOMED",
 					"Description": "Tumour site"
-				},
-				{
-					"Target Field": "observation_date",
-					"Instruction": "Calculate Date From Interval",
-					"MOHCCN Source Schema": "Follow Up",
-					"Source Field": "date_of_relapse",
-					"Requirement Rule": "Placeholder:{missing_date_value}"
 				},
 				{
 					"Target Field": "observation_event_id",
@@ -3888,7 +3874,7 @@
 					"Target Field": "observation_date",
 					"Instruction": "Calculate Date From Interval",
 					"MOHCCN Source Schema": "Follow Up",
-					"Source Field": "date_of_followup",
+					"Source Field": "date_of_relapse",
 					"Requirement Rule": "Placeholder:{missing_date_value}"
 				},
 				{
@@ -3941,13 +3927,6 @@
 					"Description": "Relapse episode"
 				},
 				{
-					"Target Field": "observation_date",
-					"Instruction": "Calculate Date From Interval",
-					"MOHCCN Source Schema": "Follow Up",
-					"Source Field": "date_of_relapse",
-					"Requirement Rule": "Placeholder:{missing_date_value}"
-				},
-				{
 					"Target Field": "observation_event_id",
 					"Instruction": "Get Unique ID",
 					"MOHCCN Source Schema": "Follow Up",
@@ -3969,7 +3948,7 @@
 					"Instruction": "Concept ID By Term",
 					"MOHCCN Source Schema": "Follow Up",
 					"Source Field": "relapse_type",
-					"Requirement Rule": "Placeholder:{missing_concept_id_value}"
+					"Requirement Rule": "Skip Record"
 				},
 				{
 					"Target Field": "value_source_value",
@@ -3996,13 +3975,6 @@
 					"Value": "3375793",
 					"Vocab": "SNOMED",
 					"Description": "Tumour site"
-				},
-				{
-					"Target Field": "observation_date",
-					"Instruction": "Calculate Date From Interval",
-					"MOHCCN Source Schema": "Follow Up",
-					"Source Field": "date_of_relapse",
-					"Requirement Rule": "Placeholder:{missing_date_value}"
 				},
 				{
 					"Target Field": "observation_event_id",
@@ -4132,7 +4104,7 @@
 					"Target Field": "observation_date",
 					"Instruction": "Calculate Date From Interval",
 					"MOHCCN Source Schema": "Follow Up",
-					"Source Field": "date_of_followup",
+					"Source Field": "date_of_relapse",
 					"Requirement Rule": "Placeholder:{missing_date_value}"
 				},
 				{
@@ -4185,13 +4157,6 @@
 					"Description": "Relapse episode"
 				},
 				{
-					"Target Field": "observation_date",
-					"Instruction": "Calculate Date From Interval",
-					"MOHCCN Source Schema": "Follow Up",
-					"Source Field": "date_of_relapse",
-					"Requirement Rule": "Placeholder:{missing_date_value}"
-				},
-				{
 					"Target Field": "observation_event_id",
 					"Instruction": "Get Unique ID",
 					"MOHCCN Source Schema": "Follow Up",
@@ -4213,7 +4178,7 @@
 					"Instruction": "Concept ID By Term",
 					"MOHCCN Source Schema": "Follow Up",
 					"Source Field": "relapse_type",
-					"Requirement Rule": "Placeholder:{missing_concept_id_value}"
+					"Requirement Rule": "Skip Record"
 				},
 				{
 					"Target Field": "value_source_value",
@@ -4240,13 +4205,6 @@
 					"Value": "3375793",
 					"Vocab": "SNOMED",
 					"Description": "Tumour site"
-				},
-				{
-					"Target Field": "observation_date",
-					"Instruction": "Calculate Date From Interval",
-					"MOHCCN Source Schema": "Follow Up",
-					"Source Field": "date_of_relapse",
-					"Requirement Rule": "Placeholder:{missing_date_value}"
 				},
 				{
 					"Target Field": "observation_event_id",
