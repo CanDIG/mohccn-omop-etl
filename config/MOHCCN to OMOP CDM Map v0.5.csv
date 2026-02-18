@@ -358,29 +358,29 @@ surgery_type",,,,
 ,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
 ,,Surgery - Perineural Invasion (Code),,value_as_concept_id,Concept ID By Term,Surgery,perineural_invasion,,,Skip Record,
 ,,Surgery - Perineural Invasion (Text From Source),,value_source_value,Copy Value,Surgery,perineural_invasion,,,,
-,OMOP Surgery Episode Margin Positive Involvement Observation,,observation,observation_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+$.donors[].primary_diagnoses[].treatments[].surgeries[].margin_types_involved[],OMOP Surgery Episode Margin Positive Involvement Observation,,observation,observation_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
 ,,,,observation_concept_id,Fixed Value,N/A,N/A,4184217,SNOMED,,Surgical margin involved by tumor
 ,,,,observation_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
 ,,,,observation_event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Surgery Episode,,Skip Record,
 ,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
-,,Surgery - Margin Types Involved (Code),,value_as_concept_id,Fixed Value,N/A,N/A,0,,,
-,,Surgery - Margin Types Involved (Text From Source),,value_source_value,Concatenate Values,Surgery,margin_types_involved,,,Skip Record,
+,,Surgery - Margin Types Involved (Code),,value_as_concept_id,Concept ID By Node,Surgery,margin_types_involved,,,,
+,,Surgery - Margin Types Involved (Text From Source),,value_source_value,Copy Node,N/A,N/A,,,,
 ,,,,qualifier_concept_id,Fixed Value,N/A,N/A,9191,SNOMED,,Positive
-,OMOP Surgery Episode Margin Negative Involvement Observation,,observation,observation_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+$.donors[].primary_diagnoses[].treatments[].surgeries[].margin_types_not_involved[],OMOP Surgery Episode Margin Negative Involvement Observation,,observation,observation_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
 ,,,,observation_concept_id,Fixed Value,N/A,N/A,4184217,SNOMED,,Surgical margin involved by tumor
 ,,,,observation_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
 ,,,,observation_event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Surgery Episode,,Skip Record,
 ,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
-,,Surgery - Margin Types Not Involved (Code),,value_as_concept_id,Fixed Value,N/A,N/A,0,,,
-,,Surgery - Margin Types Not Involved (Text From Source),,value_source_value,Concatenate Values,Surgery,margin_types_not_involved,,,Skip Record,
+,,Surgery - Margin Types Not Involved (Code),,value_as_concept_id,Concept ID By Node,Surgery,margin_types_not_involved,,,,
+,,Surgery - Margin Types Not Involved (Text From Source),,value_source_value,Copy Node,N/A,N/A,,,,
 ,,,,qualifier_concept_id,Fixed Value,N/A,N/A,9189,SNOMED,,Negative
-,OMOP Surgery Episode Margin Unassessible Involvement Observation,,observation,observation_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+$.donors[].primary_diagnoses[].treatments[].surgeries[].margin_types_not_assessed[],OMOP Surgery Episode Margin Unassessible Involvement Observation,,observation,observation_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
 ,,,,observation_concept_id,Fixed Value,N/A,N/A,4184217,SNOMED,,Surgical margin involved by tumor
 ,,,,observation_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
 ,,,,observation_event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Surgery Episode,,Skip Record,
 ,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
-,,Surgery - Margin Types Not Assessable (Code),,value_as_concept_id,Fixed Value,N/A,N/A,0,,,
-,,Surgery - Margin Types Not Assessable (Text From Source),,value_source_value,Concatenate Values,Surgery,margin_types_not_assessed,,,Skip Record,
+,,Surgery - Margin Types Not Assessable (Code),,value_as_concept_id,Concept ID By Node,Surgery,margin_types_not_assessed,,,,
+,,Surgery - Margin Types Not Assessable (Text From Source),,value_source_value,Copy Node,N/A,N/A,,,,
 ,,,,qualifier_concept_id,Fixed Value,N/A,N/A,4183475,SNOMED,,Margins cannot be assessed
 $.donors[].primary_diagnoses[].specimens[],OMOP Specimen,,_global_vars,{Specimen.submitter_specimen_id},Copy Value,Specimen,submitter_specimen_id,,,Skip Record,
 ,,,specimen,specimen_id,Generate Unique ID,Specimen,submitter_specimen_id,,,,
@@ -555,12 +555,12 @@ $.donors[].exposures[],OMOP Tobacco Smoking Status Observation,,observation,obse
 ,,,,observation_event_id,Get Unique ID From Path,Donor,submitter_donor_id,OMOP Tobacco Smoking Status Observation,,Skip Record,
 ,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,1147165,CDM,,observation.observation_id
 ,,,,value_as_number,Copy Value,Exposure,pack_years_smoked,,,Skip Record,
-,OMOP Tobacco Type Observation,,observation,observation_id,Generate Unique ID From Path,Donor,submitter_donor_id,,,Skip Record,
+$.donors[].exposures[].tobacco_type[],OMOP Tobacco Type Observation,,observation,observation_id,Generate Unique ID From Path,Donor,submitter_donor_id,,,Skip Record,
 ,,,,observation_concept_id,Fixed Value,N/A,N/A,37172639,SNOMED,,Type of tobacco used
 ,,,,observation_event_id,Get Unique ID From Path,Donor,submitter_donor_id,OMOP Tobacco Smoking Status Observation,,Skip Record,
 ,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,1147165,CDM,,observation.observation_id
-,,,,value_as_concept_id,Fixed Value,N/A,N/A,0,,,
-,,,,value_source_value,Concatenate Values,Exposure,tobacco_type,,,Skip Record,
+,,,,value_as_concept_id,Concept ID By Node,Exposure,tobacco_type,,,,
+,,,,value_source_value,Copy Node,N/A,N/A,,,,
 $.donors[].comorbidities[],OMOP Comorbidity Condition,,condition_occurrence,condition_occurrence_id,Generate Unique ID From Path,Donor,submitter_donor_id,,,,
 ,,,,condition_concept_id,Concept ID By Code,Comorbidity,comorbidity_type_code,,ICD10,Placeholder:{missing_concept_id_value},
 ,,,,condition_source_value,Copy Value,Comorbidity,comorbidity_type_code,,,,

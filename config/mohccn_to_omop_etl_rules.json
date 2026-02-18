@@ -2975,7 +2975,9 @@
 					"Source Field": "perineural_invasion"
 				}
 			]
-		},
+		}
+	},
+	"$.donors[].primary_diagnoses[].treatments[].surgeries[].margin_types_involved[]": {
 		"OMOP Surgery Episode Margin Positive Involvement Observation": {
 			"observation": [
 				{
@@ -3022,18 +3024,16 @@
 				{
 					"DHDP Data Catalog Identifier": "Surgery - Margin Types Involved (Code)",
 					"Target Field": "value_as_concept_id",
-					"Instruction": "Fixed Value",
-					"MOHCCN Source Schema": "N/A",
-					"Source Field": "N/A",
-					"Value": "0"
+					"Instruction": "Concept ID By Node",
+					"MOHCCN Source Schema": "Surgery",
+					"Source Field": "margin_types_involved"
 				},
 				{
 					"DHDP Data Catalog Identifier": "Surgery - Margin Types Involved (Text From Source)",
 					"Target Field": "value_source_value",
-					"Instruction": "Concatenate Values",
-					"MOHCCN Source Schema": "Surgery",
-					"Source Field": "margin_types_involved",
-					"Requirement Rule": "Skip Record"
+					"Instruction": "Copy Node",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A"
 				},
 				{
 					"Target Field": "qualifier_concept_id",
@@ -3045,7 +3045,9 @@
 					"Description": "Positive"
 				}
 			]
-		},
+		}
+	},
+	"$.donors[].primary_diagnoses[].treatments[].surgeries[].margin_types_not_involved[]": {
 		"OMOP Surgery Episode Margin Negative Involvement Observation": {
 			"observation": [
 				{
@@ -3092,18 +3094,16 @@
 				{
 					"DHDP Data Catalog Identifier": "Surgery - Margin Types Not Involved (Code)",
 					"Target Field": "value_as_concept_id",
-					"Instruction": "Fixed Value",
-					"MOHCCN Source Schema": "N/A",
-					"Source Field": "N/A",
-					"Value": "0"
+					"Instruction": "Concept ID By Node",
+					"MOHCCN Source Schema": "Surgery",
+					"Source Field": "margin_types_not_involved"
 				},
 				{
 					"DHDP Data Catalog Identifier": "Surgery - Margin Types Not Involved (Text From Source)",
 					"Target Field": "value_source_value",
-					"Instruction": "Concatenate Values",
-					"MOHCCN Source Schema": "Surgery",
-					"Source Field": "margin_types_not_involved",
-					"Requirement Rule": "Skip Record"
+					"Instruction": "Copy Node",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A"
 				},
 				{
 					"Target Field": "qualifier_concept_id",
@@ -3115,7 +3115,9 @@
 					"Description": "Negative"
 				}
 			]
-		},
+		}
+	},
+	"$.donors[].primary_diagnoses[].treatments[].surgeries[].margin_types_not_assessed[]": {
 		"OMOP Surgery Episode Margin Unassessible Involvement Observation": {
 			"observation": [
 				{
@@ -3162,18 +3164,16 @@
 				{
 					"DHDP Data Catalog Identifier": "Surgery - Margin Types Not Assessable (Code)",
 					"Target Field": "value_as_concept_id",
-					"Instruction": "Fixed Value",
-					"MOHCCN Source Schema": "N/A",
-					"Source Field": "N/A",
-					"Value": "0"
+					"Instruction": "Concept ID By Node",
+					"MOHCCN Source Schema": "Surgery",
+					"Source Field": "margin_types_not_assessed"
 				},
 				{
 					"DHDP Data Catalog Identifier": "Surgery - Margin Types Not Assessable (Text From Source)",
 					"Target Field": "value_source_value",
-					"Instruction": "Concatenate Values",
-					"MOHCCN Source Schema": "Surgery",
-					"Source Field": "margin_types_not_assessed",
-					"Requirement Rule": "Skip Record"
+					"Instruction": "Copy Node",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A"
 				},
 				{
 					"Target Field": "qualifier_concept_id",
@@ -4594,7 +4594,9 @@
 					"Requirement Rule": "Skip Record"
 				}
 			]
-		},
+		}
+	},
+	"$.donors[].exposures[].tobacco_type[]": {
 		"OMOP Tobacco Type Observation": {
 			"observation": [
 				{
@@ -4632,17 +4634,15 @@
 				},
 				{
 					"Target Field": "value_as_concept_id",
-					"Instruction": "Fixed Value",
-					"MOHCCN Source Schema": "N/A",
-					"Source Field": "N/A",
-					"Value": "0"
+					"Instruction": "Concept ID By Node",
+					"MOHCCN Source Schema": "Exposure",
+					"Source Field": "tobacco_type"
 				},
 				{
 					"Target Field": "value_source_value",
-					"Instruction": "Concatenate Values",
-					"MOHCCN Source Schema": "Exposure",
-					"Source Field": "tobacco_type",
-					"Requirement Rule": "Skip Record"
+					"Instruction": "Copy Node",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A"
 				}
 			]
 		}
