@@ -811,6 +811,19 @@ class MohccnToOmopTransformer:
 					if ( "person_id" in new_record[omop_table_name] ):
 						del new_record[omop_table_name]["person_id"]
 
+					# Special handling for death record
+					if ( omop_table_name == "death"):
+						missing_date_value = self._global_vars["{missing_date_value}"]
+						date_of_death = new_record["death"]["death_date"] if "death_date" in new_record["death"] else ""
+						cause_of_death = new_record["death"]["cause_of_death"] if "cause_of_death" in new_record["death"] else ""
+
+						if ( date_of_death == missing_date_value and cause_of_death == ""):
+							# print(f"Death record: {date_of_death}")
+							# print(f"Death record: {cause_of_death}")
+							# sys.exit()
+							continue
+
+
 					# Cycle through each attribute in the new record and if it is a dictionary with attribute type of id_map, then
 					# convert to source_value~target_desc format
 					for attribute, value in new_record[omop_table_name].items():
