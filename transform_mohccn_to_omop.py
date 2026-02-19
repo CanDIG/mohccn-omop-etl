@@ -88,6 +88,9 @@ class MohccnToOmopTransformer:
 			"^[\\w\\_]+\\.[\\w\\_]+_source_value$" : 50
 		}
 		self._duplicate_id_map_check = []
+		self._source_criteria_functions_by_omop_table_name = {
+			"death" : self._source_criteria_omop_death
+		}
 
 		self.log_message(f"Logging debug output to: {self._debug_output_log_filename}", True, False)
 
@@ -111,6 +114,12 @@ class MohccnToOmopTransformer:
 		success3 = self._load_vocabulary_mappings(vocabulary_term_mappings_xlsx_filename)
 
 		self._ready_to_transform = ( success1 and success2 and success3 )
+
+	def _source_criteria_omop_death(self, target_table: str, data: Dict) -> bool:
+		is_deceased = data["is_deceased"] if "is_deceased" in data else ""
+		date_of_death = data["date_of_death"] if "date_of_death" in data else False
+		cause_of_death = data["cause_of_death"] if "cause_of_death" in data else ""
+		return ( is_deceased == "Yes" or isinstance(date_of_death, dict) or cause_of_death != "" )
 
 	def log_message(self, message: str, to_console: bool = True, to_file: bool = True, reset_file: bool = False):
 		"""Log a message to the debug output log file."""
@@ -260,6 +269,10 @@ class MohccnToOmopTransformer:
 				else:
 					self._duplicate_id_map_check.append(current_unique_id)
 
+		# Check if the source data meets the criteria for creating the OMOP target table
+		if ( target_table in self._source_criteria_functions_by_omop_table_name 
+				and not self._source_criteria_functions_by_omop_table_name[target_table](target_table, data) ):
+			omop_data["skip_errors"].append(f"Source data does not meet criteria for {target_table}")
 
 		if len(omop_data["skip_errors"]) != 0 and current_unique_id:
 			# print(omop_data["skip_errors"])
@@ -810,18 +823,6 @@ class MohccnToOmopTransformer:
 					# If record has person_id, can remove since now nested by person
 					if ( "person_id" in new_record[omop_table_name] ):
 						del new_record[omop_table_name]["person_id"]
-
-					# Special handling for death record
-					if ( omop_table_name == "death"):
-						missing_date_value = self._global_vars["{missing_date_value}"]
-						date_of_death = new_record["death"]["death_date"] if "death_date" in new_record["death"] else ""
-						cause_of_death = new_record["death"]["cause_of_death"] if "cause_of_death" in new_record["death"] else ""
-
-						if ( date_of_death == missing_date_value and cause_of_death == ""):
-							# print(f"Death record: {date_of_death}")
-							# print(f"Death record: {cause_of_death}")
-							# sys.exit()
-							continue
 
 
 					# Cycle through each attribute in the new record and if it is a dictionary with attribute type of id_map, then
