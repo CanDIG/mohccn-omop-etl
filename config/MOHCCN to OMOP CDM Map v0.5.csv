@@ -282,6 +282,7 @@ $.donors[].primary_diagnoses[].treatments[].surgeries[],OMOP Surgery Episode,,_g
 ,,,,episode_source_concept_id,Fixed Value,N/A,N/A,0,,,
 ,,,,episode_object_concept_id,Concept ID By Code,Surgery,surgery_reference_identifier,,{Surgery.surgery_reference_database},Placeholder:{missing_concept_id_value},
 ,,,,episode_start_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
+,,,_global_vars,{current_surgery_episode_id},Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Surgery Episode,,,
 ,OMOP Treatment Episode / Surgery Episode Event,,episode_event,episode_id,Get Unique ID,Treatment,submitter_treatment_id,OMOP Treatment Episode,,Skip Record,
 ,,,,event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Surgery Episode,,Skip Record,
 ,,,,episode_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
@@ -361,7 +362,7 @@ surgery_type",,,,
 $.donors[].primary_diagnoses[].treatments[].surgeries[].margin_types_involved[],OMOP Surgery Episode Margin Positive Involvement Observation,,observation,observation_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
 ,,,,observation_concept_id,Fixed Value,N/A,N/A,4184217,SNOMED,,Surgical margin involved by tumor
 ,,,,observation_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
-,,,,observation_event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Surgery Episode,,Skip Record,
+,,,,observation_event_id,Copy Value,N/A,N/A,{current_surgery_episode_id},,,
 ,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
 ,,Surgery - Margin Types Involved (Code),,value_as_concept_id,Concept ID By Node,Surgery,margin_types_involved,,,,
 ,,Surgery - Margin Types Involved (Text From Source),,value_source_value,Copy Node,N/A,N/A,,,,
@@ -369,7 +370,7 @@ $.donors[].primary_diagnoses[].treatments[].surgeries[].margin_types_involved[],
 $.donors[].primary_diagnoses[].treatments[].surgeries[].margin_types_not_involved[],OMOP Surgery Episode Margin Negative Involvement Observation,,observation,observation_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
 ,,,,observation_concept_id,Fixed Value,N/A,N/A,4184217,SNOMED,,Surgical margin involved by tumor
 ,,,,observation_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
-,,,,observation_event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Surgery Episode,,Skip Record,
+,,,,observation_event_id,Copy Value,N/A,N/A,{current_surgery_episode_id},,,
 ,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
 ,,Surgery - Margin Types Not Involved (Code),,value_as_concept_id,Concept ID By Node,Surgery,margin_types_not_involved,,,,
 ,,Surgery - Margin Types Not Involved (Text From Source),,value_source_value,Copy Node,N/A,N/A,,,,
@@ -377,7 +378,7 @@ $.donors[].primary_diagnoses[].treatments[].surgeries[].margin_types_not_involve
 $.donors[].primary_diagnoses[].treatments[].surgeries[].margin_types_not_assessed[],OMOP Surgery Episode Margin Unassessible Involvement Observation,,observation,observation_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
 ,,,,observation_concept_id,Fixed Value,N/A,N/A,4184217,SNOMED,,Surgical margin involved by tumor
 ,,,,observation_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
-,,,,observation_event_id,Get Unique ID From Path,Treatment,submitter_treatment_id,OMOP Surgery Episode,,Skip Record,
+,,,,observation_event_id,Copy Value,N/A,N/A,{current_surgery_episode_id},,,
 ,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
 ,,Surgery - Margin Types Not Assessable (Code),,value_as_concept_id,Concept ID By Node,Surgery,margin_types_not_assessed,,,,
 ,,Surgery - Margin Types Not Assessable (Text From Source),,value_source_value,Copy Node,N/A,N/A,,,,
@@ -548,8 +549,9 @@ $.donors[].biomarkers[],OMOP PSA Biomarker Measurement,,measurement,measurement_
 ,,,,,,Biomarker,hpv_strain,,,,
 $.donors[].exposures[],OMOP Tobacco Smoking Status Observation,,observation,observation_id,Generate Unique ID From Path,Donor,submitter_donor_id,,,Skip Record,
 ,,,,observation_concept_id,Fixed Value,N/A,N/A,43054909,LOINC,,Tobacco smoking status
-,,,,value_as_concept_id,Concept ID By Term,Exposure,tobacco_smoking_status,,,Skip Record,
+,,,,value_as_concept_id,Concept ID By Term,Exposure,tobacco_smoking_status,,,,
 ,,,,value_source_value,Copy Value,Exposure,tobacco_smoking_status,,,,
+,,,_global_vars,{current_tobacco_status_observation_id},Get Unique ID From Path,Donor,submitter_donor_id,OMOP Tobacco Smoking Status Observation,,,
 ,OMOP Cigarette Pack Years Observation,,observation,observation_id,Generate Unique ID From Path,Donor,submitter_donor_id,,,Skip Record,
 ,,,,observation_concept_id,Fixed Value,N/A,N/A,4151768,SNOMED,,Pack years
 ,,,,observation_event_id,Get Unique ID From Path,Donor,submitter_donor_id,OMOP Tobacco Smoking Status Observation,,Skip Record,
@@ -557,7 +559,7 @@ $.donors[].exposures[],OMOP Tobacco Smoking Status Observation,,observation,obse
 ,,,,value_as_number,Copy Value,Exposure,pack_years_smoked,,,Skip Record,
 $.donors[].exposures[].tobacco_type[],OMOP Tobacco Type Observation,,observation,observation_id,Generate Unique ID From Path,Donor,submitter_donor_id,,,Skip Record,
 ,,,,observation_concept_id,Fixed Value,N/A,N/A,37172639,SNOMED,,Type of tobacco used
-,,,,observation_event_id,Get Unique ID From Path,Donor,submitter_donor_id,OMOP Tobacco Smoking Status Observation,,Skip Record,
+,,,,observation_event_id,Copy Value,N/A,N/A,{current_tobacco_status_observation_id},,,
 ,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,1147165,CDM,,observation.observation_id
 ,,,,value_as_concept_id,Concept ID By Node,Exposure,tobacco_type,,,,
 ,,,,value_source_value,Copy Node,N/A,N/A,,,,

@@ -2298,6 +2298,13 @@
 					"Instruction": "Save To Global Vars",
 					"MOHCCN Source Schema": "Surgery",
 					"Source Field": "surgery_reference_database"
+				},
+				{
+					"Target Field": "{current_surgery_episode_id}",
+					"Instruction": "Get Unique ID From Path",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
+					"Value": "OMOP Surgery Episode"
 				}
 			],
 			"episode": [
@@ -3006,11 +3013,10 @@
 				},
 				{
 					"Target Field": "observation_event_id",
-					"Instruction": "Get Unique ID From Path",
-					"MOHCCN Source Schema": "Treatment",
-					"Source Field": "submitter_treatment_id",
-					"Value": "OMOP Surgery Episode",
-					"Requirement Rule": "Skip Record"
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{current_surgery_episode_id}"
 				},
 				{
 					"Target Field": "obs_event_field_concept_id",
@@ -3076,11 +3082,10 @@
 				},
 				{
 					"Target Field": "observation_event_id",
-					"Instruction": "Get Unique ID From Path",
-					"MOHCCN Source Schema": "Treatment",
-					"Source Field": "submitter_treatment_id",
-					"Value": "OMOP Surgery Episode",
-					"Requirement Rule": "Skip Record"
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{current_surgery_episode_id}"
 				},
 				{
 					"Target Field": "obs_event_field_concept_id",
@@ -3146,11 +3151,10 @@
 				},
 				{
 					"Target Field": "observation_event_id",
-					"Instruction": "Get Unique ID From Path",
-					"MOHCCN Source Schema": "Treatment",
-					"Source Field": "submitter_treatment_id",
-					"Value": "OMOP Surgery Episode",
-					"Requirement Rule": "Skip Record"
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{current_surgery_episode_id}"
 				},
 				{
 					"Target Field": "obs_event_field_concept_id",
@@ -4540,14 +4544,22 @@
 					"Target Field": "value_as_concept_id",
 					"Instruction": "Concept ID By Term",
 					"MOHCCN Source Schema": "Exposure",
-					"Source Field": "tobacco_smoking_status",
-					"Requirement Rule": "Skip Record"
+					"Source Field": "tobacco_smoking_status"
 				},
 				{
 					"Target Field": "value_source_value",
 					"Instruction": "Copy Value",
 					"MOHCCN Source Schema": "Exposure",
 					"Source Field": "tobacco_smoking_status"
+				}
+			],
+			"_global_vars": [
+				{
+					"Target Field": "{current_tobacco_status_observation_id}",
+					"Instruction": "Get Unique ID From Path",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Value": "OMOP Tobacco Smoking Status Observation"
 				}
 			]
 		},
@@ -4617,11 +4629,10 @@
 				},
 				{
 					"Target Field": "observation_event_id",
-					"Instruction": "Get Unique ID From Path",
-					"MOHCCN Source Schema": "Donor",
-					"Source Field": "submitter_donor_id",
-					"Value": "OMOP Tobacco Smoking Status Observation",
-					"Requirement Rule": "Skip Record"
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{current_tobacco_status_observation_id}"
 				},
 				{
 					"Target Field": "obs_event_field_concept_id",
