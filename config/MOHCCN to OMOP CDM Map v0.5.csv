@@ -114,14 +114,15 @@ $.donors[].primary_diagnoses[],OMOP Primary Dx Condition,,_global_vars,N/A,Save 
 ,,,,meas_event_field_concept_id,Fixed Value,N/A,N/A,1147127,CDM,,condition_occurrence.condition_occurrence_id
 ,,Primary Diagnosis - Clinical TNM M Stage (Code),,value_as_concept_id,Concept ID By Term,Primary Diagnosis,clinical_m_category,,,Skip Record,
 ,,Primary Diagnosis - Clinical TNM M Stage (Text From Source),,value_source_value,Copy Value,Primary Diagnosis,clinical_m_category,,,,
-,OMOP Clinical Stage Measurement,,measurement,measurement_id,Generate Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,,,Skip Record,
-,,Primary Diagnosis - Clinical Staging System (Code),,measurement_concept_id,Concept ID By Term,Primary Diagnosis,clinical_tumour_staging_system,,,Placeholder:{missing_concept_id_value},
-,,Primary Diagnosis - Clinical Staging System (Text From Source),,measurement_source_value,Copy Value,Primary Diagnosis,clinical_tumour_staging_system,,,,
-,,,,measurement_date,Copy Value,N/A,N/A,{fixed_date},,,
-,,,,measurement_event_id,Get Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,OMOP Primary Dx Condition,,,
-,,,,meas_event_field_concept_id,Fixed Value,N/A,N/A,1147127,CDM,,condition_occurrence.condition_occurrence_id
+,OMOP Clinical Stage Observation,,observation,observation_id,Generate Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,,,Skip Record,
+,,Primary Diagnosis - Clinical Staging System (Code),,observation_concept_id,Fixed Value,N/A,N/A,4295636,SNOMED,,Clinical stage
+,,,,observation_date,Copy Value,N/A,N/A,{fixed_date},,,
+,,,,observation_event_id,Get Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,OMOP Primary Dx Condition,,,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,1147127,CDM,,condition_occurrence.condition_occurrence_id
 ,,Primary Diagnosis - Clinical Stage Group (Code),,value_as_concept_id,Concept ID By Term,Primary Diagnosis,clinical_stage_group,,,,
 ,,Primary Diagnosis - Clinical Stage Group (Text From Source),,value_source_value,Copy Value,Primary Diagnosis,clinical_stage_group,,,,
+,,Primary Diagnosis - Clinical Staging System (Code),,qualifier_concept_id,Concept ID By Term,Primary Diagnosis,clinical_tumour_staging_system,,,,
+,,Primary Diagnosis - Clinical Staging System (Text From Source),,qualifier_source_value,Copy Value,Primary Diagnosis,clinical_tumour_staging_system,,,,
 ,OMOP TNM Path T Stage Measurement,,measurement,measurement_id,Generate Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,,,Skip Record,
 ,,,,measurement_concept_id,Fixed Value,N/A,N/A,4293617,SNOMED,,Pathologic T category
 ,,,,measurement_date,Copy Value,N/A,N/A,{fixed_date},,,
@@ -143,14 +144,15 @@ $.donors[].primary_diagnoses[],OMOP Primary Dx Condition,,_global_vars,N/A,Save 
 ,,,,meas_event_field_concept_id,Fixed Value,N/A,N/A,1147127,CDM,,condition_occurrence.condition_occurrence_id
 ,,Primary Diagnosis - Pathological TNM M Stage (Code),,value_as_concept_id,Concept ID By Term,Primary Diagnosis,pathological_m_category,,,Skip Record,
 ,,Primary Diagnosis - Pathological TNM M Stage (Text From Source),,value_source_value,Copy Value,Primary Diagnosis,pathological_m_category,,,,
-,OMOP Pathological Stage Measurement,,measurement,measurement_id,Generate Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,,,Skip Record,
-,,Primary Diagnosis - Pathological Staging System (Code),,measurement_concept_id,Concept ID By Term,Primary Diagnosis,pathological_tumour_staging_system,,,Placeholder:{missing_concept_id_value},
-,,Primary Diagnosis - Pathological Staging System (Text From Source),,measurement_source_value,Copy Value,Primary Diagnosis,pathological_tumour_staging_system,,,,
-,,,,measurement_date,Copy Value,N/A,N/A,{fixed_date},,,
-,,,,measurement_event_id,Get Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,OMOP Primary Dx Condition,,Skip Record,
-,,,,meas_event_field_concept_id,Fixed Value,N/A,N/A,1147127,CDM,,condition_occurrence.condition_occurrence_id
+,OMOP Pathological Stage Observation,,observation,observation_id,Generate Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,4226407,,,Pathologic stage
+,,,,observation_date,Copy Value,N/A,N/A,{fixed_date},,,
+,,,,observation_event_id,Get Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,OMOP Primary Dx Condition,,Skip Record,
+,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,1147127,CDM,,condition_occurrence.condition_occurrence_id
 ,,Primary Diagnosis - Pathological Staging Group (Code),,value_as_concept_id,Concept ID By Term,Primary Diagnosis,pathological_stage_group,,,,
 ,,Primary Diagnosis - Pathological Staging Group (Text From Source),,value_source_value,Copy Value,Primary Diagnosis,pathological_stage_group,,,,
+,,Primary Diagnosis - Pathological Staging System (Code),,qualifier_concept_id,Concept ID By Term,Primary Diagnosis,pathological_tumour_staging_system,,,,
+,,Primary Diagnosis - Pathological Staging System (Text From Source),,qualifier_source_value,Copy Value,Primary Diagnosis,pathological_tumour_staging_system,,,,
 $.donors[].primary_diagnoses[].treatments[],OMOP Treatment Episode,,_global_vars,N/A,Save To Global Vars,Treatment,submitter_treatment_id,,,Skip Record,
 ,,,_global_vars,N/A,Save To Global Vars,Treatment,treatment_start_date,,,Placeholder:{missing_date_value},
 ,,,_global_vars,N/A,Save To Global Vars,Treatment,status_of_treatment,,,,

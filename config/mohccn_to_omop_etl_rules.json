@@ -955,10 +955,10 @@
 				}
 			]
 		},
-		"OMOP Clinical Stage Measurement": {
-			"measurement": [
+		"OMOP Clinical Stage Observation": {
+			"observation": [
 				{
-					"Target Field": "measurement_id",
+					"Target Field": "observation_id",
 					"Instruction": "Generate Unique ID",
 					"MOHCCN Source Schema": "Primary Diagnosis",
 					"Source Field": "submitter_primary_diagnosis_id",
@@ -966,35 +966,30 @@
 				},
 				{
 					"DHDP Data Catalog Identifier": "Primary Diagnosis - Clinical Staging System (Code)",
-					"Target Field": "measurement_concept_id",
-					"Instruction": "Concept ID By Term",
-					"MOHCCN Source Schema": "Primary Diagnosis",
-					"Source Field": "clinical_tumour_staging_system",
-					"Requirement Rule": "Placeholder:{missing_concept_id_value}"
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4295636",
+					"Vocab": "SNOMED",
+					"Description": "Clinical stage"
 				},
 				{
-					"DHDP Data Catalog Identifier": "Primary Diagnosis - Clinical Staging System (Text From Source)",
-					"Target Field": "measurement_source_value",
-					"Instruction": "Copy Value",
-					"MOHCCN Source Schema": "Primary Diagnosis",
-					"Source Field": "clinical_tumour_staging_system"
-				},
-				{
-					"Target Field": "measurement_date",
+					"Target Field": "observation_date",
 					"Instruction": "Copy Value",
 					"MOHCCN Source Schema": "N/A",
 					"Source Field": "N/A",
 					"Value": "{fixed_date}"
 				},
 				{
-					"Target Field": "measurement_event_id",
+					"Target Field": "observation_event_id",
 					"Instruction": "Get Unique ID",
 					"MOHCCN Source Schema": "Primary Diagnosis",
 					"Source Field": "submitter_primary_diagnosis_id",
 					"Value": "OMOP Primary Dx Condition"
 				},
 				{
-					"Target Field": "meas_event_field_concept_id",
+					"Target Field": "obs_event_field_concept_id",
 					"Instruction": "Fixed Value",
 					"MOHCCN Source Schema": "N/A",
 					"Source Field": "N/A",
@@ -1015,6 +1010,20 @@
 					"Instruction": "Copy Value",
 					"MOHCCN Source Schema": "Primary Diagnosis",
 					"Source Field": "clinical_stage_group"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Clinical Staging System (Code)",
+					"Target Field": "qualifier_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "clinical_tumour_staging_system"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Clinical Staging System (Text From Source)",
+					"Target Field": "qualifier_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "clinical_tumour_staging_system"
 				}
 			]
 		},
@@ -1195,39 +1204,32 @@
 				}
 			]
 		},
-		"OMOP Pathological Stage Measurement": {
-			"measurement": [
+		"OMOP Pathological Stage Observation": {
+			"observation": [
 				{
-					"Target Field": "measurement_id",
+					"Target Field": "observation_id",
 					"Instruction": "Generate Unique ID",
 					"MOHCCN Source Schema": "Primary Diagnosis",
 					"Source Field": "submitter_primary_diagnosis_id",
 					"Requirement Rule": "Skip Record"
 				},
 				{
-					"DHDP Data Catalog Identifier": "Primary Diagnosis - Pathological Staging System (Code)",
-					"Target Field": "measurement_concept_id",
-					"Instruction": "Concept ID By Term",
-					"MOHCCN Source Schema": "Primary Diagnosis",
-					"Source Field": "pathological_tumour_staging_system",
-					"Requirement Rule": "Placeholder:{missing_concept_id_value}"
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4226407",
+					"Description": "Pathologic stage"
 				},
 				{
-					"DHDP Data Catalog Identifier": "Primary Diagnosis - Pathological Staging System (Text From Source)",
-					"Target Field": "measurement_source_value",
-					"Instruction": "Copy Value",
-					"MOHCCN Source Schema": "Primary Diagnosis",
-					"Source Field": "pathological_tumour_staging_system"
-				},
-				{
-					"Target Field": "measurement_date",
+					"Target Field": "observation_date",
 					"Instruction": "Copy Value",
 					"MOHCCN Source Schema": "N/A",
 					"Source Field": "N/A",
 					"Value": "{fixed_date}"
 				},
 				{
-					"Target Field": "measurement_event_id",
+					"Target Field": "observation_event_id",
 					"Instruction": "Get Unique ID",
 					"MOHCCN Source Schema": "Primary Diagnosis",
 					"Source Field": "submitter_primary_diagnosis_id",
@@ -1235,7 +1237,7 @@
 					"Requirement Rule": "Skip Record"
 				},
 				{
-					"Target Field": "meas_event_field_concept_id",
+					"Target Field": "obs_event_field_concept_id",
 					"Instruction": "Fixed Value",
 					"MOHCCN Source Schema": "N/A",
 					"Source Field": "N/A",
@@ -1256,6 +1258,20 @@
 					"Instruction": "Copy Value",
 					"MOHCCN Source Schema": "Primary Diagnosis",
 					"Source Field": "pathological_stage_group"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Pathological Staging System (Code)",
+					"Target Field": "qualifier_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "pathological_tumour_staging_system"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Primary Diagnosis - Pathological Staging System (Text From Source)",
+					"Target Field": "qualifier_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "pathological_tumour_staging_system"
 				}
 			]
 		}
@@ -3240,6 +3256,12 @@
 					"Instruction": "Copy Value",
 					"MOHCCN Source Schema": "Specimen",
 					"Source Field": "specimen_anatomic_location"
+				},
+				{
+					"Target Field": "specimen_source_id",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Specimen",
+					"Source Field": "submitter_specimen_id"
 				}
 			]
 		},
