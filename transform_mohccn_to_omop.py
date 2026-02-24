@@ -51,17 +51,19 @@ class MohccnToOmopTransformer:
 	REQUIREMENT_RULE_PLACEHOLDER_PREFIX = 'Placeholder:'
 	
 	def __init__(self, 
-				 mohccn_validation_rules_json_filename: str,
-				 mohccn_to_omop_etl_rules_json_filename: str,
-				 vocabulary_term_mappings_xlsx_filename: str,
-				 debug_raw_json_node_paths_file: str,
-				 debug_output_log_filename: str,
-				 debug_omop_json_filename: str,
-				 vocab_server_search_by_code_url: str):
+				mohccn_site_id : str,
+				mohccn_validation_rules_json_filename: str,
+				mohccn_to_omop_etl_rules_json_filename: str,
+				vocabulary_term_mappings_xlsx_filename: str,
+				debug_raw_json_node_paths_file: str,
+				debug_output_log_filename: str,
+				debug_omop_json_filename: str,
+				vocab_server_search_by_code_url: str):
 		"""
 		Initialize the MohccnToOmopTransformer with the required file paths.
 		
 		Args:
+			mohccn_site_id: ID of the MOHCCN site, e.g. PM2C, BCGSC, MOH-Q
 			mohccn_validation_rules_json_filename: Path to the validation rules JSON file
 			mohccn_to_omop_etl_rules_json_filename: Path to the ETL rules JSON file
 			vocabulary_term_mappings_xlsx_filename: Path to the vocabulary mappings Excel file
@@ -103,7 +105,7 @@ class MohccnToOmopTransformer:
 		self._validation_rules = {}
 		self._etl_rules = {}
 		self._term_to_concept_id_mappings = {}
-		self._initial_global_vars = {"{siteId}" : "PM2C"}  # PM2C (UHN), BCGSC, MOH-Q
+		self._initial_global_vars = {"{siteId}" : mohccn_site_id}
 		self._global_vars = {}
 		self._skipped_unique_ids = []
 		self._ready_to_transform = False
@@ -889,6 +891,7 @@ def main():
 
 	# Instantiate the transformer class
 	transformer = MohccnToOmopTransformer(
+		mohccn_site_id=settings.MOHCCN_SITE_ID,
 		mohccn_validation_rules_json_filename=settings.GENERATED_VALIDATION_RULES_JSON_FILE_NAME,
 		mohccn_to_omop_etl_rules_json_filename=settings.GENERATED_MOHCCN_TO_OMOP_ETL_SETTINGS_JSON_FILE_NAME,
 		vocabulary_term_mappings_xlsx_filename=settings.EXISTING_MAPPED_VOCAB_XLSX_FILE_NAME,
