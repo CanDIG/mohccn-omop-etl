@@ -1355,6 +1355,35 @@
 				}
 			]
 		},
+		"OMOP Treatment Episode / Primary Condition Event": {
+			"episode_event": [
+				{
+					"Target Field": "episode_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Value": "OMOP Treatment Episode",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "event_id",
+					"Instruction": "Get Unique ID",
+					"MOHCCN Source Schema": "Primary Diagnosis",
+					"Source Field": "submitter_primary_diagnosis_id",
+					"Value": "OMOP Primary Dx Condition",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "episode_event_field_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "1147127",
+					"Vocab": "CDM",
+					"Description": "condition_occurrence.condition_occurrence_id"
+				}
+			]
+		},
 		"OMOP Treatment Episode Intent Observation": {
 			"observation": [
 				{

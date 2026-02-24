@@ -163,6 +163,9 @@ $.donors[].primary_diagnoses[].treatments[],OMOP Treatment Episode,,_global_vars
 ,,Cancer Treatment - Treatment Start Date,,episode_start_date,Calculate Date From Interval,Treatment,treatment_start_date,,,Placeholder:{missing_date_value},
 ,,Cancer Treatment - Treatment End Date,,episode_end_date,Calculate Date From Interval,Treatment,treatment_end_date,,,,
 ,,Cancer Treatment - Is Primary Treatment,,episode_number,Concept ID By Term,Treatment,is_primary_treatment,,,,
+,OMOP Treatment Episode / Primary Condition Event,,episode_event,episode_id,Get Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,OMOP Treatment Episode,,Skip Record,
+,,,,event_id,Get Unique ID,Primary Diagnosis,submitter_primary_diagnosis_id,OMOP Primary Dx Condition,,Skip Record,
+,,,,episode_event_field_concept_id,Fixed Value,N/A,N/A,1147127,CDM,,condition_occurrence.condition_occurrence_id
 ,OMOP Treatment Episode Intent Observation,,observation,observation_id,Generate Unique ID,Treatment,submitter_treatment_id,,,Skip Record,
 ,,,,observation_concept_id,Fixed Value,N/A,N/A,4133895,SNOMED,,Therapeutic intent
 ,,,,observation_date,Calculate Date From Interval,Treatment,treatment_start_date,,,Placeholder:{missing_date_value},
