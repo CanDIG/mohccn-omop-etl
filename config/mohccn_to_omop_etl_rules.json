@@ -1360,8 +1360,8 @@
 				{
 					"Target Field": "episode_id",
 					"Instruction": "Get Unique ID",
-					"MOHCCN Source Schema": "Primary Diagnosis",
-					"Source Field": "submitter_primary_diagnosis_id",
+					"MOHCCN Source Schema": "Treatment",
+					"Source Field": "submitter_treatment_id",
 					"Value": "OMOP Treatment Episode",
 					"Requirement Rule": "Skip Record"
 				},
