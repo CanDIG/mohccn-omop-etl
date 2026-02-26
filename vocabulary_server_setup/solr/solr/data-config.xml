@@ -1,0 +1,53 @@
+<dataConfig>
+
+ <document name='concepts'>
+   <entity name="concept"
+           dataSource="omop_vocab"
+           pk="concept_id"
+           query="select c.concept_id,
+       c.concept_code,
+       c.concept_name,
+       c.concept_name as orig_concept_name,
+       c.concept_class_id,
+       c.domain_id,
+       c.vocabulary_id,
+       c.valid_start_date,
+       c.valid_end_date,
+       c.concept_name_length,
+       c.concept_word_count,
+       'Concept' as term_type,
+       case valid_end_date when '2099-12-31' then 'Active' else 'Inactive' end as concept_status
+       from ${dataimporter.request.vocab_database_schema}.concept as c
+       UNION
+       select cs.concept_id,
+       c.concept_code,
+       cs.concept_synonym_name as concept_name,
+       c.concept_name as orig_concept_name,
+       c.concept_class_id as concept_class_id,
+       c.domain_id as domain_id,
+       c.vocabulary_id as vocabulary_id,
+       c.valid_start_date as valid_start_date,
+       c.valid_end_date as valid_end_date,
+       cs.concept_synonym_name_length as concept_name_length,
+       cs.synonym_word_count as concept_word_count,
+       'Synonym' as term_type,
+       case valid_end_date when '2099-12-31' then 'Active' else 'Inactive' end as concept_status
+       from ${dataimporter.request.vocab_database_schema}.concept_synonym as cs
+       join ${dataimporter.request.vocab_database_schema}.concept as c on cs.concept_id = c.concept_id"
+            preImportDeleteQuery="*:*">
+
+     <field column="concept_id" name="concept_id" />
+     <field column="concept_code" name="concept_code" />
+     <field column="concept_name" name="concept_name" />
+     <field column="concept_class_id" name="concept_class_id" />
+     <field column="domain_id" name="domain_id" />
+     <field column="vocabulary_id" name="vocabulary_id" />
+     <field column="valid_start_date" name="valid_start_date" />
+     <field column="valid_end_date" name="valid_end_date" />
+     <field column="concept_name_length" name="concept_name_length" />
+     <field column="concept_word_count" name="concept_word_count" />
+     <field column="term_type" name="term_type" />
+     <field column="concept_status" name="concept_status" />
+   </entity>
+ </document>
+</dataConfig>
