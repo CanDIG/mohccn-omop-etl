@@ -4689,6 +4689,14 @@
 					"Vocab": "SNOMED",
 					"Description": "Polymerase chain reaction technique"
 				}
+			],
+			"_global_vars": [
+				{
+					"Target Field": "N/A",
+					"Instruction": "Save To Global Vars",
+					"MOHCCN Source Schema": "Biomarker",
+					"Source Field": "test_date"
+				}
 			]
 		}
 	},
@@ -4716,7 +4724,7 @@
 					"Instruction": "Calculate Date From Interval",
 					"MOHCCN Source Schema": "N/A",
 					"Source Field": "N/A",
-					"Value": "{current_biomarker_date}",
+					"Value": "{Biomarker.test_date}",
 					"Requirement Rule": "Placeholder:{missing_date_value}"
 				},
 				{
