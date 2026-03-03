@@ -4924,6 +4924,15 @@
 					"MOHCCN Source Schema": "Comorbidity",
 					"Source Field": "prior_malignancy"
 				}
+			],
+			"_global_vars": [
+				{
+					"Target Field": "{current_comorbidity_condition_id}",
+					"Instruction": "Get Unique ID From Path",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Value": "OMOP Comorbidity Condition"
+				}
 			]
 		},
 		"OMOP Comorbidity Laterality Measurement": {
@@ -4944,10 +4953,10 @@
 				},
 				{
 					"Target Field": "measurement_event_id",
-					"Instruction": "Get Unique ID",
-					"MOHCCN Source Schema": "Comorbidity",
-					"Source Field": "$.donors[].comorbidities[]",
-					"Value": "OMOP Comorbidity Condition"
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{current_comorbidity_condition_id}"
 				},
 				{
 					"Target Field": "meas_event_field_concept_id",
