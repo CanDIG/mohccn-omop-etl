@@ -572,6 +572,103 @@ Primary Diagnosis,pathological_m_category,M1d(1),,,LOINC,M1d,46237067,LA21877-8,
 Primary Diagnosis,pathological_m_category,M1e,,,,M1e,46237075,LA21878-6,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
 Primary Diagnosis,pathological_m_category,MX,,,,MX,45876323,LA4544-8,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
 Primary Diagnosis,pathological_m_category,Not applicable,,,,Not applicable,4294169,385432009,Concept,Active,Exact,Qualifier Value,Meas Value,SNOMED,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage 0,,,,Stage 0,45884284,LA4323-7,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage 0a,,,,Stage 0A,45881605,LA4322-9,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage 0is,,,,Stage 0is,45882496,LA4321-1,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage 1,,,,Stage 1,45879332,LA6383-9,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage 1A,,,,Stage IA,45878383,LA3663-7,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage 1B,,,,Stage IB,45876317,LA3662-9,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage A,,,,Stage A,45884292,LA3669-4,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage B,,,,Stage B,45876326,LA3668-6,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage C,,,,Stage C,45881861,LA3667-8,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage I,,,,Stage I,45880980,LA3664-5,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IA,,,,Stage IA,45878383,LA3663-7,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IA1,,,,Stage IA1,45882495,LA4320-3,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IA2,,,,Stage IA2,45882494,LA4319-5,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IA3,,,,Stage 1A3,1633775,Stage-1A3,Concept,Active,Inexact,Staging/Grading,Measurement,Cancer Modifier,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IAB,,,LOINC,Stage IA,45878383,LA3663-7,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IAE,,,LOINC,Stage IA,45878383,LA3663-7,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IAES,,,LOINC,Stage IA,45878383,LA3663-7,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IAS,,,LOINC,Stage IA,45878383,LA3663-7,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IB,,,,Stage IB,45876317,LA3662-9,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IB1,,,,Stage IB1,45881607,LA4318-7,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IB2,,,,Stage IB2,45881606,LA4317-9,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IBE,,,LOINC,Stage IB,45876317,LA3662-9,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IBES,,,LOINC,Stage IB,45876317,LA3662-9,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IBS,,,LOINC,Stage IB,45876317,LA3662-9,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IC,,,,Stage IC,45878652,LA4316-1,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IE,,,,Stage IE,46237073,LA21791-1,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IEA,,,LOINC,Stage IE,46237073,LA21791-1,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IEB,,,LOINC,Stage IE,46237073,LA21791-1,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IES,,,LOINC,Stage IE,46237073,LA21791-1,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage II,,,,Stage II,45880979,LA3661-1,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage II bulky,,,,American Joint Committee on Cancer stage II bulky,37163968,1222772008,Synonym,Active,Inexact,Qualifier Value,Meas Value,SNOMED,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IIA,,,,Stage IIA,45876316,LA3660-3,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IIA1,,,,Stage IIA1,46237999,LA21844-8,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IIA2,,,,Stage IIA2,46237478,LA21845-5,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IIAE,,,LOINC,Stage IIA,45876316,LA3660-3,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IIAES,,,LOINC,Stage IIA,45876316,LA3660-3,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IIAS,,,LOINC,Stage IIA,45876316,LA3660-3,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IIB,,,,Stage IIB,45882497,LA3659-5,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IIBE,,,LOINC,Stage IIB,45882497,LA3659-5,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IIBES,,,LOINC,Stage IIB,45882497,LA3659-5,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IIBS,,,LOINC,Stage IIB,45882497,LA3659-5,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IIC,,,,Stage IIC,45878382,LA3658-7,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IIE,,,,Stage IIE,46237084,LA21794-5,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IIEA,,,LOINC,Stage IIE,46237084,LA21794-5,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IIEB,,,LOINC,Stage IIE,46237084,LA21794-5,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IIES,,,LOINC,Stage IIE,46237084,LA21794-5,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage III,,,,Stage III,45878643,LA3657-9,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IIIA,,,,Stage IIIA,45880978,LA3656-1,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IIIA1,,,,American Joint Committee on Cancer stage IIIA1,37163997,1222803006,Synonym,Active,Inexact,Qualifier Value,Meas Value,SNOMED,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IIIA2,,,,American Joint Committee on Cancer stage IIIA2,37163998,1222804000,Synonym,Active,Inexact,Qualifier Value,Meas Value,SNOMED,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IIIAE,,,LOINC,Stage IIIA,45880978,LA3656-1,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IIIAES,,,LOINC,Stage IIIA,45880978,LA3656-1,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IIIAS,,,LOINC,Stage IIIA,45880978,LA3656-1,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IIIB,,,,Stage IIIB,45884285,LA3655-3,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IIIBE,,,LOINC,Stage IIIB,45884285,LA3655-3,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IIIBES,,,LOINC,Stage IIIB,45884285,LA3655-3,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IIIBS,,,LOINC,Stage IIIB,45884285,LA3655-3,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IIIC,,,,Stage IIIC,45881608,LA3654-6,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IIIC1,,,,Stage IIIC1,46237081,LA21848-9,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IIIC2,,,,Stage IIIC2,46237479,LA21871-1,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IIID,,,,Stage IIID,45876327,LA3653-8,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IIIE,,,,Stage IIIE,45878395,LA3652-0,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IIIES,,,LOINC,Stage IIIE,45878395,LA3652-0,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IIIS,,,,Stage IIIS,46237998,LA21800-0,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IIS,,,,Stage IIS,46237085,LA21847-1,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IS,,,,Stage IS,45884283,LA4315-3,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IV,,,,Stage IV,45880109,LA3651-2,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IVA,,,,Stage IVA,45880108,LA3650-4,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IVA1,,,,Stage IVA1,46238000,LA21872-9,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IVA2,,,,Stage IVA2,46237068,LA21850-5,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IVAE,,,LOINC,Stage IVA,45880108,LA3650-4,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IVAES,,,LOINC,Stage IVA,45880108,LA3650-4,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IVAS,,,LOINC,Stage IVA,45880108,LA3650-4,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IVB,,,,Stage IVB,45876315,LA3649-6,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IVBE,,,LOINC,Stage IVB,45876315,LA3649-6,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IVBES,,,LOINC,Stage IVB,45876315,LA3649-6,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IVBS,,,LOINC,Stage IVB,45876315,LA3649-6,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IVC,,,,Stage IVC,45876314,LA4314-6,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IVE,,,,Stage IVE,46238005,LA21802-6,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage IVES,,,LOINC,Stage IVE,46238005,LA21802-6,Concept,Active,Inexact,Answer,Meas Value,LOINC,Closest Parent,Justin Liu 4,,Review,Mapped to closest semantic parent after correspondence with Linda Xiang
+Primary Diagnosis,pathological_stage_group,Stage IVS,,,,Stage IVS,45880986,LA3648-8,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,In situ,,,,In situ,4136272,264031007,Concept,Active,Exact,Qualifier Value,Observation,SNOMED,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Localized,,,,Localized,4114652,255471002,Concept,Active,Exact,Qualifier Value,Meas Value,SNOMED,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Regionalized,,,LOINC,,,,,,No Match,,,,,,,Review,
+Primary Diagnosis,pathological_stage_group,Distant,,,,Distant,4128936,261007001,Concept,Active,Exact,Qualifier Value,Meas Value,SNOMED,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage L1,,,,INRG Stage L1,1635769,INRG-L1,Concept,Active,Exact,Staging/Grading,Measurement,Cancer Modifier,,Justin Liu 2,,Review,
+Primary Diagnosis,pathological_stage_group,Stage L2,,,,INRG Stage L2,1634844,INRG-L2,Concept,Active,Exact,Staging/Grading,Measurement,Cancer Modifier,,Justin Liu 2,,Review,
+Primary Diagnosis,pathological_stage_group,Stage M,,,,INRG Stage M,1634573,INRG-M1,Concept,Active,Exact,Staging/Grading,Measurement,Cancer Modifier,,Justin Liu 2,,Review,
+Primary Diagnosis,pathological_stage_group,Stage Ms,,,,INRG Stage MS,1634756,INRG-MS,Concept,Active,Exact,Staging/Grading,Measurement,Cancer Modifier,,Justin Liu 2,,Review,
+Primary Diagnosis,pathological_stage_group,Stage 1,,,,Stage 1,45879332,LA6383-9,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage 2A,,,,Stage IIA,45876316,LA3660-3,Concept,Active,Inexact,Answer,Meas Value,LOINC,Manual,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage 2B,,,,Stage IIB,45882497,LA3659-5,Concept,Active,Inexact,Answer,Meas Value,LOINC,Manual,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage 3,,,,Stage III,45878643,LA3657-9,Concept,Active,Inexact,Answer,Meas Value,LOINC,Manual,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage 4,,,,Stage IV,45880109,LA3651-2,Concept,Active,Inexact,Answer,Meas Value,LOINC,Manual,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Stage 4S,,,,Stage IVS,45880986,LA3648-8,Concept,Active,Inexact,Answer,Meas Value,LOINC,Manual,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Occult Carcinoma,,,,Occult carcinoma,4127475,261481006,Concept,Active,Exact,Qualifier Value,Meas Value,SNOMED,,Justin Liu,,Review,
+Primary Diagnosis,pathological_stage_group,Not available,,,,Not available,45884396,LA7338-2,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
 Treatment,treatment_type,Bone marrow transplant,,,,Bone marrow transplant,40313626,149303000,Concept,Inactive,Exact,Procedure,Procedure,SNOMED,,Justin Liu 2,,Review,
 Treatment,treatment_type,No treatment,,,,No Treatment,45880556,LA21213-6,Concept,Active,Exact,Answer,Meas Value,LOINC,,Justin Liu,,Review,
 Treatment,treatment_type,Other,,,,Other,9177,74964007,Concept,Active,Exact,Qualifier Value,Meas Value,SNOMED,,Justin Liu,,Review,
