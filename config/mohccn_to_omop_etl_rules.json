@@ -3030,17 +3030,17 @@
 		}
 	},
 	"$.donors[].primary_diagnoses[].treatments[].surgeries[].margin_types_involved[]": {
-		"OMOP Surgery Episode Margin Positive Involvement Observation": {
-			"observation": [
+		"OMOP Surgery Episode Margin Positive Involvement Measurement": {
+			"measurement": [
 				{
-					"Target Field": "observation_id",
+					"Target Field": "measurement_id",
 					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
 				},
 				{
-					"Target Field": "observation_concept_id",
+					"Target Field": "measurement_concept_id",
 					"Instruction": "Fixed Value",
 					"MOHCCN Source Schema": "N/A",
 					"Source Field": "N/A",
@@ -3049,7 +3049,7 @@
 					"Description": "Surgical margin involved by tumor"
 				},
 				{
-					"Target Field": "observation_date",
+					"Target Field": "measurement_date",
 					"Instruction": "Calculate Date From Interval",
 					"MOHCCN Source Schema": "N/A",
 					"Source Field": "N/A",
@@ -3057,14 +3057,14 @@
 					"Requirement Rule": "Placeholder:{missing_date_value}"
 				},
 				{
-					"Target Field": "observation_event_id",
+					"Target Field": "measurement_event_id",
 					"Instruction": "Copy Value",
 					"MOHCCN Source Schema": "N/A",
 					"Source Field": "N/A",
 					"Value": "{current_surgery_episode_id}"
 				},
 				{
-					"Target Field": "obs_event_field_concept_id",
+					"Target Field": "meas_event_field_concept_id",
 					"Instruction": "Fixed Value",
 					"MOHCCN Source Schema": "N/A",
 					"Source Field": "N/A",
@@ -3085,40 +3085,31 @@
 					"Instruction": "Copy Node",
 					"MOHCCN Source Schema": "N/A",
 					"Source Field": "N/A"
-				},
-				{
-					"Target Field": "qualifier_concept_id",
-					"Instruction": "Fixed Value",
-					"MOHCCN Source Schema": "N/A",
-					"Source Field": "N/A",
-					"Value": "9191",
-					"Vocab": "SNOMED",
-					"Description": "Positive"
 				}
 			]
 		}
 	},
 	"$.donors[].primary_diagnoses[].treatments[].surgeries[].margin_types_not_involved[]": {
-		"OMOP Surgery Episode Margin Negative Involvement Observation": {
-			"observation": [
+		"OMOP Surgery Episode Margin Not Involvement Measurement": {
+			"measurement": [
 				{
-					"Target Field": "observation_id",
+					"Target Field": "measurement_id",
 					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
 				},
 				{
-					"Target Field": "observation_concept_id",
+					"Target Field": "measurement_concept_id",
 					"Instruction": "Fixed Value",
 					"MOHCCN Source Schema": "N/A",
 					"Source Field": "N/A",
-					"Value": "4184217",
+					"Value": "4206020",
 					"Vocab": "SNOMED",
-					"Description": "Surgical margin involved by tumor"
+					"Description": "Surgical margin uninvolved by tumor"
 				},
 				{
-					"Target Field": "observation_date",
+					"Target Field": "measurement_date",
 					"Instruction": "Calculate Date From Interval",
 					"MOHCCN Source Schema": "N/A",
 					"Source Field": "N/A",
@@ -3126,14 +3117,14 @@
 					"Requirement Rule": "Placeholder:{missing_date_value}"
 				},
 				{
-					"Target Field": "observation_event_id",
+					"Target Field": "measurement_event_id",
 					"Instruction": "Copy Value",
 					"MOHCCN Source Schema": "N/A",
 					"Source Field": "N/A",
 					"Value": "{current_surgery_episode_id}"
 				},
 				{
-					"Target Field": "obs_event_field_concept_id",
+					"Target Field": "meas_event_field_concept_id",
 					"Instruction": "Fixed Value",
 					"MOHCCN Source Schema": "N/A",
 					"Source Field": "N/A",
@@ -3154,40 +3145,31 @@
 					"Instruction": "Copy Node",
 					"MOHCCN Source Schema": "N/A",
 					"Source Field": "N/A"
-				},
-				{
-					"Target Field": "qualifier_concept_id",
-					"Instruction": "Fixed Value",
-					"MOHCCN Source Schema": "N/A",
-					"Source Field": "N/A",
-					"Value": "9189",
-					"Vocab": "SNOMED",
-					"Description": "Negative"
 				}
 			]
 		}
 	},
 	"$.donors[].primary_diagnoses[].treatments[].surgeries[].margin_types_not_assessed[]": {
-		"OMOP Surgery Episode Margin Unassessible Involvement Observation": {
-			"observation": [
+		"OMOP Surgery Episode Margin Not Assessed Measurement": {
+			"measurement": [
 				{
-					"Target Field": "observation_id",
+					"Target Field": "measurement_id",
 					"Instruction": "Generate Unique ID From Path",
 					"MOHCCN Source Schema": "Treatment",
 					"Source Field": "submitter_treatment_id",
 					"Requirement Rule": "Skip Record"
 				},
 				{
-					"Target Field": "observation_concept_id",
+					"Target Field": "measurement_concept_id",
 					"Instruction": "Fixed Value",
 					"MOHCCN Source Schema": "N/A",
 					"Source Field": "N/A",
-					"Value": "4184217",
+					"Value": "4217572",
 					"Vocab": "SNOMED",
-					"Description": "Surgical margin involved by tumor"
+					"Description": "Surgical margin involvement by tumor cannot be assessed"
 				},
 				{
-					"Target Field": "observation_date",
+					"Target Field": "measurement_date",
 					"Instruction": "Calculate Date From Interval",
 					"MOHCCN Source Schema": "N/A",
 					"Source Field": "N/A",
@@ -3195,14 +3177,14 @@
 					"Requirement Rule": "Placeholder:{missing_date_value}"
 				},
 				{
-					"Target Field": "observation_event_id",
+					"Target Field": "measurement_event_id",
 					"Instruction": "Copy Value",
 					"MOHCCN Source Schema": "N/A",
 					"Source Field": "N/A",
 					"Value": "{current_surgery_episode_id}"
 				},
 				{
-					"Target Field": "obs_event_field_concept_id",
+					"Target Field": "meas_event_field_concept_id",
 					"Instruction": "Fixed Value",
 					"MOHCCN Source Schema": "N/A",
 					"Source Field": "N/A",
@@ -3223,15 +3205,6 @@
 					"Instruction": "Copy Node",
 					"MOHCCN Source Schema": "N/A",
 					"Source Field": "N/A"
-				},
-				{
-					"Target Field": "qualifier_concept_id",
-					"Instruction": "Fixed Value",
-					"MOHCCN Source Schema": "N/A",
-					"Source Field": "N/A",
-					"Value": "4183475",
-					"Vocab": "SNOMED",
-					"Description": "Margins cannot be assessed"
 				}
 			]
 		}
@@ -4503,6 +4476,55 @@
 				}
 			]
 		},
+		"OMOP Progesterone Receptor Biomarker Measurement": {
+			"measurement": [
+				{
+					"Target Field": "measurement_id",
+					"Instruction": "Generate Unique ID From Path",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "measurement_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4030384",
+					"Vocab": "SNOMED",
+					"Description": "Progesterone receptor assay measurement"
+				},
+				{
+					"Target Field": "measurement_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Biomarker",
+					"Source Field": "test_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Biomarker",
+					"Source Field": "pr_status",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "value_as_number",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Biomarker",
+					"Source Field": "pr_percent_positive"
+				},
+				{
+					"Target Field": "unit_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4041099",
+					"Vocab": "SNOMED",
+					"Description": "Percent"
+				}
+			]
+		},
 		"OMOP HER2 IHC Status Biomarker Measurement": {
 			"measurement": [
 				{
@@ -4568,6 +4590,157 @@
 					"MOHCCN Source Schema": "Biomarker",
 					"Source Field": "her2_ish_status",
 					"Requirement Rule": "Skip Record"
+				}
+			]
+		},
+		"OMOP HPV IHC Status Biomarker Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID From Path",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "45763689",
+					"Vocab": "SNOMED",
+					"Description": "Human papillomavirus screening"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Biomarker",
+					"Source Field": "test_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Biomarker",
+					"Source Field": "hpv_ihc_status",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Biomarker",
+					"Source Field": "hpv_ihc_status"
+				},
+				{
+					"Target Field": "qualifier_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "45769444",
+					"Vocab": "SNOMED",
+					"Description": "Immunohistochemistry technique"
+				}
+			]
+		},
+		"OMOP HPV PCR Status Biomarker Observation": {
+			"observation": [
+				{
+					"Target Field": "observation_id",
+					"Instruction": "Generate Unique ID From Path",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "observation_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "45763689",
+					"Vocab": "SNOMED",
+					"Description": "Human papillomavirus screening"
+				},
+				{
+					"Target Field": "observation_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "Biomarker",
+					"Source Field": "test_date",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Term",
+					"MOHCCN Source Schema": "Biomarker",
+					"Source Field": "hpv_pcr_status",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Value",
+					"MOHCCN Source Schema": "Biomarker",
+					"Source Field": "hpv_pcr_status"
+				},
+				{
+					"Target Field": "qualifier_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4120014",
+					"Vocab": "SNOMED",
+					"Description": "Polymerase chain reaction technique"
+				}
+			],
+			"_global_vars": [
+				{
+					"Target Field": "N/A",
+					"Instruction": "Save To Global Vars",
+					"MOHCCN Source Schema": "Biomarker",
+					"Source Field": "test_date"
+				}
+			]
+		}
+	},
+	"$.donors[].biomarkers[].hpv_strain[]": {
+		"OMOP HPV strain Biomarker Measurements": {
+			"measurement": [
+				{
+					"Target Field": "measurement_id",
+					"Instruction": "Generate Unique ID From Path",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"Target Field": "measurement_concept_id",
+					"Instruction": "Fixed Value",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "4194639",
+					"Vocab": "SNOMED",
+					"Description": "Human papillomavirus typing"
+				},
+				{
+					"Target Field": "measurement_date",
+					"Instruction": "Calculate Date From Interval",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A",
+					"Value": "{Biomarker.test_date}",
+					"Requirement Rule": "Placeholder:{missing_date_value}"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Biomarker - HPV strain (Code)",
+					"Target Field": "value_as_concept_id",
+					"Instruction": "Concept ID By Node",
+					"MOHCCN Source Schema": "Biomarker",
+					"Source Field": "hpv_strain",
+					"Requirement Rule": "Skip Record"
+				},
+				{
+					"DHDP Data Catalog Identifier": "Biomarker - HPV strain (Text From Source)",
+					"Target Field": "value_source_value",
+					"Instruction": "Copy Node",
+					"MOHCCN Source Schema": "N/A",
+					"Source Field": "N/A"
 				}
 			]
 		}
@@ -4771,9 +4944,9 @@
 				},
 				{
 					"Target Field": "measurement_event_id",
-					"Instruction": "Get Unique ID",
-					"MOHCCN Source Schema": "Comorbidity",
-					"Source Field": "$.donors[].comorbidities[]",
+					"Instruction": "Get Unique ID From Path",
+					"MOHCCN Source Schema": "Donor",
+					"Source Field": "submitter_donor_id",
 					"Value": "OMOP Comorbidity Condition"
 				},
 				{

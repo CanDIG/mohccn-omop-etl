@@ -364,30 +364,27 @@ surgery_type",,,,
 ,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
 ,,Surgery - Perineural Invasion (Code),,value_as_concept_id,Concept ID By Term,Surgery,perineural_invasion,,,Skip Record,
 ,,Surgery - Perineural Invasion (Text From Source),,value_source_value,Copy Value,Surgery,perineural_invasion,,,,
-$.donors[].primary_diagnoses[].treatments[].surgeries[].margin_types_involved[],OMOP Surgery Episode Margin Positive Involvement Observation,,observation,observation_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
-,,,,observation_concept_id,Fixed Value,N/A,N/A,4184217,SNOMED,,Surgical margin involved by tumor
-,,,,observation_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
-,,,,observation_event_id,Copy Value,N/A,N/A,{current_surgery_episode_id},,,
-,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
+$.donors[].primary_diagnoses[].treatments[].surgeries[].margin_types_involved[],OMOP Surgery Episode Margin Positive Involvement Measurement,,measurement,measurement_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,measurement_concept_id,Fixed Value,N/A,N/A,4184217,SNOMED,,Surgical margin involved by tumor
+,,,,measurement_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
+,,,,measurement_event_id,Copy Value,N/A,N/A,{current_surgery_episode_id},,,
+,,,,meas_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
 ,,Surgery - Margin Types Involved (Code),,value_as_concept_id,Concept ID By Node,Surgery,margin_types_involved,,,,
 ,,Surgery - Margin Types Involved (Text From Source),,value_source_value,Copy Node,N/A,N/A,,,,
-,,,,qualifier_concept_id,Fixed Value,N/A,N/A,9191,SNOMED,,Positive
-$.donors[].primary_diagnoses[].treatments[].surgeries[].margin_types_not_involved[],OMOP Surgery Episode Margin Negative Involvement Observation,,observation,observation_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
-,,,,observation_concept_id,Fixed Value,N/A,N/A,4184217,SNOMED,,Surgical margin involved by tumor
-,,,,observation_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
-,,,,observation_event_id,Copy Value,N/A,N/A,{current_surgery_episode_id},,,
-,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
+$.donors[].primary_diagnoses[].treatments[].surgeries[].margin_types_not_involved[],OMOP Surgery Episode Margin Not Involvement Measurement,,measurement,measurement_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,measurement_concept_id,Fixed Value,N/A,N/A,4206020,SNOMED,,Surgical margin uninvolved by tumor
+,,,,measurement_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
+,,,,measurement_event_id,Copy Value,N/A,N/A,{current_surgery_episode_id},,,
+,,,,meas_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
 ,,Surgery - Margin Types Not Involved (Code),,value_as_concept_id,Concept ID By Node,Surgery,margin_types_not_involved,,,,
 ,,Surgery - Margin Types Not Involved (Text From Source),,value_source_value,Copy Node,N/A,N/A,,,,
-,,,,qualifier_concept_id,Fixed Value,N/A,N/A,9189,SNOMED,,Negative
-$.donors[].primary_diagnoses[].treatments[].surgeries[].margin_types_not_assessed[],OMOP Surgery Episode Margin Unassessible Involvement Observation,,observation,observation_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
-,,,,observation_concept_id,Fixed Value,N/A,N/A,4184217,SNOMED,,Surgical margin involved by tumor
-,,,,observation_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
-,,,,observation_event_id,Copy Value,N/A,N/A,{current_surgery_episode_id},,,
-,,,,obs_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
+$.donors[].primary_diagnoses[].treatments[].surgeries[].margin_types_not_assessed[],OMOP Surgery Episode Margin Not Assessed Measurement,,measurement,measurement_id,Generate Unique ID From Path,Treatment,submitter_treatment_id,,,Skip Record,
+,,,,measurement_concept_id,Fixed Value,N/A,N/A,4217572,SNOMED,,Surgical margin involvement by tumor cannot be assessed
+,,,,measurement_date,Calculate Date From Interval,N/A,N/A,{Treatment.treatment_start_date},,Placeholder:{missing_date_value},
+,,,,measurement_event_id,Copy Value,N/A,N/A,{current_surgery_episode_id},,,
+,,,,meas_event_field_concept_id,Fixed Value,N/A,N/A,798885,CDM,,episode.episode_id
 ,,Surgery - Margin Types Not Assessable (Code),,value_as_concept_id,Concept ID By Node,Surgery,margin_types_not_assessed,,,,
 ,,Surgery - Margin Types Not Assessable (Text From Source),,value_source_value,Copy Node,N/A,N/A,,,,
-,,,,qualifier_concept_id,Fixed Value,N/A,N/A,4183475,SNOMED,,Margins cannot be assessed
 $.donors[].primary_diagnoses[].specimens[],OMOP Specimen,,_global_vars,{Specimen.submitter_specimen_id},Copy Value,Specimen,submitter_specimen_id,,,Skip Record,
 ,,,specimen,specimen_id,Generate Unique ID,Specimen,submitter_specimen_id,,,,
 ,,,,specimen_concept_id,Fixed Value,N/A,N/A,4002890,SNOMED,,Tissue specimen
@@ -542,6 +539,12 @@ $.donors[].biomarkers[],OMOP PSA Biomarker Measurement,,measurement,measurement_
 ,,,,value_as_concept_id,Concept ID By Term,Biomarker,er_status,,,Skip Record,
 ,,,,value_as_number,Copy Value,Biomarker,er_percent_positive,,,,
 ,,,,unit_concept_id,Fixed Value,N/A,N/A,4041099,SNOMED,,Percent
+,OMOP Progesterone Receptor Biomarker Measurement,,measurement,measurement_id,Generate Unique ID From Path,Donor,submitter_donor_id,,,Skip Record,
+,,,,measurement_concept_id,Fixed Value,N/A,N/A,4030384,SNOMED,,Progesterone receptor assay measurement
+,,,,measurement_date,Calculate Date From Interval,Biomarker,test_date,,,Placeholder:{missing_date_value},
+,,,,value_as_concept_id,Concept ID By Term,Biomarker,pr_status,,,Skip Record,
+,,,,value_as_number,Copy Value,Biomarker,pr_percent_positive,,,,
+,,,,unit_concept_id,Fixed Value,N/A,N/A,4041099,SNOMED,,Percent
 ,OMOP HER2 IHC Status Biomarker Measurement,,measurement,measurement_id,Generate Unique ID From Path,Donor,submitter_donor_id,,,Skip Record,
 ,,,,measurement_concept_id,Fixed Value,N/A,N/A,35918264,NAACCR,,HER2 IHC Summary
 ,,,,measurement_date,Calculate Date From Interval,Biomarker,test_date,,,Placeholder:{missing_date_value},
@@ -550,9 +553,24 @@ $.donors[].biomarkers[],OMOP PSA Biomarker Measurement,,measurement,measurement_
 ,,,,measurement_concept_id,Fixed Value,N/A,N/A,35918706,NAACCR,,HER2 ISH Summary
 ,,,,measurement_date,Calculate Date From Interval,Biomarker,test_date,,,Placeholder:{missing_date_value},
 ,,,,value_as_concept_id,Concept ID By Term,Biomarker,her2_ish_status,,,Skip Record,
-,MOHCCN Biomarkers Incomplete Modeling,,,,,Biomarker,hpv_ihc_status,,,,
-,,,,,,Biomarker,hpv_pcr_status,,,,
-,,,,,,Biomarker,hpv_strain,,,,
+,OMOP HPV IHC Status Biomarker Observation,,observation,observation_id,Generate Unique ID From Path,Donor,submitter_donor_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,45763689,SNOMED,,Human papillomavirus screening
+,,,,observation_date,Calculate Date From Interval,Biomarker,test_date,,,Placeholder:{missing_date_value},
+,,,,value_as_concept_id,Concept ID By Term,Biomarker,hpv_ihc_status,,,Skip Record,
+,,,,value_source_value,Copy Value,Biomarker,hpv_ihc_status,,,,
+,,,,qualifier_concept_id,Fixed Value,N/A,N/A,45769444,SNOMED,,Immunohistochemistry technique
+,OMOP HPV PCR Status Biomarker Observation,,observation,observation_id,Generate Unique ID From Path,Donor,submitter_donor_id,,,Skip Record,
+,,,,observation_concept_id,Fixed Value,N/A,N/A,45763689,SNOMED,,Human papillomavirus screening
+,,,,observation_date,Calculate Date From Interval,Biomarker,test_date,,,Placeholder:{missing_date_value},
+,,,,value_as_concept_id,Concept ID By Term,Biomarker,hpv_pcr_status,,,Skip Record,
+,,,,value_source_value,Copy Value,Biomarker,hpv_pcr_status,,,,
+,,,,qualifier_concept_id,Fixed Value,N/A,N/A,4120014,SNOMED,,Polymerase chain reaction technique
+,,,_global_vars,N/A,Save To Global Vars,Biomarker,test_date,,,,
+$.donors[].biomarkers[].hpv_strain[],OMOP HPV strain Biomarker Measurements,,measurement,measurement_id,Generate Unique ID From Path,Donor,submitter_donor_id,,,Skip Record,
+,,,,measurement_concept_id,Fixed Value,N/A,N/A,4194639,SNOMED,,Human papillomavirus typing
+,,,,measurement_date,Calculate Date From Interval,N/A,N/A,{Biomarker.test_date},,Placeholder:{missing_date_value},
+,,Biomarker - HPV strain (Code),,value_as_concept_id,Concept ID By Node,Biomarker,hpv_strain,,,Skip Record,
+,,Biomarker - HPV strain (Text From Source),,value_source_value,Copy Node,N/A,N/A,,,,
 $.donors[].exposures[],OMOP Tobacco Smoking Status Observation,,observation,observation_id,Generate Unique ID From Path,Donor,submitter_donor_id,,,Skip Record,
 ,,,,observation_concept_id,Fixed Value,N/A,N/A,43054909,LOINC,,Tobacco smoking status
 ,,,,value_as_concept_id,Concept ID By Term,Exposure,tobacco_smoking_status,,,,
@@ -577,7 +595,7 @@ $.donors[].comorbidities[],OMOP Comorbidity Condition,,condition_occurrence,cond
 ,,,,condition_status_source_value,Copy Value,Comorbidity,prior_malignancy,,,,
 ,OMOP Comorbidity Laterality Measurement,,measurement,measurement_id,Generate Unique ID From Path,Donor,submitter_donor_id,,,,
 ,,,,measurement_concept_id,Fixed Value,N/A,N/A,35918306,NAACCR,,
-,,,,measurement_event_id,Get Unique ID,Comorbidity,$.donors[].comorbidities[],OMOP Comorbidity Condition,,,
+,,,,measurement_event_id,Get Unique ID From Path,Donor,submitter_donor_id,OMOP Comorbidity Condition,,,
 ,,,,meas_event_field_concept_id,Fixed Value,N/A,N/A,1147127,CDM,,
 ,,,,value_as_concept_id,Concept ID By Term,Comorbidity,laterality_of_prior_malignancy,,,,
 ,,,,value_source_value,Copy Value,Comorbidity,laterality_of_prior_malignancy,,,,
