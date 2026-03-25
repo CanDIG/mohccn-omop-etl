@@ -1,0 +1,30 @@
+services:
+  solr:
+    image: solr:8.11.1
+    ports:
+     - "8983:8983"
+    volumes:
+      - data:/var/solr
+      - /opt/solr/docker-entrypoint.sh:/entrypoint.sh
+      - /opt/solr/postgresql-42.7.5.jar:/opt/solr-8.11.1/server/lib/solr_jdbc_driver.jar:ro
+      - /opt/solr/solr:/tmp/solr_config:ro
+    command:
+      - solr-precreate
+      - gettingstarted
+    entrypoint: ["/bin/sh", "/entrypoint.sh"]
+    environment:
+      - SOLR_VOCAB_ENDPOINT=http://broadsea-solr-vocab:8983/solr
+      - SOLR_VOCAB_VERSION=omop_vocab_core
+      - SOLR_VOCAB_JDBC_DRIVER_PATH=org.postgresql.Driver
+      - SOLR_VOCAB_JDBC_URL=jdbc:postgresql://opt-db-1:5432/clinical
+      - SOLR_VOCAB_JDBC_USER=postgres
+      #- SOLR_VOCAB_JDBC_PASSWORD_FILE=./secrets/solr_vocab/SOLR_VOCAB_JDBC_PASSWORD
+      - SOLR_VOCAB_JDBC_FILE_PATH="/opt/solr-8.11.1/postgresql-42.7.6.jar"
+      #- SOLR_VOCAB_DATABASE_SCHEMA="omop_vocab"
+    networks:
+      - postgresnet
+
+volumes:
+  data:
+networks:
+  postgresnet:

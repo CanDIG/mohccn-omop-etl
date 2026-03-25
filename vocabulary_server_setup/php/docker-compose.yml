@@ -1,0 +1,11 @@
+services:
+  php:
+    image: php:8.3.26RC1-apache-trixie
+    ports:
+      - 8080:80
+    volumes:
+      - ./html:/var/www/html
+    networks:
+      - default
+networks:
+  default:
