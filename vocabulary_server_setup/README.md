@@ -49,7 +49,7 @@ docker-compose.yml  docker-entrypoint.sh  postgresql-42.7.5.jar  solr
 
 ### Vocab Server
 The server GitHub is located at:
-https://collaborate.uhnresearch.ca/stash/scm/hir/dhdp-vocab-search.git
+https://github.com/CanDIG/dhdp-vocab-search
 
 You'll need a copy of it in the php/html/dhdp-vocab-search directory. Since this is an internal UHN Git, it has not been added as a submodule
 
